@@ -7,14 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00A8ED571DBE3F4F00A6A8F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A8ED561DBE3F4F00A6A8F8 /* Alamofire.framework */; };
+		00A8ED581DBE3F4F00A6A8F8 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00A8ED561DBE3F4F00A6A8F8 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		00A8ED5A1DBE3F5A00A6A8F8 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A8ED591DBE3F5A00A6A8F8 /* Gloss.framework */; };
+		00A8ED5B1DBE3F5A00A6A8F8 /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00A8ED591DBE3F5A00A6A8F8 /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00F060031DBBD85C003A2A38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F060021DBBD85C003A2A38 /* AppDelegate.swift */; };
 		00F060051DBBD85C003A2A38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F060041DBBD85C003A2A38 /* ViewController.swift */; };
 		00F060081DBBD85C003A2A38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F060061DBBD85C003A2A38 /* Main.storyboard */; };
 		00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F060091DBBD85C003A2A38 /* Assets.xcassets */; };
 		00F0600D1DBBD85C003A2A38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F0600B1DBBD85C003A2A38 /* LaunchScreen.storyboard */; };
+		00F060331DBBE9C6003A2A38 /* SwaggerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F060321DBBE9C6003A2A38 /* SwaggerCommunication.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		00F0602B1DBBE43C003A2A38 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				00A8ED581DBE3F4F00A6A8F8 /* Alamofire.framework in Embed Frameworks */,
+				00A8ED5B1DBE3F5A00A6A8F8 /* Gloss.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		00A8ED561DBE3F4F00A6A8F8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
+		00A8ED591DBE3F5A00A6A8F8 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Frameworks/Gloss.framework; sourceTree = "<group>"; };
 		00F05FFF1DBBD85C003A2A38 /* App2Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App2Night.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F060021DBBD85C003A2A38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00F060041DBBD85C003A2A38 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +44,7 @@
 		00F060091DBBD85C003A2A38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00F0600C1DBBD85C003A2A38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00F0600E1DBBD85C003A2A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00F060321DBBE9C6003A2A38 /* SwaggerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00A8ED571DBE3F4F00A6A8F8 /* Alamofire.framework in Frameworks */,
+				00A8ED5A1DBE3F5A00A6A8F8 /* Gloss.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +65,7 @@
 			children = (
 				00F060011DBBD85C003A2A38 /* App2Night */,
 				00F060001DBBD85C003A2A38 /* Products */,
+				00F060141DBBE27C003A2A38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +80,40 @@
 		00F060011DBBD85C003A2A38 /* App2Night */ = {
 			isa = PBXGroup;
 			children = (
-				00F060021DBBD85C003A2A38 /* AppDelegate.swift */,
-				00F060041DBBD85C003A2A38 /* ViewController.swift */,
-				00F060061DBBD85C003A2A38 /* Main.storyboard */,
+				00F060351DBBEA53003A2A38 /* Swift */,
+				00F060361DBBEA5F003A2A38 /* Storyboard */,
 				00F060091DBBD85C003A2A38 /* Assets.xcassets */,
-				00F0600B1DBBD85C003A2A38 /* LaunchScreen.storyboard */,
 				00F0600E1DBBD85C003A2A38 /* Info.plist */,
 			);
 			path = App2Night;
+			sourceTree = "<group>";
+		};
+		00F060141DBBE27C003A2A38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00A8ED561DBE3F4F00A6A8F8 /* Alamofire.framework */,
+				00A8ED591DBE3F5A00A6A8F8 /* Gloss.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		00F060351DBBEA53003A2A38 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				00F060021DBBD85C003A2A38 /* AppDelegate.swift */,
+				00F060041DBBD85C003A2A38 /* ViewController.swift */,
+				00F060321DBBE9C6003A2A38 /* SwaggerCommunication.swift */,
+			);
+			name = Swift;
+			sourceTree = "<group>";
+		};
+		00F060361DBBEA5F003A2A38 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				00F060061DBBD85C003A2A38 /* Main.storyboard */,
+				00F0600B1DBBD85C003A2A38 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +126,7 @@
 				00F05FFB1DBBD85C003A2A38 /* Sources */,
 				00F05FFC1DBBD85C003A2A38 /* Frameworks */,
 				00F05FFD1DBBD85C003A2A38 /* Resources */,
+				00F0602B1DBBE43C003A2A38 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00F060331DBBE9C6003A2A38 /* SwaggerCommunication.swift in Sources */,
 				00F060051DBBD85C003A2A38 /* ViewController.swift in Sources */,
 				00F060031DBBD85C003A2A38 /* AppDelegate.swift in Sources */,
 			);
@@ -260,6 +314,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5BJGYD5DYT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = App2Night/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.dhbw.App2Night;
@@ -273,6 +332,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5BJGYD5DYT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = App2Night/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.dhbw.App2Night;
@@ -300,6 +364,7 @@
 				00F060131DBBD85C003A2A38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
