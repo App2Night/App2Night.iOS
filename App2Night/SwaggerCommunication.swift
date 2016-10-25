@@ -36,6 +36,14 @@ class SwaggerCommunication {
                     // Referenz auf Host Objekt
                     party.host = host
                     
+                    /*
+                    // Host.Location Model
+                    let hostLocationDictionary = Dictionary["host"]?["location"] as! NSDictionary
+                    let hostLocation = Location(fromDictionary: hostLocationDictionary)
+                    // Referenz auf Host Objekt
+                    party.host.location = hostLocation
+                    */
+                    
                     // Location Model
                     let locationDictionary = Dictionary["location"] as! NSDictionary
                     let location = Location(fromDictionary: locationDictionary)
@@ -52,7 +60,7 @@ class SwaggerCommunication {
     
     public static func printArray() {
         for Party in parties! {
-            let tmp = Party.location.cityName
+            let tmp = Party.host.username
             print(tmp)
         }
     }

@@ -12,11 +12,10 @@ class Host {
     
     var userId: String!
     var username: String!
-    // var location: Location!
+    var location: Location!
     
     
     init(fromDictionary dictionary: NSDictionary) {
-        // location = dictionary["location"] as? AnyObject
         // password = dictionary["password"] as? String
         userId = dictionary["userId"] as? String
         username = dictionary["username"] as? String
