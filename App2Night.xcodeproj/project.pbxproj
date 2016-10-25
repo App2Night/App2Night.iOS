@@ -12,8 +12,6 @@
 		009D973C1DBE562F005D94FF /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D973B1DBE562F005D94FF /* Party.swift */; };
 		00A8ED571DBE3F4F00A6A8F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A8ED561DBE3F4F00A6A8F8 /* Alamofire.framework */; };
 		00A8ED581DBE3F4F00A6A8F8 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00A8ED561DBE3F4F00A6A8F8 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		00A8ED5A1DBE3F5A00A6A8F8 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A8ED591DBE3F5A00A6A8F8 /* Gloss.framework */; };
-		00A8ED5B1DBE3F5A00A6A8F8 /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00A8ED591DBE3F5A00A6A8F8 /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00DD842B1DBEBA7C00ACA4F0 /* Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD842A1DBEBA7C00ACA4F0 /* Host.swift */; };
 		00DD842D1DBEBA9E00ACA4F0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD842C1DBEBA9E00ACA4F0 /* Location.swift */; };
 		00F060031DBBD85C003A2A38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F060021DBBD85C003A2A38 /* AppDelegate.swift */; };
@@ -32,7 +30,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				00A8ED581DBE3F4F00A6A8F8 /* Alamofire.framework in Embed Frameworks */,
-				00A8ED5B1DBE3F5A00A6A8F8 /* Gloss.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,7 +41,6 @@
 		0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyExampleValue.json; sourceTree = "<group>"; };
 		009D973B1DBE562F005D94FF /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		00A8ED561DBE3F4F00A6A8F8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
-		00A8ED591DBE3F5A00A6A8F8 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Frameworks/Gloss.framework; sourceTree = "<group>"; };
 		00DD842A1DBEBA7C00ACA4F0 /* Host.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Host.swift; sourceTree = "<group>"; };
 		00DD842C1DBEBA9E00ACA4F0 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		00F05FFF1DBBD85C003A2A38 /* App2Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App2Night.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +59,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				00A8ED571DBE3F4F00A6A8F8 /* Alamofire.framework in Frameworks */,
-				00A8ED5A1DBE3F5A00A6A8F8 /* Gloss.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				00A8ED561DBE3F4F00A6A8F8 /* Alamofire.framework */,
-				00A8ED591DBE3F5A00A6A8F8 /* Gloss.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
