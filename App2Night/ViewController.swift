@@ -14,7 +14,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        SwaggerCommunication.getParty()
+        // SwaggerCommunication.getParty()
+        // SwaggerCommunication.postParty()
     }
 
     override func didReceiveMemoryWarning() {

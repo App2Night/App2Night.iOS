@@ -16,6 +16,7 @@ class SwaggerCommunication {
     
     public static var parties: [Party]?
     
+    // TODO: ERROR/NULL handling
     public static func getParty() {
         // Alamofire request
         Alamofire.request(partyUrl).responseJSON { response in
@@ -65,6 +66,48 @@ class SwaggerCommunication {
         }
     }
     
+    // TODO: Kommentare, saubere Übergabe von Dictionary eines Party Objekts (neue Funktion in Klasse; Konstruktor überladen), ERROR/NULL handling
+    public static func postParty() {
+        
+        let testParty = [
+            "partyName": "iOS Test Party",
+            "partyDate": "2022-2-22T22:22:22.222Z",
+            "musicGenre": 0,
+            "location": [
+                "countryName": "United States",
+                "cityName": "Cupertino",
+                "streetName": "Pruneridge Avenue",
+                "houseNumber": 19111,
+                "houseNumberAdditional": "CA 95014",
+                "zipcode": 95014,
+                "latitude": 37,
+                "longitude": -122,
+            ],
+            "partyType": 0,
+            "description": "iOS Party."
+        ] as [String : Any]
+        
+        let postUrl = URL(string: partyUrl)
+        var request = URLRequest(url: postUrl!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.httpBody = try! JSONSerialization.data(withJSONObject: testParty)
+        
+        Alamofire.request(request)
+            .responseJSON { response in
+                switch response.result {
+                case .failure(let error):
+                    print(error)
+                    
+                    if let data = response.data, let responseString = String(data: data, encoding: .utf8) {
+                        print(responseString)
+                    }
+                case .success(let responseObject):
+                    print(responseObject)
+                }
+        }
+    }
     
 }
 
