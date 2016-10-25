@@ -7,51 +7,31 @@
 //
 
 import Foundation
-import Gloss
 
-//MARK: - Party
-public struct Party: Glossy {
+class Party {
     
-    public let date : String!
-    public let descriptionField : String!
-    public let host : Host!
-    public let location : Location!
-    public let musicGenre : Int!
-    public let partId : String!
-    public let partyDate : String!
-    public let partyName : String!
-    public let partyType : Int!
-    public let price : Int!
+    var partId: String!
+    var date: String!
+    var price: Int!
+    var partyName: String!
+    var partyDate: String!
+    var musicGenre: Int!
+    var partyType: Int!
+    var descriptionField: String!
+    
+    var host: Host!
+    var location: Location!
     
     
-    //MARK: Decodable
-    public init?(json: JSON){
-        date = "date" <~~ json
-        descriptionField = "description" <~~ json
-        host = "host" <~~ json
-        location = "location" <~~ json
-        musicGenre = "musicGenre" <~~ json
-        partId = "partId" <~~ json
-        partyDate = "partyDate" <~~ json
-        partyName = "partyName" <~~ json
-        partyType = "partyType" <~~ json
-        price = "price" <~~ json
-    }
-    
-    //MARK: Encodable
-    public func toJSON() -> JSON? {
-        return jsonify([
-            "date" ~~> date,
-            "description" ~~> descriptionField,
-            "host" ~~> host,
-            "location" ~~> location,
-            "musicGenre" ~~> musicGenre,
-            "partId" ~~> partId,
-            "partyDate" ~~> partyDate,
-            "partyName" ~~> partyName,
-            "partyType" ~~> partyType,
-            "price" ~~> price,
-            ])
+    init(fromDictionary dictionary: NSDictionary) {
+        date = dictionary["date"] as? String
+        descriptionField = dictionary["description"] as? String
+        musicGenre = dictionary["musicGenre"] as? Int
+        partId = dictionary["partId"] as? String
+        partyDate = dictionary["partyDate"] as? String
+        partyName = dictionary["partyName"] as? String
+        partyType = dictionary["partyType"] as? Int
+        price = dictionary["price"] as? Int
     }
     
     

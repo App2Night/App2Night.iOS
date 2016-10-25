@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001F1F1A1DBFCB21006F668C /* PartyPostValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 001F1F191DBFCB21006F668C /* PartyPostValue.json */; };
+		0093C8811DBF563D00FB7FCA /* PartyExampleValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */; };
 		009D973C1DBE562F005D94FF /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D973B1DBE562F005D94FF /* Party.swift */; };
 		00A8ED571DBE3F4F00A6A8F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A8ED561DBE3F4F00A6A8F8 /* Alamofire.framework */; };
 		00A8ED581DBE3F4F00A6A8F8 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00A8ED561DBE3F4F00A6A8F8 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -38,6 +40,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		001F1F191DBFCB21006F668C /* PartyPostValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyPostValue.json; sourceTree = "<group>"; };
+		0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyExampleValue.json; sourceTree = "<group>"; };
 		009D973B1DBE562F005D94FF /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		00A8ED561DBE3F4F00A6A8F8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		00A8ED591DBE3F5A00A6A8F8 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Frameworks/Gloss.framework; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				009D973B1DBE562F005D94FF /* Party.swift */,
 				00DD842A1DBEBA7C00ACA4F0 /* Host.swift */,
 				00DD842C1DBEBA9E00ACA4F0 /* Location.swift */,
+				0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */,
+				001F1F191DBFCB21006F668C /* PartyPostValue.json */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -202,9 +208,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				001F1F1A1DBFCB21006F668C /* PartyPostValue.json in Resources */,
 				00F0600D1DBBD85C003A2A38 /* LaunchScreen.storyboard in Resources */,
 				00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */,
 				00F060081DBBD85C003A2A38 /* Main.storyboard in Resources */,
+				0093C8811DBF563D00FB7FCA /* PartyExampleValue.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

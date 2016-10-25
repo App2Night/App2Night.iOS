@@ -7,33 +7,19 @@
 //
 
 import Foundation
-import Gloss
 
-//MARK: - Host
-public struct Host: Glossy {
+class Host {
     
-    public let location : Location!
-    public let password : String!
-    public let userId : String!
-    public let username : String!
+    var userId: String!
+    var username: String!
+    // var location: Location!
     
     
-    //MARK: Decodable
-    public init?(json: JSON){
-        location = "location" <~~ json
-        password = "password" <~~ json
-        userId = "userId" <~~ json
-        username = "username" <~~ json
-    }
-    
-    //MARK: Encodable
-    public func toJSON() -> JSON? {
-        return jsonify([
-            "location" ~~> location,
-            "password" ~~> password,
-            "userId" ~~> userId,
-            "username" ~~> username,
-            ])
+    init(fromDictionary dictionary: NSDictionary) {
+        // location = dictionary["location"] as? AnyObject
+        // password = dictionary["password"] as? String
+        userId = dictionary["userId"] as? String
+        username = dictionary["username"] as? String
     }
     
     

@@ -7,45 +7,28 @@
 //
 
 import Foundation
-import Gloss
 
-//MARK: - Location
-public struct Location: Glossy {
+class Location {
     
-    public let cityName : String!
-    public let countryName : String!
-    public let houseNumber : Int!
-    public let houseNumberAdditional : String!
-    public let latitude : Int!
-    public let longitude : Int!
-    public let streetName : String!
-    public let zipcode : Int!
+    var countryName: String!
+    var cityName: String!
+    var streetName: String!
+    var houseNumber: Int!
+    var houseNumberAdditional: String!
+    var zipcode: Int!
+    var latitude: Int!
+    var longitude: Int!
     
     
-    //MARK: Decodable
-    public init?(json: JSON){
-        cityName = "cityName" <~~ json
-        countryName = "countryName" <~~ json
-        houseNumber = "houseNumber" <~~ json
-        houseNumberAdditional = "houseNumberAdditional" <~~ json
-        latitude = "latitude" <~~ json
-        longitude = "longitude" <~~ json
-        streetName = "streetName" <~~ json
-        zipcode = "zipcode" <~~ json
-    }
-    
-    //MARK: Encodable
-    public func toJSON() -> JSON? {
-        return jsonify([
-            "cityName" ~~> cityName,
-            "countryName" ~~> countryName,
-            "houseNumber" ~~> houseNumber,
-            "houseNumberAdditional" ~~> houseNumberAdditional,
-            "latitude" ~~> latitude,
-            "longitude" ~~> longitude,
-            "streetName" ~~> streetName,
-            "zipcode" ~~> zipcode,
-            ])
+    init(fromDictionary dictionary: NSDictionary) {
+        cityName = dictionary["cityName"] as? String
+        countryName = dictionary["countryName"] as? String
+        houseNumber = dictionary["houseNumber"] as? Int
+        houseNumberAdditional = dictionary["houseNumberAdditional"] as? String
+        latitude = dictionary["latitude"] as? Int
+        longitude = dictionary["longitude"] as? Int
+        streetName = dictionary["streetName"] as? String
+        zipcode = dictionary["zipcode"] as? Int
     }
     
     

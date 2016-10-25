@@ -1,0 +1,158 @@
+[
+  {
+    "partId": "c86c99b2-a9c0-47bd-c6dc-08d3f9e9dbbb",
+    "date": "0001-01-01T00:00:00",
+    "price": 0,
+    "host": {
+      "userId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
+      "username": "Artem",
+      "password": "hallo123",
+      "location": null
+    },
+    "partyName": "Test-Party155",
+    "partyDate": "2016-10-21T12:21:47.349",
+    "musicGenre": 1,
+    "location": {
+      "countryName": "Germany",
+      "cityName": "Horb am Neckar",
+      "streetName": "Teststraße",
+      "houseNumber": 25,
+      "houseNumberAdditional": "",
+      "zipcode": 12345,
+      "latitude": 0,
+      "longitude": 0
+    },
+    "partyType": 0,
+    "description": "Test description for a party..."
+  },
+  {
+    "partId": "89086eb2-8745-490a-f200-08d3fc14e5ac",
+    "date": "0001-01-01T00:00:00",
+    "price": 0,
+    "host": {
+      "userId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
+      "username": "Artem",
+      "password": "hallo123",
+      "location": null
+    },
+    "partyName": "string",
+    "partyDate": "2016-10-24T13:50:21.569",
+    "musicGenre": 0,
+    "location": {
+      "countryName": "string",
+      "cityName": "string",
+      "streetName": "string",
+      "houseNumber": 0,
+      "houseNumberAdditional": "string",
+      "zipcode": 0,
+      "latitude": 0,
+      "longitude": 0
+    },
+    "partyType": 0,
+    "description": "string"
+  },
+  {
+    "partId": "10940bb0-5a14-45e5-4691-08d3fc41e1f5",
+    "date": "0001-01-01T00:00:00",
+    "price": 0,
+    "host": {
+      "userId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
+      "username": "Artem",
+      "password": "hallo123",
+      "location": null
+    },
+    "partyName": "string",
+    "partyDate": "2016-10-24T17:58:34.538",
+    "musicGenre": 0,
+    "location": {
+      "countryName": "string",
+      "cityName": "string",
+      "streetName": "string",
+      "houseNumber": 0,
+      "houseNumberAdditional": "string",
+      "zipcode": 0,
+      "latitude": 0,
+      "longitude": 0
+    },
+    "partyType": 0,
+    "description": "string"
+  },
+  {
+    "partId": "1a7d16fa-43f1-4750-4693-08d3fc41e1f5",
+    "date": "0001-01-01T00:00:00",
+    "price": 0,
+    "host": {
+      "userId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
+      "username": "Artem",
+      "password": "hallo123",
+      "location": null
+    },
+    "partyName": "string",
+    "partyDate": "2016-10-24T17:58:34.538",
+    "musicGenre": 0,
+    "location": {
+      "countryName": "string",
+      "cityName": "string",
+      "streetName": "string",
+      "houseNumber": 0,
+      "houseNumberAdditional": "string",
+      "zipcode": 0,
+      "latitude": 0,
+      "longitude": 0
+    },
+    "partyType": 0,
+    "description": "string"
+  },
+  {
+    "partId": "c207a9e3-5b55-411a-4694-08d3fc41e1f5",
+    "date": "0001-01-01T00:00:00",
+    "price": 0,
+    "host": {
+      "userId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
+      "username": "Artem",
+      "password": "hallo123",
+      "location": null
+    },
+    "partyName": "string",
+    "partyDate": "2016-10-24T17:58:34.538",
+    "musicGenre": 0,
+    "location": {
+      "countryName": "string",
+      "cityName": "string",
+      "streetName": "string",
+      "houseNumber": 0,
+      "houseNumberAdditional": "string",
+      "zipcode": 0,
+      "latitude": 0,
+      "longitude": 0
+    },
+    "partyType": 0,
+    "description": "string"
+  },
+  {
+    "partId": "3ed3cb88-cb94-48e4-4695-08d3fc41e1f5",
+    "date": "0001-01-01T00:00:00",
+    "price": 0,
+    "host": {
+      "userId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
+      "username": "Artem",
+      "password": "hallo123",
+      "location": null
+    },
+    "partyName": "string",
+    "partyDate": "2016-10-24T17:58:34.538",
+    "musicGenre": 0,
+    "location": {
+      "countryName": "string",
+      "cityName": "string",
+      "streetName": "string",
+      "houseNumber": 0,
+      "houseNumberAdditional": "string",
+      "zipcode": 0,
+      "latitude": 0,
+      "longitude": 0
+    },
+    "partyType": 0,
+    "description": "string"
+  }
+]
