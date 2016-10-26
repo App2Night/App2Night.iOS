@@ -16,94 +16,50 @@ public class SwaggerCommunication {
     private static let partyUrl = baseUrl + "Party"
     private static var parties: [Party]? = [Party]()
     
-    // with closures; not working!
-    /*
-    public static func request(pURL: String, success:@escaping (Any?) -> Void, failure:@escaping (Error) -> Void) {
-        Alamofire.request(pURL).responseJSON { (responseObject) -> Void in
-            if responseObject.result.isSuccess {
-                let responseData = responseObject.result.value
-                success(responseData)
-            }
-            if responseObject.result.isFailure {
-                let error : Error = responseObject.result.error!
-                failure(error)
-            }
-        }
+    
+    // MARK: getPartiesArray()
+    public static func getPartiesArray() -> [Party]? {
+        return parties
     }
     
+    // MARK: getParty()
     public static func getParty() {
-        request(pURL: partyUrl, success: {
-            (responseData) -> Void in
-            if let jsonData = responseData {
-                // parties = [Party]()
-                // für jedes Dictionary innerhalb des JSON Arrays (jede Party)
-                for Dictionary in jsonData as! [[String: AnyObject]] {
-                    // Party Model
-                    // Swift Dictionary zu NSDictionary casten (sind identisch)
-                    let partyDictionary = Dictionary as NSDictionary
-                    // neues Party Objekt mit dem jeweiligen Dictionary erstellen
-                    let party = Party(pDictionary: partyDictionary)
-                    
-                    // Host Model
-                    let hostDictionary = Dictionary["host"] as! NSDictionary
-                    let host = Host(pDictionary: hostDictionary)
-                    // Referenz auf Host Objekt
-                    party.setHost(pHost: host)
-                    
-                    /*
-                    // Host.Location Model
-                    let hostLocationDictionary = Dictionary["host"]?["location"] as! NSDictionary
-                    let hostLocation = Location(pDictionary: hostLocationDictionary)
-                    // Referenz auf Host Objekt
-                    party.getHost().setLocation(pLocation: hostLocation)
-                    */
-                    
-                    // Location Model
-                    let locationDictionary = Dictionary["location"] as! NSDictionary
-                    let location = Location(pDictionary: locationDictionary)
-                    // Referenz auf Host Objekt
-                    party.setLocation(pLocation: location)
-                    
-                    // Party Objekt in Parties Array anhängen
-                    parties?.append(party)
-                }
-            }
-        }) {
-            (error) -> Void in
-            print(error)
-        }
-    }
-    */
-    
-    // old code
-    public static func getParty() {
-        Alamofire.request(partyUrl).responseJSON { response in
-            if let json = response.result.value {
-                for Dictionary in json as! [[String: AnyObject]] {
-                    let partyDictionary = Dictionary as NSDictionary
-                    let party = Party(pDictionary: partyDictionary)
-                    
-                    let hostDictionary = Dictionary["host"] as! NSDictionary
-                    let host = Host(pDictionary: hostDictionary)
-                    party.setHost(pHost: host)
-                    
-                    /*
-                    let hostLocationDictionary = Dictionary["host"]?["location"] as! NSDictionary
-                    let hostLocation = Location(fromDictionary: hostLocationDictionary)
-                    party.host.location = hostLocation
-                    */
-                    
-                    let locationDictionary = Dictionary["location"] as! NSDictionary
-                    let location = Location(pDictionary: locationDictionary)
-                    party.setLocation(pLocation: location)
-                    
-                    parties?.append(party)
-                }
-            }
-            printArray()
+        Alamofire.request(self.partyUrl).responseJSON { response in
+            print(response.request)  // original URL request
+            print(response.response) // HTTP URL response
+            print(response.data)     // server data
+            print(response.result)   // result of response serialization
+            
+            self.parseParty(pResponseData: response.result.value as! [[String: AnyObject]])
         }
     }
     
+    // MARK: parseParty()
+    private static func parseParty(pResponseData: [[String: AnyObject]]) {
+        for Dictionary in pResponseData {
+            let partyDictionary = Dictionary as NSDictionary
+            let party = Party(pDictionary: partyDictionary)
+            
+            let hostDictionary = Dictionary["host"] as! NSDictionary
+            let host = Host(pDictionary: hostDictionary)
+            party.setHost(pHost: host)
+            
+            /*
+             let hostLocationDictionary = Dictionary["host"]?["location"] as! NSDictionary
+             let hostLocation = Location(fromDictionary: hostLocationDictionary)
+             party.host.location = hostLocation
+             */
+            
+            let locationDictionary = Dictionary["location"] as! NSDictionary
+            let location = Location(pDictionary: locationDictionary)
+            party.setLocation(pLocation: location)
+            
+            parties?.append(party)
+        }
+        self.printArray()
+    }
+    
+    // MARK: postParty()
     public static func postParty() {
         let testParty = [
             "partyName": "iOS Post Test 2",
@@ -121,13 +77,12 @@ public class SwaggerCommunication {
             ],
             "partyType": 0,
             "description": "string"
-        ] as [String: Any]
+            ] as [String: Any]
         
         let postUrl = URL(string: partyUrl)
         var request = URLRequest(url: postUrl!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
         request.httpBody = try! JSONSerialization.data(withJSONObject: testParty)
         
         Alamofire.request(request)
@@ -135,7 +90,6 @@ public class SwaggerCommunication {
                 switch response.result {
                 case .failure(let error):
                     print(error)
-                    
                     if let data = response.data, let responseString = String(data: data, encoding: .utf8) {
                         print(responseString)
                     }
@@ -145,8 +99,9 @@ public class SwaggerCommunication {
         }
     }
     
-    public static func printArray() {
-        for Party in parties! {
+    // MARK: printArray()
+    private static func printArray() {
+        for Party in self.parties! {
             let tmp = Party.getPartyName()
             print(tmp)
         }
