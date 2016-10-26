@@ -9,83 +9,119 @@
 import Foundation
 import Alamofire
 
-class SwaggerCommunication {
+public class SwaggerCommunication {
     
-    public static let baseUrl = "http://app2nightapi.azurewebsites.net/api/"
-    public static let partyUrl = baseUrl + "Party"
+    // MARK: Variables
+    private static let baseUrl = "http://app2nightapi.azurewebsites.net/api/"
+    private static let partyUrl = baseUrl + "Party"
+    private static var parties: [Party]? = [Party]()
     
-    public static var parties: [Party]?
+    // with closures; not working!
+    /*
+    public static func request(pURL: String, success:@escaping (Any?) -> Void, failure:@escaping (Error) -> Void) {
+        Alamofire.request(pURL).responseJSON { (responseObject) -> Void in
+            if responseObject.result.isSuccess {
+                let responseData = responseObject.result.value
+                success(responseData)
+            }
+            if responseObject.result.isFailure {
+                let error : Error = responseObject.result.error!
+                failure(error)
+            }
+        }
+    }
     
-    // TODO: ERROR/NULL handling
     public static func getParty() {
-        // Alamofire request
-        Alamofire.request(partyUrl).responseJSON { response in
-            // falls json != NULL
-            if let json = response.result.value {
-                parties = [Party]()
+        request(pURL: partyUrl, success: {
+            (responseData) -> Void in
+            if let jsonData = responseData {
+                // parties = [Party]()
                 // für jedes Dictionary innerhalb des JSON Arrays (jede Party)
-                for Dictionary in json as! [[String: AnyObject]] {
+                for Dictionary in jsonData as! [[String: AnyObject]] {
                     // Party Model
                     // Swift Dictionary zu NSDictionary casten (sind identisch)
                     let partyDictionary = Dictionary as NSDictionary
                     // neues Party Objekt mit dem jeweiligen Dictionary erstellen
-                    let party = Party(fromDictionary: partyDictionary)
+                    let party = Party(pDictionary: partyDictionary)
                     
                     // Host Model
                     let hostDictionary = Dictionary["host"] as! NSDictionary
-                    let host = Host(fromDictionary: hostDictionary)
+                    let host = Host(pDictionary: hostDictionary)
                     // Referenz auf Host Objekt
-                    party.host = host
+                    party.setHost(pHost: host)
                     
                     /*
                     // Host.Location Model
                     let hostLocationDictionary = Dictionary["host"]?["location"] as! NSDictionary
-                    let hostLocation = Location(fromDictionary: hostLocationDictionary)
+                    let hostLocation = Location(pDictionary: hostLocationDictionary)
                     // Referenz auf Host Objekt
-                    party.host.location = hostLocation
+                    party.getHost().setLocation(pLocation: hostLocation)
                     */
                     
                     // Location Model
                     let locationDictionary = Dictionary["location"] as! NSDictionary
-                    let location = Location(fromDictionary: locationDictionary)
+                    let location = Location(pDictionary: locationDictionary)
                     // Referenz auf Host Objekt
-                    party.location = location
+                    party.setLocation(pLocation: location)
                     
                     // Party Objekt in Parties Array anhängen
                     parties?.append(party)
                 }
             }
-            // printArray()
+        }) {
+            (error) -> Void in
+            print(error)
+        }
+    }
+    */
+    
+    // old code
+    public static func getParty() {
+        Alamofire.request(partyUrl).responseJSON { response in
+            if let json = response.result.value {
+                for Dictionary in json as! [[String: AnyObject]] {
+                    let partyDictionary = Dictionary as NSDictionary
+                    let party = Party(pDictionary: partyDictionary)
+                    
+                    let hostDictionary = Dictionary["host"] as! NSDictionary
+                    let host = Host(pDictionary: hostDictionary)
+                    party.setHost(pHost: host)
+                    
+                    /*
+                    let hostLocationDictionary = Dictionary["host"]?["location"] as! NSDictionary
+                    let hostLocation = Location(fromDictionary: hostLocationDictionary)
+                    party.host.location = hostLocation
+                    */
+                    
+                    let locationDictionary = Dictionary["location"] as! NSDictionary
+                    let location = Location(pDictionary: locationDictionary)
+                    party.setLocation(pLocation: location)
+                    
+                    parties?.append(party)
+                }
+            }
+            printArray()
         }
     }
     
-    public static func printArray() {
-        for Party in parties! {
-            let tmp = Party.host.username
-            print(tmp)
-        }
-    }
-    
-    // TODO: Kommentare, saubere Übergabe von Dictionary eines Party Objekts (neue Funktion in Klasse; Konstruktor überladen), ERROR/NULL handling
     public static func postParty() {
-        
         let testParty = [
-            "partyName": "iOS Test Party",
-            "partyDate": "2022-2-22T22:22:22.222Z",
+            "partyName": "iOS Post Test 2",
+            "partyDate": "2016-10-25T17:12:22.865Z",
             "musicGenre": 0,
             "location": [
-                "countryName": "United States",
-                "cityName": "Cupertino",
-                "streetName": "Pruneridge Avenue",
-                "houseNumber": 19111,
-                "houseNumberAdditional": "CA 95014",
-                "zipcode": 95014,
-                "latitude": 37,
-                "longitude": -122,
+                "countryName": "string",
+                "cityName": "string",
+                "streetName": "string",
+                "houseNumber": 0,
+                "houseNumberAdditional": "string",
+                "zipcode": 0,
+                "latitude": 0,
+                "longitude": 0
             ],
             "partyType": 0,
-            "description": "iOS Party."
-        ] as [String : Any]
+            "description": "string"
+        ] as [String: Any]
         
         let postUrl = URL(string: partyUrl)
         var request = URLRequest(url: postUrl!)
@@ -106,6 +142,13 @@ class SwaggerCommunication {
                 case .success(let responseObject):
                     print(responseObject)
                 }
+        }
+    }
+    
+    public static func printArray() {
+        for Party in parties! {
+            let tmp = Party.getPartyName()
+            print(tmp)
         }
     }
     
