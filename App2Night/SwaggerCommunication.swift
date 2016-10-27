@@ -31,7 +31,9 @@ public class SwaggerCommunication {
             print(response.result)   // result of response serialization
             
             self.parseParty(pResponseData: response.result.value as! [[String: AnyObject]])
+
         }
+ 
     }
     
     // MARK: parseParty()
