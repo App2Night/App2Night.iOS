@@ -33,7 +33,7 @@ public class Party {
         price = pDictionary["price"] as? Int
     }
     
-    // MARK: todictionary()
+    // MARK: toDictionary()
     public func toDictionary() -> [String : Any] {
         let jsonDictionary = [
             "partyName": self.getPartyName(),
@@ -136,6 +136,7 @@ public class Party {
     public func setDescription(pDescription: String) {
         self.descriptionField = pDescription
     }
+    
     
 }
 

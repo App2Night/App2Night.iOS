@@ -111,3 +111,21 @@ public class SwaggerCommunication {
     
 }
 
+/*
+// MARK: getParty()
+public static func getParty(completionHandler:@escaping ([Party]) -> ()) {
+    Alamofire.request(self.partyUrl).responseJSON { response in
+        print(response.request)  // original URL request
+        print(response.response) // HTTP URL response
+        print(response.data)     // server data
+        print(response.result)   // result of response serialization
+        
+        self.parseParty(pResponseData: response.result.value as! [[String: AnyObject]])
+        
+        DispatchQueue.main.async(execute: { () -> Void in
+            completionHandler(parties!)
+        })
+        }.resume()
+}
+*/
+
