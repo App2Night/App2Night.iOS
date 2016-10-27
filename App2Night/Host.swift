@@ -16,6 +16,12 @@ public class Host {
     private var location: Location!
     
     
+    // MARK: init empty host object
+    init() {
+        
+    }
+    
+    // MARK: init from NSDictionary
     init(pDictionary: NSDictionary) {
         userId = pDictionary["userId"] as? String
         username = pDictionary["username"] as? String
