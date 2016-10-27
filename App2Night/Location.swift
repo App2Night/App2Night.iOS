@@ -20,6 +20,12 @@ public class Location {
     private var longitude: Int!
     
     
+    // MARK: init empty location object
+    init() {
+        
+    }
+    
+    // MARK: init from NSDictionary
     init(pDictionary: NSDictionary) {
         cityName = pDictionary["cityName"] as? String
         countryName = pDictionary["countryName"] as? String
