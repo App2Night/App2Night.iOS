@@ -50,7 +50,13 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="yN6-6Y-a1o"/>
-                    <navigationItem key="navigationItem" title="Partys" id="gVs-Xv-l6S"/>
+                    <navigationItem key="navigationItem" title="Partys" id="gVs-Xv-l6S">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ljh-b8-aCg">
+                            <connections>
+                                <segue destination="Za0-Wm-1Dz" kind="show" id="AAJ-dc-yYL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="PartyTableView" destination="yDG-Kf-YYJ" id="67d-B7-Pbe"/>
@@ -59,6 +65,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwr-tH-nLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="377" y="543"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ezV-Lr-aPF">
+            <objects>
+                <navigationController id="Za0-Wm-1Dz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yfp-Ry-eJp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZzL-bm-RmS" kind="relationship" relationship="rootViewController" id="wGJ-Ry-JwE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CjO-yR-oxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1308" y="543"/>
+        </scene>
+        <!--Party erstellen-->
+        <scene sceneID="5Lz-K4-K2q">
+            <objects>
+                <viewController id="ZzL-bm-RmS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cps-st-PC3"/>
+                        <viewControllerLayoutGuide type="bottom" id="nyv-dR-fIp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k2A-bE-cKm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Party erstellen" id="cQ0-44-WpP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="sMd-je-o14">
+                            <connections>
+                                <segue destination="u16-Cz-ycM" kind="presentation" id="Njf-a9-USe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f8V-mA-ZRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2175" y="543"/>
         </scene>
         <!--Item-->
         <scene sceneID="1fg-2d-inr">
