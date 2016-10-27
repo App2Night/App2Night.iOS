@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ioF-cg-I4f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="u16-Cz-ycM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--app2night-->
+        <!--Partys-->
         <scene sceneID="b6V-3Y-Oot">
             <objects>
                 <tableViewController id="8BZ-BQ-a1y" customClass="PartyTableViewController" customModule="App2Night" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,7 +50,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="yN6-6Y-a1o"/>
-                    <navigationItem key="navigationItem" title="app2night" id="gVs-Xv-l6S"/>
+                    <navigationItem key="navigationItem" title="Partys" id="gVs-Xv-l6S"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="PartyTableView" destination="yDG-Kf-YYJ" id="67d-B7-Pbe"/>
@@ -60,10 +60,11 @@
             </objects>
             <point key="canvasLocation" x="377" y="543"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="1fg-2d-inr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ioF-cg-I4f" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="dIU-Qn-l57"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2NC-JR-ugh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -71,14 +72,14 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="u16-Cz-ycM" kind="relationship" relationship="rootViewController" id="SLy-fK-p53"/>
+                        <segue destination="8BZ-BQ-a1y" kind="relationship" relationship="rootViewController" id="MIi-9W-tYg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJJ-67-l8P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1497" y="890"/>
+            <point key="canvasLocation" x="-385" y="543"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="6QU-gU-qR5">
             <objects>
                 <viewController id="cDf-va-FZx" sceneMemberID="viewController">
@@ -92,10 +93,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="Auu-vt-ocG"/>
+                    <navigationItem key="navigationItem" title="Settings" id="mUG-AJ-Nz4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXp-0Y-pAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="377" y="1220"/>
+            <point key="canvasLocation" x="377" y="1283"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Z8Q-ua-L2Z">
+            <objects>
+                <navigationController id="WCW-0d-4qj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="hX2-5o-PLM"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zg7-sI-XuY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cDf-va-FZx" kind="relationship" relationship="rootViewController" id="jYi-xA-7j8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fC8-sL-T8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-386" y="1282"/>
         </scene>
         <!--app2night-->
         <scene sceneID="J8L-62-9Ec">
@@ -108,13 +127,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="8BZ-BQ-a1y" kind="relationship" relationship="viewControllers" id="fXq-2K-frP"/>
-                        <segue destination="cDf-va-FZx" kind="relationship" relationship="viewControllers" id="Nm9-v5-Amm"/>
+                        <segue destination="ioF-cg-I4f" kind="relationship" relationship="viewControllers" id="kuq-FG-d2A"/>
+                        <segue destination="WCW-0d-4qj" kind="relationship" relationship="viewControllers" id="QLu-vo-KPs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWg-wH-zJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-574" y="891"/>
+            <point key="canvasLocation" x="-1430" y="918"/>
         </scene>
     </scenes>
 </document>
