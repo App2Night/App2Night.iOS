@@ -22,6 +22,12 @@ public class Party {
     private var descriptionField: String!
     
     
+    // MARK: init empty party object
+    init() {
+        
+    }
+    
+    // MARK: init from NSDictionary
     init(pDictionary: NSDictionary) {
         date = pDictionary["date"] as? String
         descriptionField = pDictionary["description"] as? String
