@@ -10,6 +10,8 @@ import UIKit
 
 class PartyTableViewController: UITableViewController {
 
+    @IBOutlet var PartyTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,12 +21,12 @@ class PartyTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        // SwaggerCommunication.getParty()
+        SwaggerCommunication.getParty()
         // SwaggerCommunication.postParty()
     }
     
-    func loadSamplePartys(){
-        
+    func reloadData(){
+        self.PartyTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,15 +43,15 @@ class PartyTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 4 //(SwaggerCommunication.getPartiesArray()?.count)!
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "PartyTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PartyTableViewCell
-        cell.PartyName.text = "King-Party"
-        cell.CountryName.text = "Obertal"
+        cell.PartyName.text = "Party Name"
+        cell.CountryName.text = "Ort"
         // Configure the cell...
 
         return cell
