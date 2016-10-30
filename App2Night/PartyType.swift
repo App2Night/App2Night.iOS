@@ -9,14 +9,14 @@
 import Foundation
 
 public enum PartyType: String {
-    
-    // Bar
-    // Disco
-    // Forest
-    
-    case Bar = "Lokal"
-    case Disco = "Diskothek"
-    case Forest = "Abseits"
-    
-    
+	
+	// Bar
+	// Disco
+	// Forest
+	
+	case Bar = "Lokal"
+	case Disco = "Diskothek"
+	case Forest = "Abseits"
+	
+	
 }

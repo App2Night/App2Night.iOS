@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -129,6 +129,7 @@
 				00F060141DBBE27C003A2A38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		00F060001DBBD85C003A2A38 /* Products */ = {
 			isa = PBXGroup;
@@ -198,7 +199,7 @@
 				};
 			};
 			buildConfigurationList = 00F05FFA1DBBD85C003A2A38 /* Build configuration list for PBXProject "App2Night" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (

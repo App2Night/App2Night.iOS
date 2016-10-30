@@ -9,14 +9,14 @@
 import Foundation
 
 public enum Gender: String {
-    
-    // Unknown
-    // Men
-    // Woman
-    
-    case Neutral = "Neutral"
-    case Male = "Männlich"
-    case Female = "Weiblich"
-    
-    
+	
+	// Unknown
+	// Men
+	// Woman
+	
+	case Neutral = "Neutral"
+	case Male = "Männlich"
+	case Female = "Weiblich"
+	
+	
 }

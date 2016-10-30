@@ -9,14 +9,14 @@
 import Foundation
 
 public enum EventCommitment: String {
-    
-    // Accepted
-    // Noted
-    // Rejected
-    
-    case Attending = "Anwesend"
-    case Noted = "Vorgemerkt"
-    case Declined = "Abgesagt"
-    
-    
+	
+	// Accepted
+	// Noted
+	// Rejected
+	
+	case Attending = "Anwesend"
+	case Noted = "Vorgemerkt"
+	case Declined = "Abgesagt"
+	
+	
 }
