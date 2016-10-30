@@ -11,10 +11,10 @@ import Foundation
 public class Properties {
     
     // MARK: Global variables
-    public static var baseUrl = "http://app2nightapi.azurewebsites.net/api/"
-    public static var partyUrl = baseUrl + "Party"
-    public static var userUrl = baseUrl + "User"
-    public static var valuesUrl = baseUrl + "Values"
+    public static let baseUrl = "http://app2nightapi.azurewebsites.net/api/"
+    public static let partyUrl = baseUrl + "Party"
+    public static let userUrl = baseUrl + "User"
+    public static let valuesUrl = baseUrl + "Values"
     
     
 }

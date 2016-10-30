@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001C0CA71DC632FF002B5E84 /* EventCommitment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C0CA61DC632FF002B5E84 /* EventCommitment.swift */; };
+		001C0CA91DC6336A002B5E84 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C0CA81DC6336A002B5E84 /* Gender.swift */; };
+		001C0CAB1DC633CA002B5E84 /* MusicGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C0CAA1DC633CA002B5E84 /* MusicGenre.swift */; };
+		001C0CAD1DC63434002B5E84 /* PartyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C0CAC1DC63434002B5E84 /* PartyType.swift */; };
 		001F1F1A1DBFCB21006F668C /* PartyPostValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 001F1F191DBFCB21006F668C /* PartyPostValue.json */; };
 		0031CD3A1DBFDD9800FA25DE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0031CD391DBFDD9800FA25DE /* Alamofire.framework */; };
 		0031CD3B1DBFDD9800FA25DE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0031CD391DBFDD9800FA25DE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -39,6 +43,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		001C0CA61DC632FF002B5E84 /* EventCommitment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCommitment.swift; sourceTree = "<group>"; };
+		001C0CA81DC6336A002B5E84 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		001C0CAA1DC633CA002B5E84 /* MusicGenre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicGenre.swift; sourceTree = "<group>"; };
+		001C0CAC1DC63434002B5E84 /* PartyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyType.swift; sourceTree = "<group>"; };
 		001F1F191DBFCB21006F668C /* PartyPostValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyPostValue.json; sourceTree = "<group>"; };
 		0031CD391DBFDD9800FA25DE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		007FE5541DC4F45700111764 /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
@@ -69,6 +77,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		001C0CA51DC6329E002B5E84 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				001C0CA61DC632FF002B5E84 /* EventCommitment.swift */,
+				001C0CA81DC6336A002B5E84 /* Gender.swift */,
+				001C0CAA1DC633CA002B5E84 /* MusicGenre.swift */,
+				001C0CAC1DC63434002B5E84 /* PartyType.swift */,
+			);
+			name = Enum;
+			sourceTree = "<group>";
+		};
 		009D97371DBE54A1005D94FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +95,7 @@
 				00DD842A1DBEBA7C00ACA4F0 /* Host.swift */,
 				00DD842C1DBEBA9E00ACA4F0 /* Location.swift */,
 				007FE5541DC4F45700111764 /* Properties.swift */,
+				001C0CA51DC6329E002B5E84 /* Enum */,
 				0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */,
 				001F1F191DBFCB21006F668C /* PartyPostValue.json */,
 			);
@@ -215,11 +235,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				001C0CA71DC632FF002B5E84 /* EventCommitment.swift in Sources */,
 				007FE5551DC4F45700111764 /* Properties.swift in Sources */,
 				F6C32AD91DC10C2000E6038A /* PartyTableViewController.swift in Sources */,
+				001C0CAB1DC633CA002B5E84 /* MusicGenre.swift in Sources */,
+				001C0CAD1DC63434002B5E84 /* PartyType.swift in Sources */,
 				00F060331DBBE9C6003A2A38 /* SwaggerCommunication.swift in Sources */,
 				00DD842B1DBEBA7C00ACA4F0 /* Host.swift in Sources */,
 				009D973C1DBE562F005D94FF /* Party.swift in Sources */,
+				001C0CA91DC6336A002B5E84 /* Gender.swift in Sources */,
 				F6C32AD71DC1087E00E6038A /* PartyTableViewCell.swift in Sources */,
 				00DD842D1DBEBA9E00ACA4F0 /* Location.swift in Sources */,
 				00F060031DBBD85C003A2A38 /* AppDelegate.swift in Sources */,

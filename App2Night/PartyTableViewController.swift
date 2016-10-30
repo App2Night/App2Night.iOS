@@ -12,6 +12,9 @@ class PartyTableViewController: UITableViewController {
     
     @IBOutlet var PartyTableView: UITableView!
     
+    // empty party array
+    var partiesArray: [Party]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +25,7 @@ class PartyTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         SwaggerCommunication.getParty { (parties) in
+            self.partiesArray = parties
             self.PartyTableView.reloadData()
             SwaggerCommunication.printArray()
         }
@@ -43,7 +47,7 @@ class PartyTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return SwaggerCommunication.parties.count
+        return 4
     }
     
     

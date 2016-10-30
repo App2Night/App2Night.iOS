@@ -12,23 +12,24 @@ import Alamofire
 public class SwaggerCommunication {
     
     // MARK: Variables
-    public static var parties: [Party] = [Party]()
+    private static var parties: [Party] = [Party]()
     
     // MARK: Alamofire requests
     public static func getParty(completionHandler: @escaping ([Party]) -> ()) {
         Alamofire.request(Properties.partyUrl).validate().responseJSON { response in
-            // Debug messages from response
+            // debug messages from response
             debugPrint(response.request)    // original URL request
             debugPrint(response.response)   // HTTP URL response
             debugPrint(response.data)   // server data
             debugPrint(response.result) // result of response serialization
             debugPrint(response.result.value)   // value of the response result
             
+            // switch case success/failure of request
             switch response.result {
             case .success:
                 debugPrint("Validation Successful")
                 parseParty(pResponseData: response.result.value)
-                // printArray()
+            // printArray()
             case .failure(let error):
                 debugPrint(error)
             }
@@ -37,8 +38,19 @@ public class SwaggerCommunication {
                 completionHandler(self.parties)
             })
             
-        }.resume()
+            }.resume()
     }
+    
+    /*
+     initialize empty party array in class:
+     var partiesArray: [Party]?
+     
+     call function with trailing closure and assign returned parties array to class variable:
+     SwaggerCommunication.getParty { (parties) in
+     self.partiesArray = parties
+     self.PartyTableView.reloadData()
+     }
+     */
     
     public static func postParty(pDictionary: [String: Any]) {
         // post request
@@ -50,13 +62,14 @@ public class SwaggerCommunication {
         postUrl.httpBody = try! JSONSerialization.data(withJSONObject: pDictionary)
         
         Alamofire.request(postUrl).validate().responseJSON { response in
-            // Debug messages from response
+            // debug messages from response
             debugPrint(response.request)    // original URL request
             debugPrint(response.response)   // HTTP URL response
             debugPrint(response.data)   // server data
             debugPrint(response.result) // result of response serialization
             debugPrint(response.result.value)   // value of the response result
             
+            // switch case success/failure of request
             switch response.result {
             case .success:
                 debugPrint("Validation Successful")
@@ -69,7 +82,7 @@ public class SwaggerCommunication {
         }
     }
     
-    // MARK: parse response
+    // MARK: Parse response
     private static func parseParty(pResponseData: Any?) {
         let responseData = pResponseData as! [[String: AnyObject]]
         
@@ -115,8 +128,8 @@ public class SwaggerCommunication {
         testParty.setLocation(pLocation: testLocation)
         testParty.setPartyName(pPartyName: "iOS dummy party")
         testParty.setPartyDate(pPartyDate: "2016-12-24T20:00:00.000Z")
-        testParty.setMusicGenre(pMusicGenre: 0)
-        testParty.setPartyType(pPartyType: 0)
+        testParty.setMusicGenre(pMusicGenre: MusicGenre.Mixed)
+        testParty.setPartyType(pPartyType: PartyType.Bar)
         testParty.setDescription(pDescription: "string")
         testLocation.setCountryName(pCountryName: "string")
         testLocation.setCityName(pCityName: "string")

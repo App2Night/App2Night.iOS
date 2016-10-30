@@ -16,9 +16,9 @@ public class Party {
     private var host: Host!
     private var partyName: String!
     private var partyDate: String!
-    private var musicGenre: Int!
+    private var musicGenre: MusicGenre!
     private var location: Location!
-    private var partyType: Int!
+    private var partyType: PartyType!
     private var descriptionField: String!
     
     
@@ -31,11 +31,11 @@ public class Party {
     init(pDictionary: NSDictionary) {
         date = pDictionary["date"] as? String
         descriptionField = pDictionary["description"] as? String
-        musicGenre = pDictionary["musicGenre"] as? Int
+        musicGenre = pDictionary["musicGenre"] as? MusicGenre
         partyId = pDictionary["partId"] as? String
         partyDate = pDictionary["partyDate"] as? String
         partyName = pDictionary["partyName"] as? String
-        partyType = pDictionary["partyType"] as? Int
+        partyType = pDictionary["partyType"] as? PartyType
         price = pDictionary["price"] as? Int
     }
     
@@ -44,7 +44,7 @@ public class Party {
         let jsonDictionary = [
             "partyName": self.getPartyName(),
             "partyDate": self.getPartyDate(),
-            "musicGenre": self.getMusicGenre(),
+            "musicGenre": self.getMusicGenre().rawValue,
             "location": [
                 "countryName": self.location.getCountryName(),
                 "cityName": self.location.getCityName(),
@@ -55,7 +55,7 @@ public class Party {
                 "latitude": self.location.getLatitude(),
                 "longitude": self.location.getLongitude()
             ],
-            "partyType": self.getPartyType(),
+            "partyType": self.getPartyType().rawValue,
             "description": self.getDescription()
             ] as [String : Any]
         
@@ -111,11 +111,11 @@ public class Party {
         self.partyDate = pPartyDate
     }
     
-    public func getMusicGenre() -> Int {
+    public func getMusicGenre() -> MusicGenre {
         return self.musicGenre
     }
     
-    public func setMusicGenre(pMusicGenre: Int) {
+    public func setMusicGenre(pMusicGenre: MusicGenre) {
         self.musicGenre = pMusicGenre
     }
     
@@ -127,11 +127,11 @@ public class Party {
         self.location = pLocation
     }
     
-    public func getPartyType() -> Int {
+    public func getPartyType() -> PartyType {
         return self.partyType
     }
     
-    public func setPartyType(pPartyType: Int) {
+    public func setPartyType(pPartyType: PartyType) {
         self.partyType = pPartyType
     }
     
