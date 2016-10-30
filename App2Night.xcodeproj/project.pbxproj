@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001902301DC648FF004D9C67 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0019022F1DC648FF004D9C67 /* Alamofire.framework */; };
+		001902311DC648FF004D9C67 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0019022F1DC648FF004D9C67 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		001C0CA71DC632FF002B5E84 /* EventCommitment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C0CA61DC632FF002B5E84 /* EventCommitment.swift */; };
 		001C0CA91DC6336A002B5E84 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C0CA81DC6336A002B5E84 /* Gender.swift */; };
 		001C0CAB1DC633CA002B5E84 /* MusicGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C0CAA1DC633CA002B5E84 /* MusicGenre.swift */; };
 		001C0CAD1DC63434002B5E84 /* PartyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C0CAC1DC63434002B5E84 /* PartyType.swift */; };
 		001F1F1A1DBFCB21006F668C /* PartyPostValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 001F1F191DBFCB21006F668C /* PartyPostValue.json */; };
-		0031CD3A1DBFDD9800FA25DE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0031CD391DBFDD9800FA25DE /* Alamofire.framework */; };
-		0031CD3B1DBFDD9800FA25DE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0031CD391DBFDD9800FA25DE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		007FE5551DC4F45700111764 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007FE5541DC4F45700111764 /* Properties.swift */; };
 		0093C8811DBF563D00FB7FCA /* PartyExampleValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */; };
 		009D973C1DBE562F005D94FF /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D973B1DBE562F005D94FF /* Party.swift */; };
@@ -29,13 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0031CD3C1DBFDD9800FA25DE /* Embed Frameworks */ = {
+		001902321DC648FF004D9C67 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0031CD3B1DBFDD9800FA25DE /* Alamofire.framework in Embed Frameworks */,
+				001902311DC648FF004D9C67 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,12 +43,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0019022F1DC648FF004D9C67 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		001C0CA61DC632FF002B5E84 /* EventCommitment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCommitment.swift; sourceTree = "<group>"; };
 		001C0CA81DC6336A002B5E84 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		001C0CAA1DC633CA002B5E84 /* MusicGenre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicGenre.swift; sourceTree = "<group>"; };
 		001C0CAC1DC63434002B5E84 /* PartyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyType.swift; sourceTree = "<group>"; };
 		001F1F191DBFCB21006F668C /* PartyPostValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyPostValue.json; sourceTree = "<group>"; };
-		0031CD391DBFDD9800FA25DE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		007FE5541DC4F45700111764 /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyExampleValue.json; sourceTree = "<group>"; };
 		009D973B1DBE562F005D94FF /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0031CD3A1DBFDD9800FA25DE /* Alamofire.framework in Frameworks */,
+				001902301DC648FF004D9C67 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +154,7 @@
 		00F060141DBBE27C003A2A38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0031CD391DBFDD9800FA25DE /* Alamofire.framework */,
+				0019022F1DC648FF004D9C67 /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 				00F05FFB1DBBD85C003A2A38 /* Sources */,
 				00F05FFC1DBBD85C003A2A38 /* Frameworks */,
 				00F05FFD1DBBD85C003A2A38 /* Resources */,
-				0031CD3C1DBFDD9800FA25DE /* Embed Frameworks */,
+				001902321DC648FF004D9C67 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -187,7 +187,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = DHBW;
 				TargetAttributes = {
 					00F05FFE1DBBD85C003A2A38 = {
@@ -290,6 +290,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -339,6 +340,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -377,7 +379,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.dhbw.App2Night;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -395,7 +397,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.dhbw.App2Night;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};

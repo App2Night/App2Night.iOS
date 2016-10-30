@@ -17,12 +17,12 @@ public class SwaggerCommunication {
     // MARK: Alamofire requests
     public static func getParty(completionHandler: @escaping ([Party]) -> ()) {
         Alamofire.request(Properties.partyUrl).validate().responseJSON { response in
-            // debug messages from response
-            debugPrint(response.request)    // original URL request
-            debugPrint(response.response)   // HTTP URL response
-            debugPrint(response.data)   // server data
+            // debug messages from response - some are downcasted to any because of warnings xcode 8.1
+            debugPrint(response.request as Any)    // original URL request
+            debugPrint(response.response as Any)   // HTTP URL response
+            debugPrint(response.data as Any)   // server data
             debugPrint(response.result) // result of response serialization
-            debugPrint(response.result.value)   // value of the response result
+            debugPrint(response.result.value as Any)   // value of the response result
             
             // switch case success/failure of request
             switch response.result {
@@ -62,12 +62,12 @@ public class SwaggerCommunication {
         postUrl.httpBody = try! JSONSerialization.data(withJSONObject: pDictionary)
         
         Alamofire.request(postUrl).validate().responseJSON { response in
-            // debug messages from response
-            debugPrint(response.request)    // original URL request
-            debugPrint(response.response)   // HTTP URL response
-            debugPrint(response.data)   // server data
+            // debug messages from response - some are downcasted to any because of warnings xcode 8.1
+            debugPrint(response.request as Any)    // original URL request
+            debugPrint(response.response as Any)   // HTTP URL response
+            debugPrint(response.data as Any)   // server data
             debugPrint(response.result) // result of response serialization
-            debugPrint(response.result.value)   // value of the response result
+            debugPrint(response.result.value as Any)   // value of the response result
             
             // switch case success/failure of request
             switch response.result {
