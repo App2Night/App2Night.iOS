@@ -27,14 +27,14 @@ public class Location {
 	
 	// MARK: init from NSDictionary
 	init(pDictionary: NSDictionary) {
-		cityName = pDictionary["cityName"] as? String
-		countryName = pDictionary["countryName"] as? String
-		houseNumber = pDictionary["houseNumber"] as? Int
-		houseNumberAdditional = pDictionary["houseNumberAdditional"] as? String
-		latitude = pDictionary["latitude"] as? Int
-		longitude = pDictionary["longitude"] as? Int
-		streetName = pDictionary["streetName"] as? String
-		zipcode = pDictionary["zipcode"] as? Int
+		countryName = pDictionary["CountryName"] as? String
+		cityName = pDictionary["CityName"] as? String
+		streetName = pDictionary["StreetName"] as? String
+		houseNumber = pDictionary["HouseNumber"] as? Int
+		houseNumberAdditional = pDictionary["HouseNumberAdditional"] as? String
+		zipcode = pDictionary["Zipcode"] as? Int
+		latitude = pDictionary["Latitude"] as? Int
+		longitude = pDictionary["Longitude"] as? Int
 	}
 	
 	// MARK: GET & SET

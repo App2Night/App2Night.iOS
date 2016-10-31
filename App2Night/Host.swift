@@ -10,10 +10,8 @@ import Foundation
 
 public class Host {
 	
-	private var userId: String!
-	private var username: String!
-	private var password: String!
-	private var location: Location!
+	private var hostId: String!
+	private var userName: String!
 	
 	
 	// MARK: init empty host object
@@ -23,42 +21,25 @@ public class Host {
 	
 	// MARK: init from NSDictionary
 	init(pDictionary: NSDictionary) {
-		userId = pDictionary["userId"] as? String
-		username = pDictionary["username"] as? String
-		password = pDictionary["password"] as? String
+		hostId = pDictionary["HostId"] as? String
+		userName = pDictionary["UserName"] as? String
 	}
 	
 	// MARK: GET & SET
-	public func getUserID() -> String {
-		return self.userId
+	public func getHostID() -> String {
+		return self.hostId
 	}
 	
-	public func setUserID(pUserID: String) {
-		self.userId = pUserID
+	public func setHostID(pHostID: String) {
+		self.hostId = pHostID
 	}
 	
-	public func getUsername() -> String {
-		return self.username
+	public func getUserName() -> String {
+		return self.userName
 	}
 	
-	public func setUsername(pUsername: String) {
-		self.username = pUsername
-	}
-	
-	public func getPassword() -> String {
-		return self.password
-	}
-	
-	public func setPassword(pPassword: String) {
-		self.password = pPassword
-	}
-	
-	public func getLocation() -> Location {
-		return self.location
-	}
-	
-	public func setLocation(pLocation: Location) {
-		self.location = pLocation
+	public func setUserName(pUserName: String) {
+		self.userName = pUserName
 	}
 	
 	

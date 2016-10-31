@@ -11,17 +11,16 @@ import Foundation
 public class Party {
 	
 	private var partyId: String!
-	private var date: String!
 	private var price: Int!
-	private var host: Host!
 	private var partyName: String!
 	private var partyDate: String!
 	private var musicGenre: MusicGenre!
 	private var location: Location!
 	private var partyType: PartyType!
 	private var descriptionField: String!
+	private var host: Host!
 	
-	
+
 	// MARK: init empty party object
 	init() {
 		
@@ -29,14 +28,13 @@ public class Party {
 	
 	// MARK: init from NSDictionary
 	init(pDictionary: NSDictionary) {
-		date = pDictionary["date"] as? String
-		descriptionField = pDictionary["description"] as? String
-		musicGenre = pDictionary["musicGenre"] as? MusicGenre
-		partyId = pDictionary["partId"] as? String
-		partyDate = pDictionary["partyDate"] as? String
-		partyName = pDictionary["partyName"] as? String
-		partyType = pDictionary["partyType"] as? PartyType
-		price = pDictionary["price"] as? Int
+		partyId = pDictionary["PartId"] as? String
+		price = pDictionary["Price"] as? Int
+		partyName = pDictionary["PartyName"] as? String
+		partyDate = pDictionary["PartyDate"] as? String
+		musicGenre = pDictionary["MusicGenre"] as? MusicGenre
+		partyType = pDictionary["PartyType"] as? PartyType
+		descriptionField = pDictionary["Description"] as? String
 	}
 	
 	// MARK: toDictionary()
@@ -69,14 +67,6 @@ public class Party {
 	
 	public func setPartyID(pPartyID: String) {
 		self.partyId = pPartyID
-	}
-	
-	public func getDate() -> String {
-		return self.date
-	}
-	
-	public func setDate(pDate: String) {
-		self.date = pDate
 	}
 	
 	public func getPrice() -> Int {

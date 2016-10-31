@@ -14,9 +14,9 @@ public enum PartyType: String {
 	// Disco
 	// Forest
 	
-	case Bar = "Lokal"
+	case Venue = "Lokal"
 	case Disco = "Diskothek"
-	case Forest = "Abseits"
+	case Remote = "Abseits"
 	
 	
 }

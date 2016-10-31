@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		001902301DC648FF004D9C67 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0019022F1DC648FF004D9C67 /* Alamofire.framework */; };
-		001902311DC648FF004D9C67 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0019022F1DC648FF004D9C67 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		000168601DC7439E008BB357 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0001685F1DC7439E008BB357 /* Alamofire.framework */; };
+		000168611DC7439E008BB357 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0001685F1DC7439E008BB357 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		001C0CA71DC632FF002B5E84 /* EventCommitment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C0CA61DC632FF002B5E84 /* EventCommitment.swift */; };
 		001C0CA91DC6336A002B5E84 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C0CA81DC6336A002B5E84 /* Gender.swift */; };
 		001C0CAB1DC633CA002B5E84 /* MusicGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C0CAA1DC633CA002B5E84 /* MusicGenre.swift */; };
@@ -19,6 +19,7 @@
 		009D973C1DBE562F005D94FF /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D973B1DBE562F005D94FF /* Party.swift */; };
 		00DD842B1DBEBA7C00ACA4F0 /* Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD842A1DBEBA7C00ACA4F0 /* Host.swift */; };
 		00DD842D1DBEBA9E00ACA4F0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD842C1DBEBA9E00ACA4F0 /* Location.swift */; };
+		00EBB5B31DC77B7F0078B05C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EBB5B21DC77B7F0078B05C /* User.swift */; };
 		00F060031DBBD85C003A2A38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F060021DBBD85C003A2A38 /* AppDelegate.swift */; };
 		00F060081DBBD85C003A2A38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F060061DBBD85C003A2A38 /* Main.storyboard */; };
 		00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F060091DBBD85C003A2A38 /* Assets.xcassets */; };
@@ -29,13 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		001902321DC648FF004D9C67 /* Embed Frameworks */ = {
+		000168621DC7439E008BB357 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				001902311DC648FF004D9C67 /* Alamofire.framework in Embed Frameworks */,
+				000168611DC7439E008BB357 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,7 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0019022F1DC648FF004D9C67 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
+		0001685F1DC7439E008BB357 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		001C0CA61DC632FF002B5E84 /* EventCommitment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCommitment.swift; sourceTree = "<group>"; };
 		001C0CA81DC6336A002B5E84 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		001C0CAA1DC633CA002B5E84 /* MusicGenre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicGenre.swift; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		009D973B1DBE562F005D94FF /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		00DD842A1DBEBA7C00ACA4F0 /* Host.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Host.swift; sourceTree = "<group>"; };
 		00DD842C1DBEBA9E00ACA4F0 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		00EBB5B21DC77B7F0078B05C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		00F05FFF1DBBD85C003A2A38 /* App2Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App2Night.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F060021DBBD85C003A2A38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00F060071DBBD85C003A2A38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				001902301DC648FF004D9C67 /* Alamofire.framework in Frameworks */,
+				000168601DC7439E008BB357 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +97,7 @@
 				00DD842A1DBEBA7C00ACA4F0 /* Host.swift */,
 				00DD842C1DBEBA9E00ACA4F0 /* Location.swift */,
 				007FE5541DC4F45700111764 /* Properties.swift */,
+				00EBB5B21DC77B7F0078B05C /* User.swift */,
 				001C0CA51DC6329E002B5E84 /* Enum */,
 				0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */,
 				001F1F191DBFCB21006F668C /* PartyPostValue.json */,
@@ -155,7 +158,7 @@
 		00F060141DBBE27C003A2A38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0019022F1DC648FF004D9C67 /* Alamofire.framework */,
+				0001685F1DC7439E008BB357 /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,7 +173,7 @@
 				00F05FFB1DBBD85C003A2A38 /* Sources */,
 				00F05FFC1DBBD85C003A2A38 /* Frameworks */,
 				00F05FFD1DBBD85C003A2A38 /* Resources */,
-				001902321DC648FF004D9C67 /* Embed Frameworks */,
+				000168621DC7439E008BB357 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00EBB5B31DC77B7F0078B05C /* User.swift in Sources */,
 				001C0CA71DC632FF002B5E84 /* EventCommitment.swift in Sources */,
 				007FE5551DC4F45700111764 /* Properties.swift in Sources */,
 				F6C32AD91DC10C2000E6038A /* PartyTableViewController.swift in Sources */,

@@ -1,37 +1,25 @@
 [
-  {
-  "partId": "string",
-  "date": "2016-10-29T16:45:40.383Z",
-  "price": 0,
-  "host": {
-    "userId": "string",
-    "username": "string",
-    "password": "string",
-    "location": {
-        "countryName": "string",
-        "cityName": "string",
-        "streetName": "string",
-        "houseNumber": 0,
-        "houseNumberAdditional": "string",
-        "zipcode": 0,
-        "latitude": 0,
-        "longitude": 0
-    }
-  },
-  "partyName": "string",
-  "partyDate": "2016-10-29T16:45:40.383Z",
-  "musicGenre": 0,
-  "location": {
-    "countryName": "string",
-    "cityName": "string",
-    "streetName": "string",
-    "houseNumber": 0,
-    "houseNumberAdditional": "string",
-    "zipcode": 0,
-    "latitude": 0,
-    "longitude": 0
-  },
-  "partyType": 0,
-  "description": "string"
-  }
+ {
+ "PartId": "4993dddd-eebf-4c7f-e6c2-08d400f098ad",
+ "Price": 0,
+ "PartyName": "Test User Artem",
+ "PartyDate": "2016-12-27T12:21:47.349",
+ "MusicGenre": 1,
+ "Location": {
+	"CountryName": "Germany",
+	"CityName": "Stuttgart",
+	"StreetName": "Florianstraße",
+	"HouseNumber": 12,
+	"HouseNumberAdditional": "",
+	"Zipcode": 70173,
+	"Latitude": 0,
+	"Longitude": 0
+	},
+ "PartyType": 0,
+ "Description": "Test description for a party...",
+ "Host": {
+	"HostId": "cb959bf3-7073-418a-225e-08d400e58757",
+	"UserName": "Artem"
+	}
+ }
 ]
