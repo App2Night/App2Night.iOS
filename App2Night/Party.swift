@@ -20,7 +20,6 @@ public class Party {
 	private var descriptionField: String!
 	private var host: Host!
 	
-
 	// MARK: init empty party object
 	init() {
 		
@@ -37,9 +36,44 @@ public class Party {
 		descriptionField = pDictionary["Description"] as? String
 	}
 	
+	// MARK: parse parties in response data
+	static public func parseResponse(pResponseData: Any?) -> [Party]? {
+		let responseData = pResponseData as! [[String: AnyObject]]
+		
+		var partiesArray: [Party] = [Party]()
+		
+		for Dictionary in responseData {
+			// root model
+			let partyDictionary = Dictionary as NSDictionary
+			let party = Party(pDictionary: partyDictionary)
+			
+			// host model
+			let hostDictionary = Dictionary["Host"] as! NSDictionary
+			let host = Host(pDictionary: hostDictionary)
+			party.setHost(pHost: host)
+			
+			// location model
+			let locationDictionary = Dictionary["Location"] as! NSDictionary
+			let location = Location(pDictionary: locationDictionary)
+			party.setLocation(pLocation: location)
+			
+			/*
+			// host.location model
+			let hostLocationDictionary = Dictionary["Host"]!["Location"] as! NSDictionary
+			let hostLocation = Location(pDictionary: hostLocationDictionary)
+			party.getHost().setLocation(pLocation: hostLocation)
+			*/
+			
+			// append to array of parties
+			partiesArray.append(party)
+		}
+		print("RETURNED PARSED RESPONSE RESULT VALUE.")
+		return partiesArray
+	}
+	
 	// MARK: toDictionary()
 	public func toDictionary() -> [String : Any] {
-		let jsonDictionary = [
+		let dict = [
 			"partyName": self.getPartyName(),
 			"partyDate": self.getPartyDate(),
 			"musicGenre": self.getMusicGenre().rawValue,
@@ -57,7 +91,7 @@ public class Party {
 			"description": self.getDescription()
 			] as [String : Any]
 		
-		return jsonDictionary
+		return dict
 	}
 	
 	// MARK: GET & SET

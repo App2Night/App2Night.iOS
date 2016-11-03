@@ -10,6 +10,9 @@ import Foundation
 
 public class User {
 	
+	private var userId: String!
+	private var userName: String!
+	private var password: String!
 	private var accessToken: String!
 	private var expiresIn: Int!
 	private var tokenType: String!
@@ -20,8 +23,32 @@ public class User {
 	init() {
 		
 	}
-	
+
 	// MARK: GET & SET
+	public func getUserID() -> String {
+		return self.userId
+	}
+	
+	public func setUserID(pUserID: String) {
+		self.userId = pUserID
+	}
+	
+	public func getUserName() -> String {
+		return self.userName
+	}
+	
+	public func setUserName(pUserName: String) {
+		self.userName = pUserName
+	}
+	
+	public func getPassword() -> String {
+		return self.password
+	}
+	
+	public func setPassword(pPassword: String) {
+		self.password = pPassword
+	}
+	
 	public func getAccessToken() -> String {
 		return self.accessToken
 	}

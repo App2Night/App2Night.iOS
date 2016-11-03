@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CoreHost" representedClassName="CoreHost" syncable="YES" codeGenerationType="class">
+        <attribute name="hostID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="party" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreParty" inverseName="host" inverseEntity="CoreParty" syncable="YES"/>
+    </entity>
+    <entity name="CoreLocation" representedClassName="CoreLocation" syncable="YES" codeGenerationType="class">
+        <attribute name="cityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="countryName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="houseNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="houseNumberAdditional" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="streetName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zipcode" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="party" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreParty" inverseName="location" inverseEntity="CoreParty" syncable="YES"/>
+    </entity>
+    <entity name="CoreParty" representedClassName="CoreParty" syncable="YES" codeGenerationType="class">
+        <attribute name="musicGenre" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="partyDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="partyDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partyID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partyType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="host" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreHost" inverseName="party" inverseEntity="CoreHost" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreLocation" inverseName="party" inverseEntity="CoreLocation" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CoreParty" positionX="-56" positionY="-18" width="128" height="178"/>
+        <element name="CoreHost" positionX="144" positionY="-18" width="128" height="88"/>
+        <element name="CoreLocation" positionX="-254" positionY="-18" width="128" height="178"/>
+    </elements>
+</model>
