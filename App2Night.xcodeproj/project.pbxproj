@@ -18,6 +18,9 @@
 		007A756A1DCC9DA6007108FC /* App2Night.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00FE49571DCA8BE8003A54B9 /* App2Night.xcdatamodeld */; };
 		0093C8811DBF563D00FB7FCA /* PartyExampleValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */; };
 		009D973C1DBE562F005D94FF /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D973B1DBE562F005D94FF /* Party.swift */; };
+		00B05D711DCE284000F7722C /* MainNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00B05D701DCE284000F7722C /* MainNavigation.storyboard */; };
+		00B05D731DCE2C3C00F7722C /* PartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B05D721DCE2C3C00F7722C /* PartyTableViewController.swift */; };
+		00B05D751DCE2CF300F7722C /* PartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B05D741DCE2CF300F7722C /* PartyTableViewCell.swift */; };
 		00CD68A81DC8FF5900A0172F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CD68A71DC8FF5900A0172F /* Main.storyboard */; };
 		00CD68AA1DC8FF6D00A0172F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CD68A91DC8FF6D00A0172F /* LaunchScreen.storyboard */; };
 		00D921DA1DCB7DDA00737FA1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D921D91DCB7DDA00737FA1 /* Home.storyboard */; };
@@ -55,6 +58,9 @@
 		007A755B1DCC9BA1007108FC /* CoreCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreCommunication.swift; sourceTree = "<group>"; };
 		0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyExampleValue.json; sourceTree = "<group>"; };
 		009D973B1DBE562F005D94FF /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
+		00B05D701DCE284000F7722C /* MainNavigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainNavigation.storyboard; sourceTree = "<group>"; };
+		00B05D721DCE2C3C00F7722C /* PartyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewController.swift; sourceTree = "<group>"; };
+		00B05D741DCE2CF300F7722C /* PartyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewCell.swift; sourceTree = "<group>"; };
 		00CD68A71DC8FF5900A0172F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		00CD68A91DC8FF6D00A0172F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00D921D91DCB7DDA00737FA1 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -69,8 +75,6 @@
 		00F0600E1DBBD85C003A2A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00F060321DBBE9C6003A2A38 /* SwaggerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunication.swift; sourceTree = "<group>"; };
 		00FE49581DCA8BE8003A54B9 /* App2Night.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App2Night.xcdatamodel; sourceTree = "<group>"; };
-		F6332BFD1DCE0CC300C20F6E /* PartyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewCell.swift; sourceTree = "<group>"; };
-		F6A626AD1DCB849500E63127 /* PartyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyTableViewController.swift; path = ../PartyTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +101,11 @@
 		007404591DC8D92900C3C7DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F6A626AD1DCB849500E63127 /* PartyTableViewController.swift */,
 				000787C31DCB76BD0095BBEB /* MainNavigationController.swift */,
 				00D921DB1DCB7E6A00737FA1 /* HomeController.swift */,
 				005A42531DC91133005E1C8E /* LoginController.swift */,
-				F6332BFD1DCE0CC300C20F6E /* PartyTableViewCell.swift */,
+				00B05D721DCE2C3C00F7722C /* PartyTableViewController.swift */,
+				00B05D741DCE2CF300F7722C /* PartyTableViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -122,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				00CD68A71DC8FF5900A0172F /* Main.storyboard */,
+				00B05D701DCE284000F7722C /* MainNavigation.storyboard */,
 				00D921D91DCB7DDA00737FA1 /* Home.storyboard */,
 				00CD68A91DC8FF6D00A0172F /* LaunchScreen.storyboard */,
 			);
@@ -250,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B05D711DCE284000F7722C /* MainNavigation.storyboard in Resources */,
 				001F1F1A1DBFCB21006F668C /* PartyPostValue.json in Resources */,
 				00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */,
 				0093C8811DBF563D00FB7FCA /* PartyExampleValue.json in Resources */,
@@ -266,13 +272,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B05D731DCE2C3C00F7722C /* PartyTableViewController.swift in Sources */,
 				005A42521DC90607005E1C8E /* Properties.swift in Sources */,
 				00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */,
-				F6A626AE1DCB849500E63127 /* PartyTableViewController.swift in Sources */,
 				00EBB5B31DC77B7F0078B05C /* User.swift in Sources */,
-				F6332BFE1DCE0CC300C20F6E /* PartyTableViewCell.swift in Sources */,
 				005A42541DC91133005E1C8E /* LoginController.swift in Sources */,
 				00F060331DBBE9C6003A2A38 /* SwaggerCommunication.swift in Sources */,
+				00B05D751DCE2CF300F7722C /* PartyTableViewCell.swift in Sources */,
 				007A755C1DCC9BA1007108FC /* CoreCommunication.swift in Sources */,
 				00E30E481DCA4AD60003F615 /* CoreDataStack.swift in Sources */,
 				007A756A1DCC9DA6007108FC /* App2Night.xcdatamodeld in Sources */,

@@ -183,22 +183,22 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Kc-NS-Wvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1569" y="-450"/>
+            <point key="canvasLocation" x="1586" y="-450"/>
         </scene>
         <!--Item-->
         <scene sceneID="QoH-im-Uwy">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="tCo-mi-ZVE" customClass="PartyTableViewController" customModule="App2Night" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="tCo-mi-ZVE" customClass="PartyTableViewController" customModule="App2Night" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jt7-5Y-vxe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PartyTableViewCell" rowHeight="90" id="1lr-A7-fly" customClass="PartyTableViewCell" customModule="App2Night" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PartyTableViewCell" rowHeight="90" id="1lr-A7-fly" customClass="PartyTableViewCell" customModule="App2Night">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" userInteractionEnabled="NO" contentMode="scaleToFill" tableViewCell="1lr-A7-fly" id="VS9-dy-VNU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PartyName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzw-AH-CKm">
