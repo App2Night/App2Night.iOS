@@ -38,9 +38,14 @@ class CoreDataStack {
 		return container
 	}()
 	
+	// MARK: - Core Data Context
+	func getContext() -> NSManagedObjectContext {
+		return persistentContainer.viewContext
+	}
+	
 	// MARK: - Core Data Saving support
-	func saveContext () {
-		let context = persistentContainer.viewContext
+	func saveContext() {
+		let context = getContext()
 		if context.hasChanges {
 			do {
 				try context.save()

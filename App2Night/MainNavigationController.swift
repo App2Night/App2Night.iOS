@@ -15,8 +15,7 @@ class MainNavigationController: UINavigationController {
 		view.backgroundColor = .white
 		
 		if isLoggedIn() {
-			let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
-			let homeController = homeStoryboard.instantiateViewController(withIdentifier: "homeController")
+			let homeController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "homeController")
 			viewControllers = [homeController]
 		} else {
 			perform(#selector(showLoginController), with: nil, afterDelay: 0.01)
@@ -36,3 +35,4 @@ class MainNavigationController: UINavigationController {
 	
 	
 }
+

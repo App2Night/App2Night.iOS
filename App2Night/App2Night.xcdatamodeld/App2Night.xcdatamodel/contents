@@ -28,8 +28,8 @@
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreLocation" inverseName="party" inverseEntity="CoreLocation" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CoreParty" positionX="-56" positionY="-18" width="128" height="178"/>
         <element name="CoreHost" positionX="144" positionY="-18" width="128" height="88"/>
         <element name="CoreLocation" positionX="-254" positionY="-18" width="128" height="178"/>
+        <element name="CoreParty" positionX="-56" positionY="-18" width="128" height="178"/>
     </elements>
 </model>

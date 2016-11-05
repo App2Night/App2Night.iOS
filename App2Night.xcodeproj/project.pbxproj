@@ -14,6 +14,8 @@
 		005A424F1DC90025005E1C8E /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A424E1DC90025005E1C8E /* Enumerations.swift */; };
 		005A42521DC90607005E1C8E /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A42511DC90607005E1C8E /* Properties.swift */; };
 		005A42541DC91133005E1C8E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A42531DC91133005E1C8E /* LoginController.swift */; };
+		007A755C1DCC9BA1007108FC /* CoreCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007A755B1DCC9BA1007108FC /* CoreCommunication.swift */; };
+		007A756A1DCC9DA6007108FC /* App2Night.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00FE49571DCA8BE8003A54B9 /* App2Night.xcdatamodeld */; };
 		0093C8811DBF563D00FB7FCA /* PartyExampleValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */; };
 		009D973C1DBE562F005D94FF /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D973B1DBE562F005D94FF /* Party.swift */; };
 		00CD68A81DC8FF5900A0172F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CD68A71DC8FF5900A0172F /* Main.storyboard */; };
@@ -27,7 +29,6 @@
 		00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */; };
 		00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F060091DBBD85C003A2A38 /* Assets.xcassets */; };
 		00F060331DBBE9C6003A2A38 /* SwaggerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F060321DBBE9C6003A2A38 /* SwaggerCommunication.swift */; };
-		00FE49591DCA8BE8003A54B9 /* App2Night.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00FE49571DCA8BE8003A54B9 /* App2Night.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,7 @@
 		005A424E1DC90025005E1C8E /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		005A42511DC90607005E1C8E /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		005A42531DC91133005E1C8E /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		007A755B1DCC9BA1007108FC /* CoreCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreCommunication.swift; sourceTree = "<group>"; };
 		0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyExampleValue.json; sourceTree = "<group>"; };
 		009D973B1DBE562F005D94FF /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		00CD68A71DC8FF5900A0172F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		00E30E461DCA4AA60003F615 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				007A755B1DCC9BA1007108FC /* CoreCommunication.swift */,
 				00E30E471DCA4AD60003F615 /* CoreDataStack.swift */,
 				00FE49571DCA8BE8003A54B9 /* App2Night.xcdatamodeld */,
 			);
@@ -264,12 +267,13 @@
 				00EBB5B31DC77B7F0078B05C /* User.swift in Sources */,
 				005A42541DC91133005E1C8E /* LoginController.swift in Sources */,
 				00F060331DBBE9C6003A2A38 /* SwaggerCommunication.swift in Sources */,
+				007A755C1DCC9BA1007108FC /* CoreCommunication.swift in Sources */,
 				00E30E481DCA4AD60003F615 /* CoreDataStack.swift in Sources */,
+				007A756A1DCC9DA6007108FC /* App2Night.xcdatamodeld in Sources */,
 				00D921DC1DCB7E6A00737FA1 /* HomeController.swift in Sources */,
 				000787C41DCB76BD0095BBEB /* MainNavigationController.swift in Sources */,
 				00DD842B1DBEBA7C00ACA4F0 /* Host.swift in Sources */,
 				009D973C1DBE562F005D94FF /* Party.swift in Sources */,
-				00FE49591DCA8BE8003A54B9 /* App2Night.xcdatamodeld in Sources */,
 				005A424F1DC90025005E1C8E /* Enumerations.swift in Sources */,
 				00DD842D1DBEBA9E00ACA4F0 /* Location.swift in Sources */,
 			);
