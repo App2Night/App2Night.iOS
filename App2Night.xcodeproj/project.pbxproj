@@ -69,6 +69,8 @@
 		00F0600E1DBBD85C003A2A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00F060321DBBE9C6003A2A38 /* SwaggerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunication.swift; sourceTree = "<group>"; };
 		00FE49581DCA8BE8003A54B9 /* App2Night.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App2Night.xcdatamodel; sourceTree = "<group>"; };
+		F6332BFD1DCE0CC300C20F6E /* PartyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewCell.swift; sourceTree = "<group>"; };
+		F6A626AD1DCB849500E63127 /* PartyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyTableViewController.swift; path = ../PartyTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +97,11 @@
 		007404591DC8D92900C3C7DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F6A626AD1DCB849500E63127 /* PartyTableViewController.swift */,
 				000787C31DCB76BD0095BBEB /* MainNavigationController.swift */,
 				00D921DB1DCB7E6A00737FA1 /* HomeController.swift */,
 				005A42531DC91133005E1C8E /* LoginController.swift */,
+				F6332BFD1DCE0CC300C20F6E /* PartyTableViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -264,7 +268,9 @@
 			files = (
 				005A42521DC90607005E1C8E /* Properties.swift in Sources */,
 				00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */,
+				F6A626AE1DCB849500E63127 /* PartyTableViewController.swift in Sources */,
 				00EBB5B31DC77B7F0078B05C /* User.swift in Sources */,
+				F6332BFE1DCE0CC300C20F6E /* PartyTableViewCell.swift in Sources */,
 				005A42541DC91133005E1C8E /* LoginController.swift in Sources */,
 				00F060331DBBE9C6003A2A38 /* SwaggerCommunication.swift in Sources */,
 				007A755C1DCC9BA1007108FC /* CoreCommunication.swift in Sources */,
