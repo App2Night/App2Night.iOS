@@ -6,6 +6,7 @@
 //  Copyright © 2016 DHBW. All rights reserved.
 //
 
+/*
 import Foundation
 import Alamofire
 
@@ -65,6 +66,7 @@ public class SwaggerCommunication {
 	
 	
 }
+*/
 
 
 //public static func postParty(pDictionary: [String: Any]) {
@@ -173,3 +175,174 @@ public class SwaggerCommunication {
 //	
 //	postParty(pDictionary: testParty.toDictionary())
 //}
+
+//
+//  SwaggerCommunication.swift
+//  App2Night
+//
+//  Created by Robin on 06.11.16.
+//  Copyright © 2016 DHBW. All rights reserved.
+//
+
+/*
+import UIKit
+import CoreData
+import Alamofire
+
+public class SwaggerCommunication {
+
+public static func fetchParties(completionHandler: @escaping ([Party]?) -> ()) {
+Alamofire.request(Properties.partyUrl, method: .get).validate().responseJSON { (response) in
+// print response data
+print("REQUEST URL:\n\(response.request as Any)")
+print("HTTP URL RESPONSE:\n\(response.response as Any)")
+print("SERVER DATA (BYTES):\n\(response.data as Any)")
+print("RESULT OF SERIALIZATION:\n\(response.result as Any)")
+print("VALUE OF THE RESULT:\n\(response.result.value as Any)")
+
+// switch based on serialization result
+switch response.result {
+case .success:
+print("SERIALIZATION SUCCESS.")
+DispatchQueue.main.async(execute: { () -> Void in
+completionHandler(CoreCommunication.parseParties(pData: (response.result.value)))
+})
+case .failure(let error):
+print("SERIALIZATION FAILED.")
+print(error)
+}
+}.resume()
+}
+
+
+}
+*/
+
+//
+//  CoreCommunication.swift
+//  App2Night
+//
+//  Created by Robin on 06.11.16.
+//  Copyright © 2016 DHBW. All rights reserved.
+//
+
+/*
+import UIKit
+import CoreData
+
+public class CoreCommunication {
+
+private static var partiesArray: [Party] = [Party]()
+
+// parse json into core data
+public static func parseParties(pData: Any?) -> [Party]? {
+let partiesData = pData as! [[String: AnyObject]]
+
+// core data
+let delegate = UIApplication.shared.delegate as! AppDelegate
+let context = delegate.getContext()
+
+// for each party (dictionary) in partiesData
+for Dictionary in partiesData {
+// create core data objects
+let party = Party(context: context)
+let host = Host(context: context)
+let location = Location(context: context)
+
+// party
+party.id = Dictionary["PartId"] as? String
+party.price = Dictionary["Price"] as? String
+party.name = Dictionary["PartyName"] as? String
+party.date = Dictionary["PartyDate"] as? String
+party.music = Dictionary["MusicGenre"] as? String
+party.type = Dictionary["PartyType"] as? String
+party.text = Dictionary["Description"] as? String
+
+// location
+location.country = Dictionary["Location"]!["CountryName"] as? String
+location.city = Dictionary["Location"]!["CityName"] as? String
+location.street = Dictionary["Location"]!["StreetName"] as? String
+location.houseNum = Dictionary["Location"]!["HouseNumber"] as? String
+location.houseNumExtra = Dictionary["Location"]!["HouseNumberAdditional"] as? String
+location.zipcode = Dictionary["Location"]!["Zipcode"] as? String
+location.latitude = Dictionary["Location"]!["Latitude"] as? String
+location.longitude = Dictionary["Location"]!["Longitude"] as? String
+
+// host
+host.id = Dictionary["Host"]!["HostId"] as? String
+host.user = Dictionary["Host"]!["UserName"] as? String
+
+// relationships
+party.location = location
+party.host = host
+location.party = party
+host.addToParty(party)
+
+do {
+try(context.save())
+} catch let e{
+print(e)
+}
+}
+self.loadParties()
+
+return partiesArray
+}
+
+// load parties from core data
+private static func loadParties() {
+let delegate = UIApplication.shared.delegate as! AppDelegate
+let fetchRequest:NSFetchRequest<Party> = Party.fetchRequest()
+
+do {
+let requestResults = try delegate.getContext().fetch(fetchRequest)
+self.partiesArray = requestResults
+} catch let e {
+print(e)
+}
+}
+
+// clear core data
+public static func clearParties() {
+let delegate = UIApplication.shared.delegate as! AppDelegate
+let context = delegate.getContext()
+let fetchRequest:NSFetchRequest<Party> = Party.fetchRequest()
+
+do {
+let requestResults = try delegate.getContext().fetch(fetchRequest)
+for party in requestResults {
+delegate.getContext().delete(party)
+}
+
+do {
+try(context.save())
+} catch let e{
+print(e)
+}
+} catch let e {
+print(e)
+}
+}
+
+/*
+// string to date
+private static func dateWithString(pString: String) -> Date {
+let dateFormatter = DateFormatter()
+dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+let dateConverted = dateFormatter.date(from: pString)
+
+return dateConverted!
+}
+
+// string to decimal
+private static func decimalWithString(pString: String) -> NSDecimalNumber {
+let numberFormatter = NumberFormatter()
+numberFormatter.generatesDecimalNumbers = true
+return numberFormatter.number(from: pString) as? NSDecimalNumber ?? 0
+}
+*/
+
+}
+*/
+
+

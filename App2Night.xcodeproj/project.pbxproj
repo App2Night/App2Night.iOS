@@ -9,21 +9,15 @@
 /* Begin PBXBuildFile section */
 		000168601DC7439E008BB357 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0001685F1DC7439E008BB357 /* Alamofire.framework */; };
 		000168611DC7439E008BB357 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0001685F1DC7439E008BB357 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		00096AB31DCEA9AF0084723E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00096AB21DCEA9AF0084723E /* ViewController.swift */; };
-		002BF74B1DCEAAAC007D56AE /* App2Night.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 002BF7491DCEAAAC007D56AE /* App2Night.xcdatamodeld */; };
-		005A424F1DC90025005E1C8E /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A424E1DC90025005E1C8E /* Enumerations.swift */; };
-		005A42521DC90607005E1C8E /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A42511DC90607005E1C8E /* Properties.swift */; };
-		009D973C1DBE562F005D94FF /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D973B1DBE562F005D94FF /* Party.swift */; };
-		00B05D731DCE2C3C00F7722C /* PartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B05D721DCE2C3C00F7722C /* PartyTableViewController.swift */; };
-		00B05D751DCE2CF300F7722C /* PartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B05D741DCE2CF300F7722C /* PartyTableViewCell.swift */; };
+		0006D59A1DD067CB002F569A /* App2Night.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0006D5981DD067CB002F569A /* App2Night.xcdatamodeld */; };
+		005A424F1DC90025005E1C8E /* Properties+Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */; };
+		009D973C1DBE562F005D94FF /* PartyDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D973B1DBE562F005D94FF /* PartyDeprecated.swift */; };
+		00B05D731DCE2C3C00F7722C /* PartyTableViewControllerDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B05D721DCE2C3C00F7722C /* PartyTableViewControllerDeprecated.swift */; };
 		00CD68AA1DC8FF6D00A0172F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CD68A91DC8FF6D00A0172F /* Launch.storyboard */; };
-		00D921DA1DCB7DDA00737FA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D921D91DCB7DDA00737FA1 /* Main.storyboard */; };
-		00DD842B1DBEBA7C00ACA4F0 /* Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD842A1DBEBA7C00ACA4F0 /* Host.swift */; };
-		00DD842D1DBEBA9E00ACA4F0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD842C1DBEBA9E00ACA4F0 /* Location.swift */; };
-		00EBB5B31DC77B7F0078B05C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EBB5B21DC77B7F0078B05C /* User.swift */; };
+		00D921DA1DCB7DDA00737FA1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D921D91DCB7DDA00737FA1 /* Home.storyboard */; };
 		00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */; };
 		00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F060091DBBD85C003A2A38 /* Assets.xcassets */; };
-		00F060331DBBE9C6003A2A38 /* SwaggerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F060321DBBE9C6003A2A38 /* SwaggerCommunication.swift */; };
+		00F060331DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F060321DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,25 +36,19 @@
 
 /* Begin PBXFileReference section */
 		0001685F1DC7439E008BB357 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
-		00096AB21DCEA9AF0084723E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0006D5991DD067CB002F569A /* App2Night.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App2Night.xcdatamodel; sourceTree = "<group>"; };
 		001F1F191DBFCB21006F668C /* PartyPostValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyPostValue.json; sourceTree = "<group>"; };
-		002BF74A1DCEAAAC007D56AE /* App2Night.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App2Night.xcdatamodel; sourceTree = "<group>"; };
-		005A424E1DC90025005E1C8E /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
-		005A42511DC90607005E1C8E /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
+		005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Properties+Enumerations.swift"; sourceTree = "<group>"; };
 		0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyExampleValue.json; sourceTree = "<group>"; };
-		009D973B1DBE562F005D94FF /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
-		00B05D721DCE2C3C00F7722C /* PartyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewController.swift; sourceTree = "<group>"; };
-		00B05D741DCE2CF300F7722C /* PartyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewCell.swift; sourceTree = "<group>"; };
+		009D973B1DBE562F005D94FF /* PartyDeprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyDeprecated.swift; sourceTree = "<group>"; };
+		00B05D721DCE2C3C00F7722C /* PartyTableViewControllerDeprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewControllerDeprecated.swift; sourceTree = "<group>"; };
 		00CD68A91DC8FF6D00A0172F /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
-		00D921D91DCB7DDA00737FA1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		00DD842A1DBEBA7C00ACA4F0 /* Host.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Host.swift; sourceTree = "<group>"; };
-		00DD842C1DBEBA9E00ACA4F0 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		00EBB5B21DC77B7F0078B05C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		00D921D91DCB7DDA00737FA1 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00F05FFF1DBBD85C003A2A38 /* App2Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App2Night.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F060091DBBD85C003A2A38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00F0600E1DBBD85C003A2A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00F060321DBBE9C6003A2A38 /* SwaggerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunication.swift; sourceTree = "<group>"; };
+		00F060321DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunicationDeprecated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,21 +63,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		005A42501DC9036F005E1C8E /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				005A42511DC90607005E1C8E /* Properties.swift */,
-				005A424E1DC90025005E1C8E /* Enumerations.swift */,
-			);
-			name = Helper;
-			sourceTree = "<group>";
-		};
 		007404591DC8D92900C3C7DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				00096AB21DCEA9AF0084723E /* ViewController.swift */,
-				00B05D721DCE2C3C00F7722C /* PartyTableViewController.swift */,
-				00B05D741DCE2CF300F7722C /* PartyTableViewCell.swift */,
+				00B05D721DCE2C3C00F7722C /* PartyTableViewControllerDeprecated.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -97,11 +74,10 @@
 		009D97371DBE54A1005D94FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				009D973B1DBE562F005D94FF /* Party.swift */,
-				00DD842A1DBEBA7C00ACA4F0 /* Host.swift */,
-				00DD842C1DBEBA9E00ACA4F0 /* Location.swift */,
-				00EBB5B21DC77B7F0078B05C /* User.swift */,
-				005A42501DC9036F005E1C8E /* Helper */,
+				009D973A1DBE556F005D94FF /* API */,
+				009D973B1DBE562F005D94FF /* PartyDeprecated.swift */,
+				0006D5981DD067CB002F569A /* App2Night.xcdatamodeld */,
+				005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -109,7 +85,7 @@
 		009D97381DBE54A8005D94FF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				00D921D91DCB7DDA00737FA1 /* Main.storyboard */,
+				00D921D91DCB7DDA00737FA1 /* Home.storyboard */,
 				00CD68A91DC8FF6D00A0172F /* Launch.storyboard */,
 			);
 			name = View;
@@ -118,7 +94,7 @@
 		009D973A1DBE556F005D94FF /* API */ = {
 			isa = PBXGroup;
 			children = (
-				00F060321DBBE9C6003A2A38 /* SwaggerCommunication.swift */,
+				00F060321DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift */,
 				0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */,
 				001F1F191DBFCB21006F668C /* PartyPostValue.json */,
 			);
@@ -149,11 +125,9 @@
 				009D97371DBE54A1005D94FF /* Model */,
 				009D97381DBE54A8005D94FF /* View */,
 				007404591DC8D92900C3C7DE /* Controller */,
-				009D973A1DBE556F005D94FF /* API */,
 				00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */,
 				00F060091DBBD85C003A2A38 /* Assets.xcassets */,
 				00F0600E1DBBD85C003A2A38 /* Info.plist */,
-				002BF7491DCEAAAC007D56AE /* App2Night.xcdatamodeld */,
 			);
 			path = App2Night;
 			sourceTree = "<group>";
@@ -209,6 +183,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 			);
 			mainGroup = 00F05FF61DBBD85C003A2A38;
 			productRefGroup = 00F060001DBBD85C003A2A38 /* Products */;
@@ -226,7 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */,
-				00D921DA1DCB7DDA00737FA1 /* Main.storyboard in Resources */,
+				00D921DA1DCB7DDA00737FA1 /* Home.storyboard in Resources */,
 				00CD68AA1DC8FF6D00A0172F /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,18 +213,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00B05D731DCE2C3C00F7722C /* PartyTableViewController.swift in Sources */,
-				005A42521DC90607005E1C8E /* Properties.swift in Sources */,
+				00B05D731DCE2C3C00F7722C /* PartyTableViewControllerDeprecated.swift in Sources */,
 				00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */,
-				00EBB5B31DC77B7F0078B05C /* User.swift in Sources */,
-				00F060331DBBE9C6003A2A38 /* SwaggerCommunication.swift in Sources */,
-				002BF74B1DCEAAAC007D56AE /* App2Night.xcdatamodeld in Sources */,
-				00096AB31DCEA9AF0084723E /* ViewController.swift in Sources */,
-				00B05D751DCE2CF300F7722C /* PartyTableViewCell.swift in Sources */,
-				00DD842B1DBEBA7C00ACA4F0 /* Host.swift in Sources */,
-				009D973C1DBE562F005D94FF /* Party.swift in Sources */,
-				005A424F1DC90025005E1C8E /* Enumerations.swift in Sources */,
-				00DD842D1DBEBA9E00ACA4F0 /* Location.swift in Sources */,
+				00F060331DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift in Sources */,
+				0006D59A1DD067CB002F569A /* App2Night.xcdatamodeld in Sources */,
+				009D973C1DBE562F005D94FF /* PartyDeprecated.swift in Sources */,
+				005A424F1DC90025005E1C8E /* Properties+Enumerations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,12 +372,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		002BF7491DCEAAAC007D56AE /* App2Night.xcdatamodeld */ = {
+		0006D5981DD067CB002F569A /* App2Night.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				002BF74A1DCEAAAC007D56AE /* App2Night.xcdatamodel */,
+				0006D5991DD067CB002F569A /* App2Night.xcdatamodel */,
 			);
-			currentVersion = 002BF74A1DCEAAAC007D56AE /* App2Night.xcdatamodel */;
+			currentVersion = 0006D5991DD067CB002F569A /* App2Night.xcdatamodel */;
 			path = App2Night.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

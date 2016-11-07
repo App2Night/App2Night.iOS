@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.saveContext()
 	}
 	
-	// MARK: - Core Data Stack
+	// MARK: - core data stack
 	lazy var persistentContainer: NSPersistentContainer = {
 		/*
 		The persistent container for the application. This implementation
@@ -72,13 +72,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return container
 	}()
 	
-	// MARK: - Core Data Return context
+	// MARK: - core data return context
 	func getContext() -> NSManagedObjectContext {
 		return persistentContainer.viewContext
 	}
 	
-	// MARK: - Core Data Saving support
-	func saveContext () {
+	// MARK: - core data saving support
+	func saveContext() {
 		let context = self.getContext()
 		if context.hasChanges {
 			do {
