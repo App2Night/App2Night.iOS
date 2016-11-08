@@ -1,163 +1,25 @@
 [
- {
- "PartId": "b67fd496-af0f-42f0-9d09-08d402ae0c55",
- "Price": 0,
- "PartyName": "Test Backend",
- "PartyDate": "2016-12-25T19:52:00.294",
- "MusicGenre": 3,
- "Location": {
- "CountryName": null,
- "CityName": "Horb a. N.",
- "StreetName": "Teststraße",
- "HouseNumber": 1,
- "HouseNumberAdditional": "",
- "Zipcode": 55555,
- "Latitude": 48,
- "Longitude": 8
- },
- "PartyType": 2,
- "Description": "This is the description of the Party",
- "Host": {
- "HostId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
- "UserName": "Artem"
- }
- },
- {
- "PartId": "8cc91ed5-f86c-45e8-bbca-08d403202710",
- "Price": 0,
- "PartyName": "Test von Backend",
- "PartyDate": "2016-12-27T12:21:47.349",
- "MusicGenre": 1,
- "Location": {
- "CountryName": null,
- "CityName": "Stuttgart",
- "StreetName": "Florianstraße",
- "HouseNumber": 12,
- "HouseNumberAdditional": "",
- "Zipcode": 70173,
- "Latitude": 48,
- "Longitude": 8
- },
- "PartyType": 0,
- "Description": "Test description for a party...",
- "Host": {
- "HostId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
- "UserName": "Artem"
- }
- },
- {
- "PartId": "6cd06908-78f2-48bd-69cf-08d4032c25da",
- "Price": 0,
- "PartyName": "Swinger Stammtisch",
- "PartyDate": "2016-12-25T19:52:00.294",
- "MusicGenre": 3,
- "Location": {
- "CountryName": null,
- "CityName": "Horb a. N.",
- "StreetName": "Teststraße",
- "HouseNumber": 1,
- "HouseNumberAdditional": "",
- "Zipcode": 55555,
- "Latitude": 48,
- "Longitude": 8
- },
- "PartyType": 2,
- "Description": "This is the description of the Party",
- "Host": {
- "HostId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
- "UserName": "Artem"
- }
- },
- {
- "PartId": "2618adfd-4844-495f-a58f-08d4065e3ebd",
- "Price": 0,
- "PartyName": "Geile Sause",
- "PartyDate": "2017-11-06T14:06:36.823",
- "MusicGenre": 1,
- "Location": {
- "CountryName": null,
- "CityName": "stadt",
- "StreetName": "str",
- "HouseNumber": 5,
- "HouseNumberAdditional": "b",
- "Zipcode": 50555,
- "Latitude": 48,
- "Longitude": 8
- },
- "PartyType": 2,
- "Description": "Bla",
- "Host": {
- "HostId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
- "UserName": "Artem"
- }
- },
- {
- "PartId": "50eb052c-d28d-4a24-a590-08d4065e3ebd",
- "Price": 0,
- "PartyName": "Geile Sause",
- "PartyDate": "2017-11-06T14:06:36.823",
- "MusicGenre": 1,
- "Location": {
- "CountryName": null,
- "CityName": "stadt",
- "StreetName": "str",
- "HouseNumber": 5,
- "HouseNumberAdditional": "b",
- "Zipcode": 50555,
- "Latitude": 48,
- "Longitude": 8
- },
- "PartyType": 2,
- "Description": "Bla",
- "Host": {
- "HostId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
- "UserName": "Artem"
- }
- },
- {
- "PartId": "7c653815-3afe-4978-a591-08d4065e3ebd",
- "Price": 0,
- "PartyName": "Geile Sause",
- "PartyDate": "2017-11-06T14:06:36.823",
- "MusicGenre": 1,
- "Location": {
- "CountryName": null,
- "CityName": "stadt",
- "StreetName": "str",
- "HouseNumber": 5,
- "HouseNumberAdditional": "b",
- "Zipcode": 50555,
- "Latitude": 48,
- "Longitude": 8
- },
- "PartyType": 2,
- "Description": "Bla",
- "Host": {
- "HostId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
- "UserName": "Artem"
- }
- },
- {
- "PartId": "86a41982-2d23-4f30-a592-08d4065e3ebd",
- "Price": 0,
- "PartyName": "Geile Sause",
- "PartyDate": "2017-11-06T14:06:36.823",
- "MusicGenre": 1,
- "Location": {
- "CountryName": null,
- "CityName": "stadt",
- "StreetName": "str",
- "HouseNumber": 5,
- "HouseNumberAdditional": "b",
- "Zipcode": 50555,
- "Latitude": 48,
- "Longitude": 8
- },
- "PartyType": 2,
- "Description": "Bla",
- "Host": {
- "HostId": "1bd535c8-f90b-4a25-5b26-08d3f9b43b33",
- "UserName": "Artem"
- }
- }
+  {
+  "PartyId":"9cc29810-c47f-49e4-e684-08d4075b4e8f",
+  "Price":0,
+  "PartyName":"Backend Testparty",
+  "PartyDate":"2016-12-27T12:21:47.349",
+  "MusicGenre":1,
+  "Location":{
+	"CountryName":"Germany",
+	"CityName":"Stuttgart",
+	"StreetName":"Florianstraße",
+	"HouseNumber":"12",
+	"HouseNumberAdditional":null,
+	"Zipcode":"70188",
+	"Latitude":48.7849762,
+	"Longitude":9.2065099
+	},
+  "PartyType":0,
+  "Description":"Test description for a party...",
+  "Host":{
+	"HostId":"7754fde5-ec70-45b5-72dc-08d403b9007a",
+	"UserName":"Markus"
+	}
+  }
 ]

@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: properties
+// MARK: properties struct
 struct Properties {
 	
 	// Backend URLs
@@ -23,7 +23,7 @@ struct Properties {
 }
 
 // MARK: - enumerations
-public enum EventCommitment: String {
+enum EventCommitment: String {
 	
 	// Accepted
 	// Noted
@@ -36,7 +36,7 @@ public enum EventCommitment: String {
 	
 }
 
-public enum Gender: String {
+enum Gender: String {
 	
 	// Unknown
 	// Men
@@ -49,7 +49,7 @@ public enum Gender: String {
 	
 }
 
-public enum MusicGenre: String {
+enum MusicGenre: String {
 	
 	// All
 	// Rock
@@ -68,7 +68,7 @@ public enum MusicGenre: String {
 	
 }
 
-public enum PartyType: String {
+enum PartyType: String {
 	
 	// Bar
 	// Disco

@@ -203,10 +203,10 @@
             </objects>
             <point key="canvasLocation" x="4654" y="-2250"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Party Table Controller-->
         <scene sceneID="9m1-yf-npd">
             <objects>
-                <tableViewController id="0q8-5X-VII" sceneMemberID="viewController">
+                <tableViewController id="0q8-5X-VII" customClass="PartyTableController" customModule="App2Night" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xmZ-nW-a8w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,7 +216,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MUZ-Yk-LAg" id="cYJ-ns-Z2T">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -230,7 +230,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppy-uk-PCi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5553" y="-2250"/>
+            <point key="canvasLocation" x="5511" y="-2250"/>
         </scene>
         <!--Item-->
         <scene sceneID="QoH-im-Uwy">
