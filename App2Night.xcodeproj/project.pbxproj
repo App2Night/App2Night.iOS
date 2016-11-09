@@ -9,15 +9,21 @@
 /* Begin PBXBuildFile section */
 		0006D59A1DD067CB002F569A /* App2Night.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0006D5981DD067CB002F569A /* App2Night.xcdatamodeld */; };
 		0037A86F1DD3819800DA5E9E /* DummyParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037A86E1DD3819800DA5E9E /* DummyParty.swift */; };
-		003E2AFC1DD1EE3300A21284 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 003E2AFB1DD1EE3300A21284 /* Alamofire.framework */; };
-		003E2AFD1DD1EE3300A21284 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 003E2AFB1DD1EE3300A21284 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		004433F91DD11A2B0012755C /* SwaggerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004433F81DD11A2B0012755C /* SwaggerCommunication.swift */; };
 		004433FC1DD11B030012755C /* CoreDataCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004433FB1DD11B030012755C /* CoreDataCommunication.swift */; };
 		005A424F1DC90025005E1C8E /* Properties+Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */; };
 		005A9BC01DD122CA001F4B4E /* PartyTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A9BBF1DD122CA001F4B4E /* PartyTableController.swift */; };
+		006C496C1DD3B8B6005FC4DF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006C496B1DD3B8B6005FC4DF /* Alamofire.framework */; };
+		006C496D1DD3B8B6005FC4DF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 006C496B1DD3B8B6005FC4DF /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		006C49701DD3B8C0005FC4DF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006C496F1DD3B8C0005FC4DF /* SwiftyJSON.framework */; };
+		006C49711DD3B8C0005FC4DF /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 006C496F1DD3B8C0005FC4DF /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		009D973C1DBE562F005D94FF /* PartyDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D973B1DBE562F005D94FF /* PartyDeprecated.swift */; };
 		00B05D731DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B05D721DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift */; };
 		00CD68AA1DC8FF6D00A0172F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CD68A91DC8FF6D00A0172F /* Launch.storyboard */; };
+		00D200691DD3BA0700A23607 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D200681DD3BA0700A23607 /* Realm.framework */; };
+		00D2006A1DD3BA0700A23607 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00D200681DD3BA0700A23607 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		00D2006C1DD3BA1100A23607 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D2006B1DD3BA1100A23607 /* RealmSwift.framework */; };
+		00D2006D1DD3BA1100A23607 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00D2006B1DD3BA1100A23607 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00D921DA1DCB7DDA00737FA1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D921D91DCB7DDA00737FA1 /* Home.storyboard */; };
 		00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */; };
 		00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F060091DBBD85C003A2A38 /* Assets.xcassets */; };
@@ -25,13 +31,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		000168621DC7439E008BB357 /* Embed Frameworks */ = {
+		006C496E1DD3B8B6005FC4DF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				003E2AFD1DD1EE3300A21284 /* Alamofire.framework in Embed Frameworks */,
+				00D2006A1DD3BA0700A23607 /* Realm.framework in Embed Frameworks */,
+				006C49711DD3B8C0005FC4DF /* SwiftyJSON.framework in Embed Frameworks */,
+				00D2006D1DD3BA1100A23607 /* RealmSwift.framework in Embed Frameworks */,
+				006C496D1DD3B8B6005FC4DF /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,15 +51,18 @@
 		0006D5991DD067CB002F569A /* App2Night.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App2Night.xcdatamodel; sourceTree = "<group>"; };
 		001F1F191DBFCB21006F668C /* PartyPostValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyPostValue.json; sourceTree = "<group>"; };
 		0037A86E1DD3819800DA5E9E /* DummyParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyParty.swift; sourceTree = "<group>"; };
-		003E2AFB1DD1EE3300A21284 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		004433F81DD11A2B0012755C /* SwaggerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunication.swift; sourceTree = "<group>"; };
 		004433FB1DD11B030012755C /* CoreDataCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCommunication.swift; sourceTree = "<group>"; };
 		005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Properties+Enumerations.swift"; sourceTree = "<group>"; };
 		005A9BBF1DD122CA001F4B4E /* PartyTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableController.swift; sourceTree = "<group>"; };
+		006C496B1DD3B8B6005FC4DF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
+		006C496F1DD3B8C0005FC4DF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Frameworks/SwiftyJSON.framework; sourceTree = "<group>"; };
 		0093C8801DBF563D00FB7FCA /* PartyGetValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyGetValue.json; sourceTree = "<group>"; };
 		009D973B1DBE562F005D94FF /* PartyDeprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyDeprecated.swift; sourceTree = "<group>"; };
 		00B05D721DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewControllerTobias.swift; sourceTree = "<group>"; };
 		00CD68A91DC8FF6D00A0172F /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		00D200681DD3BA0700A23607 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Realm.framework; sourceTree = "<group>"; };
+		00D2006B1DD3BA1100A23607 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/RealmSwift.framework; sourceTree = "<group>"; };
 		00D921D91DCB7DDA00737FA1 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00F05FFF1DBBD85C003A2A38 /* App2Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App2Night.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +76,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				003E2AFC1DD1EE3300A21284 /* Alamofire.framework in Frameworks */,
+				00D200691DD3BA0700A23607 /* Realm.framework in Frameworks */,
+				006C49701DD3B8C0005FC4DF /* SwiftyJSON.framework in Frameworks */,
+				00D2006C1DD3BA1100A23607 /* RealmSwift.framework in Frameworks */,
+				006C496C1DD3B8B6005FC4DF /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +170,10 @@
 		00F060141DBBE27C003A2A38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				003E2AFB1DD1EE3300A21284 /* Alamofire.framework */,
+				006C496B1DD3B8B6005FC4DF /* Alamofire.framework */,
+				006C496F1DD3B8C0005FC4DF /* SwiftyJSON.framework */,
+				00D200681DD3BA0700A23607 /* Realm.framework */,
+				00D2006B1DD3BA1100A23607 /* RealmSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,7 +188,7 @@
 				00F05FFB1DBBD85C003A2A38 /* Sources */,
 				00F05FFC1DBBD85C003A2A38 /* Frameworks */,
 				00F05FFD1DBBD85C003A2A38 /* Resources */,
-				000168621DC7439E008BB357 /* Embed Frameworks */,
+				006C496E1DD3B8B6005FC4DF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

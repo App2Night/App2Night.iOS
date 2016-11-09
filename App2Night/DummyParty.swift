@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Party {
+public class dParty {
 	
 	var id: String!
 	var name: String!
@@ -17,19 +17,19 @@ public class Party {
 	var musicGenre: Int!
 	var type: Int!
 	var text: String!
-	var location: Location!
-	var host: Host!
+	var location: dLocation!
+	var host: dHost!
 	
-	static var partiesArray: [Party] = []
+	static var partiesArray: [dParty] = []
 	
 	init() {
 		setupDummyData()
-		Party.partiesArray.append(self)
+		dParty.partiesArray.append(self)
 	}
 	
 	func setupDummyData() {
-		let location: Location = {
-			let location = Location()
+		let location: dLocation = {
+			let location = dLocation()
 			
 			location.countryName = "Germany"
 			location.cityName = "Horb am Neckar"
@@ -43,8 +43,8 @@ public class Party {
 			return location
 		}()
 		
-		let host: Host = {
-			let host = Host()
+		let host: dHost = {
+			let host = dHost()
 			
 			host.id = "7754fde5-ec70-45b5-72dc-08d403b9007a"
 			host.userName = "Markus"
@@ -67,7 +67,7 @@ public class Party {
 	
 }
 
-public class Location {
+public class dLocation {
 	
 	var countryName: String!
 	var cityName: String!
@@ -85,7 +85,7 @@ public class Location {
 	
 }
 
-public class Host {
+public class dHost {
 	
 	var id: String!
 	var userName: String!
