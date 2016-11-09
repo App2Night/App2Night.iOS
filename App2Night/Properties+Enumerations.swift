@@ -1,5 +1,5 @@
 //
-//  Enumerations.swift
+//  Properties+Enumerations.swift
 //  App2Night
 //
 //  Created by Robin on 01.11.16.
@@ -8,21 +8,21 @@
 
 import Foundation
 
-// MARK: properties struct
+// MARK: struct: properties
 struct Properties {
 	
-	// Backend URLs
+	// backend urls
 	private static let baseApiUrl = "https://app2nightapi.azurewebsites.net/"
 	private static let baseUserUrl = "https://app2nightuser.azurewebsites.net/"
 	
-	// Specific URLs
+	// specific urls
 	public static let partyUrl = baseApiUrl + "api/party"
 	public static let tokenUrl = baseUserUrl + "connect/token"
 	
 	
 }
 
-// MARK: - enumerations
+// MARK: - enumerations: models
 enum EventCommitment: String {
 	
 	// Accepted

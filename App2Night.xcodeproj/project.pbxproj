@@ -8,17 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0006D59A1DD067CB002F569A /* App2Night.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0006D5981DD067CB002F569A /* App2Night.xcdatamodeld */; };
+		0037A86F1DD3819800DA5E9E /* DummyParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037A86E1DD3819800DA5E9E /* DummyParty.swift */; };
 		003E2AFC1DD1EE3300A21284 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 003E2AFB1DD1EE3300A21284 /* Alamofire.framework */; };
 		003E2AFD1DD1EE3300A21284 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 003E2AFB1DD1EE3300A21284 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		004433F91DD11A2B0012755C /* SwaggerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004433F81DD11A2B0012755C /* SwaggerCommunication.swift */; };
 		004433FC1DD11B030012755C /* CoreDataCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004433FB1DD11B030012755C /* CoreDataCommunication.swift */; };
 		005A424F1DC90025005E1C8E /* Properties+Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */; };
 		005A9BC01DD122CA001F4B4E /* PartyTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A9BBF1DD122CA001F4B4E /* PartyTableController.swift */; };
-		006124D91DD21A49002BDB58 /* Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006124D31DD21A49002BDB58 /* Host.swift */; };
-		006124DB1DD21A49002BDB58 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006124D51DD21A49002BDB58 /* Party.swift */; };
-		006124DD1DD21A49002BDB58 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006124D71DD21A49002BDB58 /* Location.swift */; };
 		009D973C1DBE562F005D94FF /* PartyDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D973B1DBE562F005D94FF /* PartyDeprecated.swift */; };
-		00B05D731DCE2C3C00F7722C /* PartyTableViewControllerDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B05D721DCE2C3C00F7722C /* PartyTableViewControllerDeprecated.swift */; };
+		00B05D731DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B05D721DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift */; };
 		00CD68AA1DC8FF6D00A0172F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CD68A91DC8FF6D00A0172F /* Launch.storyboard */; };
 		00D921DA1DCB7DDA00737FA1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D921D91DCB7DDA00737FA1 /* Home.storyboard */; };
 		00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */; };
@@ -43,17 +41,15 @@
 /* Begin PBXFileReference section */
 		0006D5991DD067CB002F569A /* App2Night.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App2Night.xcdatamodel; sourceTree = "<group>"; };
 		001F1F191DBFCB21006F668C /* PartyPostValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyPostValue.json; sourceTree = "<group>"; };
+		0037A86E1DD3819800DA5E9E /* DummyParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyParty.swift; sourceTree = "<group>"; };
 		003E2AFB1DD1EE3300A21284 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		004433F81DD11A2B0012755C /* SwaggerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunication.swift; sourceTree = "<group>"; };
 		004433FB1DD11B030012755C /* CoreDataCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCommunication.swift; sourceTree = "<group>"; };
 		005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Properties+Enumerations.swift"; sourceTree = "<group>"; };
 		005A9BBF1DD122CA001F4B4E /* PartyTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableController.swift; sourceTree = "<group>"; };
-		006124D31DD21A49002BDB58 /* Host.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Host.swift; sourceTree = "<group>"; };
-		006124D51DD21A49002BDB58 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
-		006124D71DD21A49002BDB58 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyExampleValue.json; sourceTree = "<group>"; };
+		0093C8801DBF563D00FB7FCA /* PartyGetValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyGetValue.json; sourceTree = "<group>"; };
 		009D973B1DBE562F005D94FF /* PartyDeprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyDeprecated.swift; sourceTree = "<group>"; };
-		00B05D721DCE2C3C00F7722C /* PartyTableViewControllerDeprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewControllerDeprecated.swift; sourceTree = "<group>"; };
+		00B05D721DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewControllerTobias.swift; sourceTree = "<group>"; };
 		00CD68A91DC8FF6D00A0172F /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		00D921D91DCB7DDA00737FA1 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +76,6 @@
 			children = (
 				009D973B1DBE562F005D94FF /* PartyDeprecated.swift */,
 				00F060321DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift */,
-				00B05D721DCE2C3C00F7722C /* PartyTableViewControllerDeprecated.swift */,
 			);
 			name = Deprecated;
 			sourceTree = "<group>";
@@ -89,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				005A9BBF1DD122CA001F4B4E /* PartyTableController.swift */,
+				00B05D721DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -96,13 +92,11 @@
 		009D97371DBE54A1005D94FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				006124D31DD21A49002BDB58 /* Host.swift */,
-				006124D51DD21A49002BDB58 /* Party.swift */,
-				006124D71DD21A49002BDB58 /* Location.swift */,
+				0037A86E1DD3819800DA5E9E /* DummyParty.swift */,
 				004433FB1DD11B030012755C /* CoreDataCommunication.swift */,
 				005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */,
-				009D973A1DBE556F005D94FF /* API */,
 				0006D5981DD067CB002F569A /* App2Night.xcdatamodeld */,
+				009D973A1DBE556F005D94FF /* API */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -120,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				004433F81DD11A2B0012755C /* SwaggerCommunication.swift */,
-				0093C8801DBF563D00FB7FCA /* PartyExampleValue.json */,
+				0093C8801DBF563D00FB7FCA /* PartyGetValue.json */,
 				001F1F191DBFCB21006F668C /* PartyPostValue.json */,
 			);
 			name = API;
@@ -239,18 +233,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				006124DD1DD21A49002BDB58 /* Location.swift in Sources */,
-				006124DB1DD21A49002BDB58 /* Party.swift in Sources */,
 				004433F91DD11A2B0012755C /* SwaggerCommunication.swift in Sources */,
-				00B05D731DCE2C3C00F7722C /* PartyTableViewControllerDeprecated.swift in Sources */,
+				00B05D731DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift in Sources */,
 				00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */,
 				005A9BC01DD122CA001F4B4E /* PartyTableController.swift in Sources */,
 				00F060331DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift in Sources */,
 				0006D59A1DD067CB002F569A /* App2Night.xcdatamodeld in Sources */,
 				009D973C1DBE562F005D94FF /* PartyDeprecated.swift in Sources */,
+				0037A86F1DD3819800DA5E9E /* DummyParty.swift in Sources */,
 				005A424F1DC90025005E1C8E /* Properties+Enumerations.swift in Sources */,
 				004433FC1DD11B030012755C /* CoreDataCommunication.swift in Sources */,
-				006124D91DD21A49002BDB58 /* Host.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
