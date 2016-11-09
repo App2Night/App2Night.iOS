@@ -7,11 +7,29 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PartyTableViewController: UITableViewController {
 	
+	var partiesArray: [Party] = [Party]()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		let realm = try! Realm()
+		let store = RealmCommunication()
+		
+		store.deleteRealm(realm: realm)
+		
+		let firstParty = store.createDummy()
+		
+		try! realm.write {
+			realm.add(firstParty)
+			print("SAVED TO REALM.")
+		}
+		
+		self.partiesArray = Array(realm.objects(Party.self))
+		
 		// Uncomment the following line to preserve selection between presentations
 		// self.clearsSelectionOnViewWillAppear = false
 		
@@ -27,15 +45,15 @@ class PartyTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		// Anzahl der Tabellen-Cellen untereinander
-		return 4
+		return partiesArray.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "PartyTableViewCell", for: indexPath) as! PartyTableViewCell
 		// Configure the cell...
-		cell.Distance.text = "1 km"
-		cell.PartyLocation.text = "Obertal"
-		cell.PartyName.text = "King-Partei"
+		cell.Distance.text = "0"
+		cell.PartyLocation.text = (self.partiesArray[indexPath.row].location! as Location).cityName
+		cell.PartyName.text = self.partiesArray[indexPath.row].name
 		
 		return cell
 	}
