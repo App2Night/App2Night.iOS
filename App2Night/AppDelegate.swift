@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		
+		setupColors()
+		
 		return true
 	}
 	
@@ -39,6 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+	}
+	
+	func setupColors() {
+		window?.backgroundColor = Colors.white
+		window?.tintColor = Colors.red
 	}
 	
 	

@@ -10,12 +10,11 @@
 		0037A86F1DD3819800DA5E9E /* DummyParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037A86E1DD3819800DA5E9E /* DummyParty.swift */; };
 		004433F91DD11A2B0012755C /* SwaggerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004433F81DD11A2B0012755C /* SwaggerCommunication.swift */; };
 		005A424F1DC90025005E1C8E /* Properties+Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */; };
-		005A9BC01DD122CA001F4B4E /* PartyTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A9BBF1DD122CA001F4B4E /* PartyTableController.swift */; };
+		005A9BC01DD122CA001F4B4E /* PartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A9BBF1DD122CA001F4B4E /* PartyTableViewController.swift */; };
 		005BF77C1DD3C7F3003C9036 /* RealmCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005BF77B1DD3C7F3003C9036 /* RealmCommunication.swift */; };
 		006C496C1DD3B8B6005FC4DF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006C496B1DD3B8B6005FC4DF /* Alamofire.framework */; };
 		006C496D1DD3B8B6005FC4DF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 006C496B1DD3B8B6005FC4DF /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		009D973C1DBE562F005D94FF /* PartyDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D973B1DBE562F005D94FF /* PartyDeprecated.swift */; };
-		00B05D731DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B05D721DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift */; };
 		00B0C8E51DD52F4700BDCD33 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B0C8E41DD52F4700BDCD33 /* SwiftyJSON.framework */; };
 		00B0C8E61DD52F4700BDCD33 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00B0C8E41DD52F4700BDCD33 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00CD68AA1DC8FF6D00A0172F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CD68A91DC8FF6D00A0172F /* Launch.storyboard */; };
@@ -25,6 +24,8 @@
 		00D2006D1DD3BA1100A23607 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00D2006B1DD3BA1100A23607 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00D921DA1DCB7DDA00737FA1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D921D91DCB7DDA00737FA1 /* Home.storyboard */; };
 		00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */; };
+		00EE27861DD65750004053FE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EE27851DD65750004053FE /* Colors.swift */; };
+		00EE27881DD65E37004053FE /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EE27871DD65E37004053FE /* RootTabBarController.swift */; };
 		00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F060091DBBD85C003A2A38 /* Assets.xcassets */; };
 		00F060331DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F060321DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift */; };
 		00FF2B871DD5250400312084 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF2B861DD5250400312084 /* Party.swift */; };
@@ -54,18 +55,19 @@
 		0037A86E1DD3819800DA5E9E /* DummyParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyParty.swift; sourceTree = "<group>"; };
 		004433F81DD11A2B0012755C /* SwaggerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunication.swift; sourceTree = "<group>"; };
 		005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Properties+Enumerations.swift"; sourceTree = "<group>"; };
-		005A9BBF1DD122CA001F4B4E /* PartyTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableController.swift; sourceTree = "<group>"; };
+		005A9BBF1DD122CA001F4B4E /* PartyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewController.swift; sourceTree = "<group>"; };
 		005BF77B1DD3C7F3003C9036 /* RealmCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmCommunication.swift; sourceTree = "<group>"; };
 		006C496B1DD3B8B6005FC4DF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		0093C8801DBF563D00FB7FCA /* PartyGetValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyGetValue.json; sourceTree = "<group>"; };
 		009D973B1DBE562F005D94FF /* PartyDeprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyDeprecated.swift; sourceTree = "<group>"; };
-		00B05D721DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewControllerTobias.swift; sourceTree = "<group>"; };
 		00B0C8E41DD52F4700BDCD33 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Frameworks/SwiftyJSON.framework; sourceTree = "<group>"; };
 		00CD68A91DC8FF6D00A0172F /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		00D200681DD3BA0700A23607 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Realm.framework; sourceTree = "<group>"; };
 		00D2006B1DD3BA1100A23607 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/RealmSwift.framework; sourceTree = "<group>"; };
 		00D921D91DCB7DDA00737FA1 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		00EE27851DD65750004053FE /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		00EE27871DD65E37004053FE /* RootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		00F05FFF1DBBD85C003A2A38 /* App2Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App2Night.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F060091DBBD85C003A2A38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00F0600E1DBBD85C003A2A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,8 +105,8 @@
 		007404591DC8D92900C3C7DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				005A9BBF1DD122CA001F4B4E /* PartyTableController.swift */,
-				00B05D721DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift */,
+				00EE27871DD65E37004053FE /* RootTabBarController.swift */,
+				005A9BBF1DD122CA001F4B4E /* PartyTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -127,6 +129,7 @@
 			children = (
 				00D921D91DCB7DDA00737FA1 /* Home.storyboard */,
 				00CD68A91DC8FF6D00A0172F /* Launch.storyboard */,
+				00EE27851DD65750004053FE /* Colors.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -258,13 +261,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				004433F91DD11A2B0012755C /* SwaggerCommunication.swift in Sources */,
-				00B05D731DCE2C3C00F7722C /* PartyTableViewControllerTobias.swift in Sources */,
+				00EE27881DD65E37004053FE /* RootTabBarController.swift in Sources */,
 				00FF2B871DD5250400312084 /* Party.swift in Sources */,
 				00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */,
 				00FF2B8B1DD5251A00312084 /* Host.swift in Sources */,
-				005A9BC01DD122CA001F4B4E /* PartyTableController.swift in Sources */,
+				005A9BC01DD122CA001F4B4E /* PartyTableViewController.swift in Sources */,
 				00F060331DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift in Sources */,
 				009D973C1DBE562F005D94FF /* PartyDeprecated.swift in Sources */,
+				00EE27861DD65750004053FE /* Colors.swift in Sources */,
 				0037A86F1DD3819800DA5E9E /* DummyParty.swift in Sources */,
 				005A424F1DC90025005E1C8E /* Properties+Enumerations.swift in Sources */,
 				00FF2B891DD5250F00312084 /* Location.swift in Sources */,

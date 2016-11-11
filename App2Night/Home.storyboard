@@ -166,28 +166,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ljS-X6-9C0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7166" y="-3321"/>
+            <point key="canvasLocation" x="5705" y="-3386"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="NK6-QG-bvU">
-            <objects>
-                <navigationController id="sgS-f2-HGh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MH0-kk-NLX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="LXV-P2-z7S" kind="relationship" relationship="rootViewController" id="LNb-f4-7kH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WC3-CM-pWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6292" y="-2946"/>
-        </scene>
-        <!--Tab Bar Controller-->
+        <!--Root Tab Bar Controller-->
         <scene sceneID="aKM-po-RCG">
             <objects>
-                <tabBarController id="Rfa-FZ-iGd" sceneMemberID="viewController">
+                <tabBarController id="Rfa-FZ-iGd" customClass="RootTabBarController" customModule="App2Night" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="YQ3-db-ESC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -196,127 +180,105 @@
                     <connections>
                         <segue destination="SED-fc-tpd" kind="relationship" relationship="viewControllers" id="c0R-QO-O02"/>
                         <segue destination="JgJ-ez-Qn2" kind="relationship" relationship="viewControllers" id="GAn-h7-mYQ"/>
+                        <segue destination="EvP-6f-6Ge" kind="relationship" relationship="viewControllers" id="dzE-ue-UYO"/>
+                        <segue destination="h6T-H7-Py2" kind="relationship" relationship="viewControllers" id="AsT-mi-TgQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4u0-Uu-2bo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3602" y="-1578"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Parties-->
         <scene sceneID="WRR-PB-dZN">
             <objects>
                 <navigationController id="SED-fc-tpd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="EpZ-PN-shf"/>
+                    <tabBarItem key="tabBarItem" title="Parties" image="Near Me" selectedImage="Near Me" id="EpZ-PN-shf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cAA-BU-EYj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="tCo-mi-ZVE" kind="relationship" relationship="rootViewController" id="enZ-hT-Hit"/>
+                        <segue destination="Phl-tX-z9d" kind="relationship" relationship="rootViewController" id="5eY-k1-kX5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mq2-oW-Qpx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4654" y="-2250"/>
         </scene>
-        <!--Party Table Controller-->
-        <scene sceneID="9m1-yf-npd">
+        <!--Parties in deiner Nähe-->
+        <scene sceneID="4OA-qN-Yx1">
             <objects>
-                <tableViewController id="0q8-5X-VII" customClass="PartyTableController" customModule="App2Night" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xmZ-nW-a8w">
+                <tableViewController id="Phl-tX-z9d" customClass="PartyTableViewController" customModule="App2Night" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="vq8-nf-eqH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MUZ-Yk-LAg">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MUZ-Yk-LAg" id="cYJ-ns-Z2T">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="0q8-5X-VII" id="AAs-qh-47b"/>
-                            <outlet property="delegate" destination="0q8-5X-VII" id="l5n-0N-LUp"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="14f-Gb-GPJ"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ppy-uk-PCi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4654" y="-2946"/>
-        </scene>
-        <!--Parties in deiner Umgebung-->
-        <scene sceneID="QoH-im-Uwy">
-            <objects>
-                <tableViewController id="tCo-mi-ZVE" customClass="PartyTableViewController" customModule="App2Night" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jt7-5Y-vxe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PartyTableViewCell" rowHeight="90" id="1lr-A7-fly" customClass="PartyTableViewCell" customModule="App2Night">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PartyTableViewCell" rowHeight="90" id="VhB-lT-CI3" customClass="PartyTableViewCell" customModule="App2Night" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" userInteractionEnabled="NO" contentMode="scaleToFill" tableViewCell="1lr-A7-fly" id="VS9-dy-VNU">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VhB-lT-CI3" id="JVd-gv-Q7c">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDI-zt-ZCy">
-                                            <rect key="frame" x="261" y="60" width="106" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="partyName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ev8-Iv-Z6Q">
+                                            <rect key="frame" x="8" y="8" width="280" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PartyLocation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpy-sP-Ltc">
-                                            <rect key="frame" x="8" y="60" width="245" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="partyText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2H-4g-AaK">
+                                            <rect key="frame" x="8" y="33" width="280" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PartyName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzw-AH-CKm">
-                                            <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="partyLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q90-mX-EGv">
+                                            <rect key="frame" x="8" y="59" width="280" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxU-As-1ca">
+                                            <rect key="frame" x="297" y="9" width="70" height="70"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="Distance" destination="IDI-zt-ZCy" id="90C-WL-paE"/>
-                                    <outlet property="PartyLocation" destination="Vpy-sP-Ltc" id="sl1-Ka-FHr"/>
-                                    <outlet property="PartyName" destination="Hzw-AH-CKm" id="D8w-17-U7F"/>
+                                    <outlet property="partyDistance" destination="sxU-As-1ca" id="4B0-ab-bPc"/>
+                                    <outlet property="partyLabel" destination="Q90-mX-EGv" id="DXb-Pn-ctA"/>
+                                    <outlet property="partyName" destination="Ev8-Iv-Z6Q" id="uzU-li-xtL"/>
+                                    <outlet property="partyText" destination="k2H-4g-AaK" id="0HE-iY-72D"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="tCo-mi-ZVE" id="iQg-Ca-rPH"/>
-                            <outlet property="delegate" destination="tCo-mi-ZVE" id="Jb2-7Y-vec"/>
+                            <outlet property="dataSource" destination="Phl-tX-z9d" id="qK2-JW-7L9"/>
+                            <outlet property="delegate" destination="Phl-tX-z9d" id="7ao-b7-Zk1"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="F2i-6U-8uS"/>
-                    <navigationItem key="navigationItem" title="Parties in deiner Umgebung" id="1T9-2d-mRD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1aK-L1-eJB">
-                            <connections>
-                                <segue destination="sgS-f2-HGh" kind="presentation" id="MKE-Ln-lJF"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Parties in deiner Nähe" id="64M-MU-nZk">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="FPH-nc-Hi9"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wLD-5z-Tnq"/>
                     </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VFf-8W-O7K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iFJ-Lb-3Wd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5496.8000000000002" y="-2250.2248875562223"/>
+            <point key="canvasLocation" x="5704.8000000000002" y="-2250.2248875562223"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favoriten-->
         <scene sceneID="ZDM-Sk-NnE">
             <objects>
                 <navigationController id="JgJ-ez-Qn2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="w2G-BR-7iE"/>
+                    <tabBarItem key="tabBarItem" title="Favoriten" image="Star" selectedImage="Star" id="w2G-BR-7iE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mJ5-Zi-vGI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -326,5 +288,39 @@
             </objects>
             <point key="canvasLocation" x="4654" y="-1578"/>
         </scene>
+        <!--Suche-->
+        <scene sceneID="hwc-Ka-2Oc">
+            <objects>
+                <navigationController id="EvP-6f-6Ge" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Suche" image="Search" selectedImage="Search" id="wHX-UK-g0l"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="szL-r4-KKe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72f-jb-Zkr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4654" y="-794"/>
+        </scene>
+        <!--Einstellungen-->
+        <scene sceneID="XMG-R7-ctw">
+            <objects>
+                <navigationController id="h6T-H7-Py2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Einstellungen" image="Circled User Male" selectedImage="Circled User Male" id="mUQ-yQ-dbC"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MP7-HS-0xv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zdu-Hd-dHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4654" y="-40"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Circled User Male" width="25" height="25"/>
+        <image name="Near Me" width="25" height="25"/>
+        <image name="Search" width="25" height="25"/>
+        <image name="Star" width="25" height="25"/>
+    </resources>
 </document>

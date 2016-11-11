@@ -12,15 +12,16 @@ import SwiftyJSON
 
 class RealmCommunication {
 	
-	static var partiesArray: [Party]?
-	
+	// parse json type safe into realm
 	static func parseParties(json: JSON) {
 		let realm = try! Realm()
 		
+		// for each (index, object) in json
 		for (_, object) in json {
 			let hostId = object["Host"]["HostId"].stringValue
 			let existingHost = doesHostExist(realm: realm, id: hostId)
 			
+			// does the host already exist; add new host or update existing host
 			switch existingHost {
 			case true:
 				// create objects
@@ -36,7 +37,7 @@ class RealmCommunication {
 				party.id = object["PartyId"].stringValue
 				party.name = object["PartyName"].stringValue
 				party.price = object["Price"].intValue
-				party.date = object["PartyDate"].stringValue
+				party.date = formatDate(string: (object["PartyDate"].stringValue))
 				party.musicGenre = object["MusicGenre"].intValue
 				party.type = object["PartyType"].intValue
 				party.text = object["Description"].stringValue
@@ -71,7 +72,7 @@ class RealmCommunication {
 				party.id = object["PartyId"].stringValue
 				party.name = object["PartyName"].stringValue
 				party.price = object["Price"].intValue
-				party.date = object["PartyDate"].stringValue
+				party.date = formatDate(string: (object["PartyDate"].stringValue))
 				party.musicGenre = object["MusicGenre"].intValue
 				party.type = object["PartyType"].intValue
 				party.text = object["Description"].stringValue
@@ -97,7 +98,15 @@ class RealmCommunication {
 		}
 	}
 	
-	static func doesHostExist(realm: Realm, id: String) -> Bool {
+	// fetch parties from realm
+	static func loadParties() -> [Party]? {
+		let realm = try! Realm()
+		
+		return Array(realm.objects(Party.self))
+	}
+	
+	// check if host exists
+	private static func doesHostExist(realm: Realm, id: String) -> Bool {
 		let existingHost = realm.object(ofType: Host.self, forPrimaryKey: id)
 		
 		if (existingHost != nil) {
@@ -107,7 +116,19 @@ class RealmCommunication {
 		return false
 	}
 	
-	static func delete() {
+	// format date string
+	private static func formatDate(string: String) -> Date {
+		let formatter: DateFormatter = {
+			let formatter = DateFormatter()
+			formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+			return formatter
+		}()
+		
+		return formatter.date(from: string)!
+	}
+	
+	// force delete all realm storage files
+	static func reset() {
 		let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
 		let realmURLs = [
 			realmURL,
@@ -126,47 +147,18 @@ class RealmCommunication {
 		}
 	}
 	
-	func clear(realm: Realm) {
+	// clear all objects in realm
+	static func clear() {
+		let realm = try! Realm()
+		
 		try! realm.write {
 			realm.deleteAll()
 		}
 	}
 	
-	func createDummy() -> Party {
-		// create realm objecs
-		let party = Party()
-		let location = Location()
-		let host = Host()
-		
-		// add object references
-		party.location = location
-		party.host = host
-		host.parties.append(party)
-		
-		// set party attributes
-		party.id = "8396e318-a972-40be-3992-08d4081922fd"
-		party.name = "Test test test"
-		party.price = 0
-		party.date = "2016-12-10T20:26:43.624"
-		party.musicGenre = 2
-		party.type = 1
-		party.text = "This is a party description..."
-		
-		// set location attributes
-		party.location?.countryName = "Germany"
-		party.location?.cityName = "Horb am Neckar"
-		party.location?.streetName = "Florianstraße"
-		party.location?.houseNumber = "11"
-		party.location?.houseNumberAdditional = ""
-		party.location?.zipcode = "72160"
-		party.location?.latitude = 48.4452168
-		party.location?.longitude = 8.6962267
-		
-		// set host attributes
-		party.host?.id = "7754fde5-ec70-45b5-72dc-08d403b9007a"
-		party.host?.userName = "Markus"
-		
-		return party
+	// get realm url
+	static func printRealmUrl() {
+		print("REALM URL: \(Realm.Configuration.defaultConfiguration.fileURL!)")
 	}
 	
 	

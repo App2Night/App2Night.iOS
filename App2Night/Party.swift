@@ -14,7 +14,7 @@ class Party: Object {
 	dynamic var id: String = ""
 	dynamic var name: String = ""
 	dynamic var price: Int = 0
-	dynamic var date: String = ""
+	dynamic var date: Date = Date(timeIntervalSince1970: 0)
 	dynamic var musicGenre: Int = 0
 	dynamic var type: Int = 0
 	dynamic var text: String = ""
