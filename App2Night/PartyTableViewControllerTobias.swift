@@ -16,19 +16,30 @@ class PartyTableViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		RealmCommunication.delete()
+		
 		let realm = try! Realm()
 		let store = RealmCommunication()
 		
-		store.deleteRealm(realm: realm)
+		store.clear(realm: realm)
 		
+		SwaggerCommunication.getParties { () in
+			self.partiesArray = Array(realm.objects(Party.self))
+			self.tableView.reloadData()
+			print(realm.configuration.fileURL!)
+		}
+		
+		// self.partiesArray = Array(realm.objects(Party.self))
+		
+		/*
 		let firstParty = store.createDummy()
 		
 		try! realm.write {
 			realm.add(firstParty)
-			print("SAVED TO REALM.")
 		}
 		
 		self.partiesArray = Array(realm.objects(Party.self))
+		*/
 		
 		// Uncomment the following line to preserve selection between presentations
 		// self.clearsSelectionOnViewWillAppear = false
