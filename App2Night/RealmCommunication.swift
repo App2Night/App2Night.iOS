@@ -16,10 +16,12 @@ class RealmCommunication {
 	static func parseParties(json: JSON) {
 		let realm = try! Realm()
 		
+		printRealmUrl()
+		
 		// for each (index, object) in json
 		for (_, object) in json {
 			let hostId = object["Host"]["HostId"].stringValue
-			let existingHost = doesHostExist(realm: realm, id: hostId)
+			let existingHost = doesHostExist(id: hostId)
 			
 			// does the host already exist; add new host or update existing host
 			switch existingHost {
@@ -98,15 +100,11 @@ class RealmCommunication {
 		}
 	}
 	
-	// fetch parties from realm
-	static func loadParties() -> [Party]? {
-		let realm = try! Realm()
-		
-		return Array(realm.objects(Party.self))
-	}
 	
 	// check if host exists
-	private static func doesHostExist(realm: Realm, id: String) -> Bool {
+	private static func doesHostExist(id: String) -> Bool {
+		let realm = try! Realm()
+		
 		let existingHost = realm.object(ofType: Host.self, forPrimaryKey: id)
 		
 		if (existingHost != nil) {

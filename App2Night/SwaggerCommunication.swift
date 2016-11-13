@@ -8,12 +8,13 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 import SwiftyJSON
 
 class SwaggerCommunication {
 	
 	// http request (get) parties from swagger
-	static func getParties(completionHandler: @escaping ([Party]?) -> ()) {
+	static func getParties(completionHandler: @escaping (Results<Party>) -> ()) {
 		Alamofire.request(Properties.partyUrl, method: .get).validate().responseJSON { (response) in
 			print("REQUEST URL: \(response.request as Any)")
 			print("HTTP URL RESPONSE: \(response.response as Any)")
@@ -22,9 +23,9 @@ class SwaggerCommunication {
 			
 			switch response.result {
 			case .success:
+				RealmCommunication.parseParties(json: JSON(response.result.value!))
 				DispatchQueue.main.async(execute: { () -> Void in
-					RealmCommunication.parseParties(json: JSON(response.result.value!))
-					completionHandler(RealmCommunication.loadParties())
+					completionHandler(try! Realm().objects(Party.self))
 				})
 			case .failure(let e):
 				print(e)
