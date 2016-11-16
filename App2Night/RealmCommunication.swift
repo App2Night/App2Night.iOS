@@ -12,110 +12,56 @@ import SwiftyJSON
 
 class RealmCommunication {
 	
+	private static let realm = try! Realm()
+	
 	// parse json type safe into realm
 	static func parseParties(json: JSON) {
-		let realm = try! Realm()
-		
-		printRealmUrl()
-		
 		// for each (index, object) in json
 		for (_, object) in json {
-			let hostId = object["Host"]["HostId"].stringValue
-			let existingHost = doesHostExist(id: hostId)
+			let party = Party()
+			let location = Location()
+			let host = Host()
 			
-			// does the host already exist; add new host or update existing host
-			switch existingHost {
-			case true:
-				// create objects
-				let party = Party()
-				let location = Location()
-				let host = realm.object(ofType: Host.self, forPrimaryKey: hostId)!
-				
-				// add object references
-				party.location = location
-				party.host = host
-				
-				// set party attributes
-				party.id = object["PartyId"].stringValue
-				party.name = object["PartyName"].stringValue
-				party.price = object["Price"].intValue
-				party.date = formatDate(string: (object["PartyDate"].stringValue))
-				party.musicGenre = object["MusicGenre"].intValue
-				party.type = object["PartyType"].intValue
-				party.text = object["Description"].stringValue
-				
-				// set location attributes
-				party.location?.countryName = object["Location"]["CountryName"].stringValue
-				party.location?.cityName = object["Location"]["CityName"].stringValue
-				party.location?.streetName = object["Location"]["StreetName"].stringValue
-				party.location?.houseNumber = object["Location"]["HouseNumber"].stringValue
-				party.location?.houseNumberAdditional = object["Location"]["HouseNumberAdditional"].stringValue
-				party.location?.zipcode = object["Location"]["Zipcode"].stringValue
-				party.location?.latitude = object["Location"]["Latitude"].doubleValue
-				party.location?.longitude = object["Location"]["Longitude"].doubleValue
-				
-				try! realm.write {
-					realm.add(party)
-					host.parties.append(party)
-				}
-				
-			case false:
-				// create objects
-				let party = Party()
-				let location = Location()
-				let host = Host()
-				
-				// add object references
-				party.location = location
-				party.host = host
-				host.parties.append(party)
-				
-				// set party attributes
-				party.id = object["PartyId"].stringValue
-				party.name = object["PartyName"].stringValue
-				party.price = object["Price"].intValue
-				party.date = formatDate(string: (object["PartyDate"].stringValue))
-				party.musicGenre = object["MusicGenre"].intValue
-				party.type = object["PartyType"].intValue
-				party.text = object["Description"].stringValue
-				
-				// set location attributes
-				party.location?.countryName = object["Location"]["CountryName"].stringValue
-				party.location?.cityName = object["Location"]["CityName"].stringValue
-				party.location?.streetName = object["Location"]["StreetName"].stringValue
-				party.location?.houseNumber = object["Location"]["HouseNumber"].stringValue
-				party.location?.houseNumberAdditional = object["Location"]["HouseNumberAdditional"].stringValue
-				party.location?.zipcode = object["Location"]["Zipcode"].stringValue
-				party.location?.latitude = object["Location"]["Latitude"].doubleValue
-				party.location?.longitude = object["Location"]["Longitude"].doubleValue
-				
-				// set host attributes
-				party.host?.id = object["Host"]["HostId"].stringValue
-				party.host?.userName = object["Host"]["UserName"].stringValue
-				
-				try! realm.write {
-					realm.add(party)
-				}
+			// add object references
+			party.location = location
+			party.host = host
+			host.parties.append(party)
+			
+			// set party attributes
+			party.id = object["PartyId"].stringValue
+			party.name = object["PartyName"].stringValue
+			party.price = object["Price"].intValue
+			party.date = formatDate(string: (object["PartyDate"].stringValue))
+			party.musicGenre = object["MusicGenre"].intValue
+			party.type = object["PartyType"].intValue
+			party.text = object["Description"].stringValue
+			
+			// set location attributes
+			party.location?.partyId = object["PartyId"].stringValue
+			party.location?.countryName = object["Location"]["CountryName"].stringValue
+			party.location?.cityName = object["Location"]["CityName"].stringValue
+			party.location?.streetName = object["Location"]["StreetName"].stringValue
+			party.location?.houseNumber = object["Location"]["HouseNumber"].stringValue
+			party.location?.houseNumberAdditional = object["Location"]["HouseNumberAdditional"].stringValue
+			party.location?.zipcode = object["Location"]["Zipcode"].stringValue
+			party.location?.latitude = object["Location"]["Latitude"].doubleValue
+			party.location?.longitude = object["Location"]["Longitude"].doubleValue
+			
+			// set host attributes
+			party.host?.id = object["Host"]["HostId"].stringValue
+			party.host?.userName = object["Host"]["UserName"].stringValue
+			
+			try! realm.write {
+				realm.add(party, update: true)
+				realm.add(host, update: true)
+				realm.add(location, update: true)
 			}
 		}
-	}
-	
-	
-	// check if host exists
-	private static func doesHostExist(id: String) -> Bool {
-		let realm = try! Realm()
-		
-		let existingHost = realm.object(ofType: Host.self, forPrimaryKey: id)
-		
-		if (existingHost != nil) {
-			return true
-		}
-		
-		return false
+		printRealmUrl()
 	}
 	
 	// format date string
-	private static func formatDate(string: String) -> Date {
+	static private func formatDate(string: String) -> Date {
 		let formatter: DateFormatter = {
 			let formatter = DateFormatter()
 			formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
@@ -147,8 +93,6 @@ class RealmCommunication {
 	
 	// clear all objects in realm
 	static func clear() {
-		let realm = try! Realm()
-		
 		try! realm.write {
 			realm.deleteAll()
 		}

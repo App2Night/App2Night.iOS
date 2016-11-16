@@ -1,5 +1,5 @@
 //
-//  PartyTableController.swift
+//  PartyTableViewController.swift
 //  App2Night
 //
 //  Created by Robin on 07.11.16.
@@ -11,8 +11,7 @@ import RealmSwift
 
 class PartyTableViewController: UITableViewController {
 	
-	let realm = try! Realm()
-	var results = try! Realm().objects(Party.self)
+	var parties = try! Realm().objects(Party.self)
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -21,11 +20,20 @@ class PartyTableViewController: UITableViewController {
 	}
 	
 	func handleRefresh(_ refreshControl: UIRefreshControl) {
-		SwaggerCommunication.getParties { results in
-			self.results = results
-			self.tableView.reloadData()
-			refreshControl.endRefreshing()
+		SwaggerCommunication.getParties { success in
+			if success {
+				self.parties = try! Realm().objects(Party.self)
+				self.tableView.reloadData()
+				refreshControl.endRefreshing()
+			} else {
+				refreshControl.endRefreshing()
+			}
 		}
+	}
+	
+	@IBAction func clearTableButton(_ sender: Any) {
+		RealmCommunication.clear()
+		self.tableView.reloadData()
 	}
 	
 	// MARK: - table view cell setup
@@ -34,13 +42,13 @@ class PartyTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return results.count
+		return parties.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "PartyTableViewCell", for: indexPath) as! PartyTableViewCell
 		
-		let object = results[indexPath.row]
+		let object = parties[indexPath.row]
 		cell.partyName?.text = object.name
 		cell.partyText?.text = object.text
 		cell.partyLabel?.text = object.location?.cityName

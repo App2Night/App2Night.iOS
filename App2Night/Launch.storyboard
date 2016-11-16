@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,18 +23,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ee6-Gi-dge">
-                                <rect key="frame" x="97" y="200" width="180" height="180"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ee6-Gi-dge">
+                                <rect key="frame" x="97" y="180" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ee6-Gi-dge" secondAttribute="height" multiplier="1:1" id="e6M-Og-jxH"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ee6-Gi-dge" firstAttribute="centerY" secondItem="Kvf-13-4pO" secondAttribute="centerY" constant="-43.5" id="CaK-C0-tsq"/>
-                            <constraint firstItem="ee6-Gi-dge" firstAttribute="centerX" secondItem="Kvf-13-4pO" secondAttribute="centerX" id="aES-Bg-FSK"/>
-                            <constraint firstItem="ee6-Gi-dge" firstAttribute="top" secondItem="NHl-lx-zuS" secondAttribute="bottom" constant="180" id="bQz-ia-Th0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ee6-Gi-dge" secondAttribute="trailing" constant="82" id="pij-yP-3yd"/>
-                            <constraint firstItem="ee6-Gi-dge" firstAttribute="leading" secondItem="Kvf-13-4pO" secondAttribute="leadingMargin" constant="81" id="ve4-zn-mb5"/>
-                            <constraint firstItem="3w1-Q2-49u" firstAttribute="top" secondItem="ee6-Gi-dge" secondAttribute="bottom" constant="287" id="xKM-St-6cA"/>
+                            <constraint firstItem="ee6-Gi-dge" firstAttribute="top" secondItem="NHl-lx-zuS" secondAttribute="bottom" constant="160" id="8Z6-eA-uk0"/>
+                            <constraint firstItem="ee6-Gi-dge" firstAttribute="centerX" secondItem="Kvf-13-4pO" secondAttribute="centerX" id="BpM-LU-r5G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ee6-Gi-dge" secondAttribute="trailing" constant="82" id="LVN-cY-gXd"/>
+                            <constraint firstItem="3w1-Q2-49u" firstAttribute="top" secondItem="ee6-Gi-dge" secondAttribute="bottom" constant="307" id="MAS-Qn-pQ0"/>
+                            <constraint firstItem="ee6-Gi-dge" firstAttribute="leading" secondItem="Kvf-13-4pO" secondAttribute="leadingMargin" constant="81" id="an0-mu-pET"/>
+                            <constraint firstItem="ee6-Gi-dge" firstAttribute="centerY" secondItem="Kvf-13-4pO" secondAttribute="centerY" constant="-63.5" id="dg8-1L-agI"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -43,6 +47,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="512" height="629"/>
+        <image name="Logo" width="512" height="629"/>
     </resources>
 </document>

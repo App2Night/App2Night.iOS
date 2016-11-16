@@ -12,6 +12,21 @@ class RootTabBarController: UITabBarController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		// is user logged in?
+		if !isLoggedIn() {
+			perform(#selector(showLogin), with: nil, afterDelay: 0.01)
+		}
+	}
+	
+	func showLogin() {
+		present(UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginController"), animated: true, completion: {
+			// TODO: something
+		})
+	}
+	
+	fileprivate func isLoggedIn() -> Bool {
+		return false
 	}
 	
 	

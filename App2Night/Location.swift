@@ -11,6 +11,8 @@ import RealmSwift
 
 class Location: Object {
 	
+	dynamic var partyId: String = ""
+	
 	dynamic var countryName: String = ""
 	dynamic var cityName: String = ""
 	dynamic var streetName: String = ""
@@ -19,6 +21,10 @@ class Location: Object {
 	dynamic var zipcode: String = ""
 	dynamic var latitude: Double = 0.0
 	dynamic var longitude: Double = 0.0
+	
+	override static func primaryKey() -> String? {
+		return "partyId"
+	}
 	
 	
 }

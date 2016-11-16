@@ -15,11 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
-		
-		setupColors()
+		initWindow()
+		initColors()
 		
 		return true
+	}
+	
+	func initColors() {
+		// TODO: set colors
+	}
+	
+	func initWindow() {
+		window = UIWindow(frame: UIScreen.main.bounds)
+		window?.makeKeyAndVisible()
+		window?.rootViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "RootTabBarController")
 	}
 	
 	func applicationWillResignActive(_ application: UIApplication) {
@@ -42,11 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-	}
-	
-	func setupColors() {
-		window?.backgroundColor = Colors.white
-		window?.tintColor = Colors.red
 	}
 	
 	
