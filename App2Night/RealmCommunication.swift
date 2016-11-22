@@ -35,6 +35,16 @@ class RealmCommunication {
 			party.musicGenre = object["MusicGenre"].intValue
 			party.type = object["PartyType"].intValue
 			party.text = object["Description"].stringValue
+			party.hostedByUser = object["HostedByUser"].boolValue
+			party.generalUpVoting = object["GeneralUpVoting"].intValue
+			party.generalDownVoting = object["GeneralDownVoting"].intValue
+			party.priceUpVotring = object["PriceUpVotring"].intValue
+			party.priceDownVoting = object["PriceDownVoting"].intValue
+			party.locationUpVoting = object["LocationUpVoting"].intValue
+			party.locationDownVoting = object["LocationDownVoting"].intValue
+			party.moodUpVoting = object["MoodUpVoting"].intValue
+			party.moodDownVoting = object["MoodDownVoting"].intValue
+			// TODO: committedUser
 			
 			// set location attributes
 			party.location?.partyId = object["PartyId"].stringValue
@@ -42,7 +52,6 @@ class RealmCommunication {
 			party.location?.cityName = object["Location"]["CityName"].stringValue
 			party.location?.streetName = object["Location"]["StreetName"].stringValue
 			party.location?.houseNumber = object["Location"]["HouseNumber"].stringValue
-			party.location?.houseNumberAdditional = object["Location"]["HouseNumberAdditional"].stringValue
 			party.location?.zipcode = object["Location"]["Zipcode"].stringValue
 			party.location?.latitude = object["Location"]["Latitude"].doubleValue
 			party.location?.longitude = object["Location"]["Longitude"].doubleValue

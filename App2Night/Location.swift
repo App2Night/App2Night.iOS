@@ -17,7 +17,6 @@ class Location: Object {
 	dynamic var cityName: String = ""
 	dynamic var streetName: String = ""
 	dynamic var houseNumber: String = ""
-	dynamic var houseNumberAdditional: String = ""
 	dynamic var zipcode: String = ""
 	dynamic var latitude: Double = 0.0
 	dynamic var longitude: Double = 0.0

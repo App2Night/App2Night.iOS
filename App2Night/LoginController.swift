@@ -10,10 +10,27 @@ import UIKit
 
 class LoginController: UIViewController {
 	
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
+	@IBOutlet weak var loginButton: UIButton!
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		loginButton.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
 	}
 	
+	func handleLogin() {
+		SwaggerCommunication.requestToken(username: username.text!, password: password.text!) { success in
+			// was post a success? -> handle error, else delegate
+			if success {
+				self.finishLoggingIn()
+			}
+		}
+	}
 	
+	func finishLoggingIn() {
+		dismiss(animated: true, completion: nil)
+	}
 }
 

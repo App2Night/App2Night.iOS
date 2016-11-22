@@ -8,9 +8,15 @@
 
 import UIKit
 import RealmSwift
+import MapKit
 
 class PartyTableViewController: UITableViewController {
 	
+	// MapKit
+	var locManager = CLLocationManager()
+	var currentLocation: CLLocation!
+	
+	// get parties from realm
 	var parties = try! Realm().objects(Party.self)
 	
 	override func viewDidLoad() {
@@ -20,6 +26,8 @@ class PartyTableViewController: UITableViewController {
 	}
 	
 	func handleRefresh(_ refreshControl: UIRefreshControl) {
+		initLocation()
+		
 		SwaggerCommunication.getParties { success in
 			if success {
 				self.parties = try! Realm().objects(Party.self)
@@ -34,6 +42,17 @@ class PartyTableViewController: UITableViewController {
 	@IBAction func clearTableButton(_ sender: Any) {
 		RealmCommunication.clear()
 		self.tableView.reloadData()
+	}
+	
+	func initLocation() {
+		locManager.requestWhenInUseAuthorization()
+		
+		if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways) {
+			currentLocation = locManager.location
+			
+			print("Current Latitude: \(currentLocation.coordinate.latitude)")
+			print("Current Longitude: \(currentLocation.coordinate.longitude)")
+		}
 	}
 	
 	// MARK: - table view cell setup

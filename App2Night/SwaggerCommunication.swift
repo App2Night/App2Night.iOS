@@ -14,11 +14,17 @@ class SwaggerCommunication {
 	
 	// http request (get) parties from swagger and parse them
 	static func getParties(completionHandler: @escaping (Bool) -> ()) {
-		Alamofire.request(Properties.partyUrl, method: .get).validate().responseJSON { (response) in
-			print("REQUEST URL: \(response.request as Any)")
-			print("HTTP URL RESPONSE: \(response.response as Any)")
-			print("SERVER DATA: \(response.data as Any)")
-			print("RESULT OF SERIALIZATION: \(response.result as Any)")
+		let location: Parameters = [
+			"lat": "48.442078",
+			"lon": "8.684851",
+			"radius": "200"
+		]
+		
+		Alamofire.request(Properties.partyUrl, method: .get, parameters: location).validate().responseJSON { (response) in
+			print("REQUEST URL: \(response.request)")
+			print("HTTP URL RESPONSE: \(response.response)")
+			print("SERVER DATA: \(response.data)")
+			print("RESULT OF SERIALIZATION: \(response.result)")
 			
 			switch response.result {
 			case .success:
@@ -34,6 +40,44 @@ class SwaggerCommunication {
 			}
 			}.resume()
 	}
+	
+	// http post to get user token data with username and password
+	static func requestToken(username: String, password: String, completionHandler: @escaping (Bool) -> ()) {
+		let requestUrl: URLRequest = {
+			var request = URLRequest(url: URL(string: Properties.tokenUrl)!)
+			request.httpMethod = "POST"
+			request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+			
+			let tokenString = "client_id=nativeApp&" + "client_secret=secret&" + "grant_type=password&" + "username=" + username + "&" + "password=" + password + "&" + "scope=App2NightAPI offline_access openid email&"
+			let tokenData: Data = (tokenString as NSString).data(using: String.Encoding.utf8.rawValue)!
+			
+			request.httpBody = tokenData
+			
+			return request
+		}()
+		
+		Alamofire.request(requestUrl).validate().responseJSON { (response) in
+			print("REQUEST URL: \(response.request)")
+			print("HTTP URL RESPONSE: \(response.response)")
+			print("SERVER DATA: \(response.data)")
+			print("RESULT OF SERIALIZATION: \(response.result)")
+			
+			switch response.result {
+			case .success:
+				DispatchQueue.main.async(execute: { () -> Void in
+					print(response.result.value!)
+					completionHandler(true)
+				})
+			case .failure(let e):
+				print(e)
+				DispatchQueue.main.async(execute: { () -> Void in
+					completionHandler(false)
+				})
+			}
+			}.resume()
+	}
+	
+	
 	
 	
 }

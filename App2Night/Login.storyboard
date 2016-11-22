@@ -65,6 +65,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="JGj-h7-qiO" id="mYs-dU-Gfv"/>
+                        <outlet property="password" destination="KsK-JK-hG8" id="s7K-hG-nes"/>
+                        <outlet property="username" destination="BnE-eH-JVx" id="EkJ-8m-mZv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pm8-7m-yb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
