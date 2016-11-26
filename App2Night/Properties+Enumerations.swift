@@ -6,6 +6,7 @@
 //  Copyright © 2016 DHBW. All rights reserved.
 //
 
+/*
 import Foundation
 
 // MARK: struct: properties
@@ -80,4 +81,4 @@ enum PartyType: String {
 	
 	
 }
-
+*/

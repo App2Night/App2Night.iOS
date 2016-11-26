@@ -6,6 +6,7 @@
 //  Copyright © 2016 DHBW. All rights reserved.
 //
 
+/*
 import Foundation
 
 public class dParty {
@@ -96,4 +97,4 @@ public class dHost {
 	
 	
 }
-
+*/

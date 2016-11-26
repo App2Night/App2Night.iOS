@@ -8,13 +8,8 @@
 
 import UIKit
 import RealmSwift
-import MapKit
 
 class PartyTableViewController: UITableViewController {
-	
-	// MapKit
-	var locManager = CLLocationManager()
-	var currentLocation: CLLocation!
 	
 	// get parties from realm
 	var parties = try! Realm().objects(Party.self)
@@ -22,13 +17,13 @@ class PartyTableViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		PositionManager.shared.getPosition()
+		
 		self.refreshControl?.addTarget(self, action: #selector(PartyTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
 	}
 	
 	func handleRefresh(_ refreshControl: UIRefreshControl) {
-		initLocation()
-		
-		SwaggerCommunication.getParties { success in
+		SwaggerCommunication.shared.getParties { success in
 			if success {
 				self.parties = try! Realm().objects(Party.self)
 				self.tableView.reloadData()
@@ -40,19 +35,8 @@ class PartyTableViewController: UITableViewController {
 	}
 	
 	@IBAction func clearTableButton(_ sender: Any) {
-		RealmCommunication.clear()
+		RealmManager.shared.clear()
 		self.tableView.reloadData()
-	}
-	
-	func initLocation() {
-		locManager.requestWhenInUseAuthorization()
-		
-		if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways) {
-			currentLocation = locManager.location
-			
-			print("Current Latitude: \(currentLocation.coordinate.latitude)")
-			print("Current Longitude: \(currentLocation.coordinate.longitude)")
-		}
 	}
 	
 	// MARK: - table view cell setup
@@ -70,7 +54,7 @@ class PartyTableViewController: UITableViewController {
 		let object = parties[indexPath.row]
 		cell.partyName?.text = object.name
 		cell.partyText?.text = object.text
-		cell.partyLabel?.text = object.location?.cityName
+		cell.partyLabel?.text = object.cityName
 		cell.partyDistance?.text = "99"
 		
 		return cell

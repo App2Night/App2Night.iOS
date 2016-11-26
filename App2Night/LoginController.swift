@@ -21,8 +21,7 @@ class LoginController: UIViewController {
 	}
 	
 	func handleLogin() {
-		SwaggerCommunication.requestToken(username: username.text!, password: password.text!) { success in
-			// was post a success? -> handle error, else delegate
+		SwaggerCommunication.shared.getToken(username: username.text!, password: password.text!) { success in
 			if success {
 				self.finishLoggingIn()
 			}
