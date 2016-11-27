@@ -1,5 +1,5 @@
 //
-//  RootTabBarController.swift
+//  TabBarController.swift
 //  App2Night
 //
 //  Created by Robin on 11.11.16.
@@ -8,27 +8,27 @@
 
 import UIKit
 
-class RootTabBarController: UITabBarController {
+class TabBarController: UITabBarController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// is user logged in?
 		if !isLoggedIn() {
-			perform(#selector(showLogin), with: nil, afterDelay: 0.01)
+			perform(#selector(showLoginController), with: nil, afterDelay: 0.01)
 		}
 	}
 	
-	func showLogin() {
-		present(UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginController"), animated: true, completion: {
-			// TODO: something
+	fileprivate func isLoggedIn() -> Bool {
+		return UserDefaults.standard.isLoggedIn()
+	}
+	
+	func showLoginController() {
+		let loginController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginController")
+		
+		present(loginController, animated: true, completion: {
+			// do something
 		})
 	}
-	
-	fileprivate func isLoggedIn() -> Bool {
-		return false
-	}
-	
 	
 }
 

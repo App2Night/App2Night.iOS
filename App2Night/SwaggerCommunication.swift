@@ -19,11 +19,8 @@ class SwaggerCommunication {
 	private static let apiUrl = "https://app2nightapi.azurewebsites.net/"
 	private static let userUrl = "https://app2nightuser.azurewebsites.net/"
 	
-	// userdefaults
-	private static let defaults = UserDefaults.standard
 	
-	
-	func getParties(completionHandler: @escaping (Bool) -> ()) {		
+	func getParties(completionHandler: @escaping (Bool) -> ()) {
 		let coordinates: Parameters = [
 			"lat": PositionManager.shared.currentLocation.coordinate.latitude,
 			"lon": PositionManager.shared.currentLocation.coordinate.longitude,
@@ -82,7 +79,7 @@ class SwaggerCommunication {
 			var request = URLRequest(url: URL(string: SwaggerCommunication.apiUrl + "api/party")!)
 			request.httpMethod = "POST"
 			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-			request.setValue("\(SwaggerCommunication.defaults.string(forKey: "token_type")) \(SwaggerCommunication.defaults.string(forKey: "access_token"))", forHTTPHeaderField: "Authorization")
+			request.setValue("\(UserDefaults.standard.string(forKey: "token_type")) \(UserDefaults.standard.string(forKey: "access_token"))", forHTTPHeaderField: "Authorization")
 			request.httpBody = partyData
 			
 			return request
@@ -134,12 +131,13 @@ class SwaggerCommunication {
 					let json = JSON(response.result.value!)
 					
 					// replace with keychain later..
-					SwaggerCommunication.defaults.set(username, forKey: "username")
-					SwaggerCommunication.defaults.set(password, forKey: "password")
-					SwaggerCommunication.defaults.set(json["access_token"].stringValue, forKey: "access_token")
-					SwaggerCommunication.defaults.set(json["expires_in"].intValue, forKey: "expires_in")
-					SwaggerCommunication.defaults.set(json["refresh_token"].stringValue, forKey: "refresh_token")
-					SwaggerCommunication.defaults.set(json["token_type"].stringValue, forKey: "token_type")
+					UserDefaults.standard.set(username, forKey: "username")
+					UserDefaults.standard.set(password, forKey: "password")
+					UserDefaults.standard.set(json["access_token"].stringValue, forKey: "access_token")
+					UserDefaults.standard.set(json["expires_in"].intValue, forKey: "expires_in")
+					UserDefaults.standard.set(json["refresh_token"].stringValue, forKey: "refresh_token")
+					UserDefaults.standard.set(json["token_type"].stringValue, forKey: "token_type")
+					UserDefaults.standard.synchronize()
 					
 					completionHandler(true)
 				})

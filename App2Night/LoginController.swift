@@ -29,7 +29,10 @@ class LoginController: UIViewController {
 	}
 	
 	func finishLoggingIn() {
-		dismiss(animated: true, completion: nil)
+		UserDefaults.standard.setIsLoggedIn(bool: true)
+		
+		dismiss(animated:true, completion: nil)
 	}
+	
 }
 

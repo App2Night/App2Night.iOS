@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import MapKit
 
 class PartyTableViewController: UITableViewController {
 	
@@ -52,21 +53,25 @@ class PartyTableViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "PartyTableViewCell", for: indexPath) as! PartyTableViewCell
 		
 		let object = parties[indexPath.row]
+		
+		// calculate distance
+		PositionManager.shared.getPosition()
+		let currentPosition = CLLocation(latitude: PositionManager.shared.currentLocation.coordinate.latitude, longitude: PositionManager.shared.currentLocation.coordinate.longitude)
+		let partyPosition = CLLocation(latitude: object.latitude, longitude: object.longitude)
+		let distance = currentPosition.distance(from: partyPosition)/1000
+		
 		cell.partyName?.text = object.name
-		cell.partyText?.text = object.text
 		cell.partyLabel?.text = object.cityName
-		cell.partyDistance?.text = "99"
+		cell.partyDistance?.text = String(format: "%.1f", distance)
 		
 		return cell
 	}
-	
-	
 }
 
+// party cells
 class PartyTableViewCell: UITableViewCell {
 	
 	@IBOutlet weak var partyName: UILabel!
-	@IBOutlet weak var partyText: UILabel!
 	@IBOutlet weak var partyLabel: UILabel!
 	@IBOutlet weak var partyDistance: UILabel!
 	
@@ -81,3 +86,15 @@ class PartyTableViewCell: UITableViewCell {
 	
 }
 
+// + button
+class CreatePartyViewController: UIViewController {
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+	}
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+	
+}

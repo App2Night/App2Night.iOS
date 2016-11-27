@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var window: UIWindow?
 	
-	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		initWindow()
 		initColors()
@@ -28,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func initWindow() {
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
-		window?.rootViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "RootTabBarController")
+		window?.rootViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
 	}
 	
 	func applicationWillResignActive(_ application: UIApplication) {

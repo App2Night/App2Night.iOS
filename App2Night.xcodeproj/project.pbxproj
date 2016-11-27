@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00257E621DEB1E9500E05884 /* UserDefaults.swift */; };
 		002D16F01DDCC45A00FE5895 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 002D16EF1DDCC45A00FE5895 /* Login.storyboard */; };
 		002D16F21DDCC48800FE5895 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D16F11DDCC48800FE5895 /* LoginController.swift */; };
 		0037A86F1DD3819800DA5E9E /* DummyParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037A86E1DD3819800DA5E9E /* DummyParty.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		001F1F191DBFCB21006F668C /* PartyPostValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyPostValue.json; sourceTree = "<group>"; };
+		00257E621DEB1E9500E05884 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		002D16EF1DDCC45A00FE5895 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		002D16F11DDCC48800FE5895 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0037A86E1DD3819800DA5E9E /* DummyParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyParty.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				005BF77B1DD3C7F3003C9036 /* RealmManager.swift */,
 				008852C61DE9E2BA00B7476D /* PositionManager.swift */,
 				004433F81DD11A2B0012755C /* SwaggerCommunication.swift */,
+				00257E621DEB1E9500E05884 /* UserDefaults.swift */,
 				009D973A1DBE556F005D94FF /* Examples */,
 			);
 			name = Model;
@@ -287,6 +290,7 @@
 				0037A86F1DD3819800DA5E9E /* DummyParty.swift in Sources */,
 				005A424F1DC90025005E1C8E /* Properties+Enumerations.swift in Sources */,
 				005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */,
+				00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */,
 				002D16F21DDCC48800FE5895 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
