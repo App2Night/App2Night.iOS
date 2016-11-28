@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import SwiftyJSON
 
-// MARK: Realm objects
+// MARK: Party entity
 class Party: Object {
 	
 	dynamic var id: String = ""
@@ -54,7 +54,7 @@ class Party: Object {
 		self.id = json["PartyId"].stringValue
 		self.name = json["PartyName"].stringValue
 		self.price = json["Price"].intValue
-		self.date = DateManager.shared.parseString(string: json["PartyDate"].stringValue)
+		self.date = DateHelper.shared.parseString(with: json["PartyDate"].stringValue)
 		self.musicGenre = json["MusicGenre"].intValue
 		self.type = json["PartyType"].intValue
 		self.text = json["Description"].stringValue
@@ -97,7 +97,7 @@ class Party: Object {
 	func toRawData() -> Data {
 		let json: JSON = [
 			"partyName": self.name,
-			"partyDate": DateManager.shared.getString(date: self.date),
+			"partyDate": DateHelper.shared.getString(from: self.date),
 			"musicGenre": self.musicGenre,
 			"countryName": self.countryName,
 			"cityName": self.cityName,
@@ -113,6 +113,7 @@ class Party: Object {
 	
 }
 
+// MARK: - User entity
 class User: Object {
 	
 	dynamic var id: String = ""
@@ -137,23 +138,25 @@ class User: Object {
 	
 }
 
-// MARK: - Date manager
-class DateManager {
+// MARK: - Date formatter helper
+class DateHelper {
 	
-	static let shared = DateManager()
+	// shared instance
+	static let shared = DateHelper()
 	
-	
+	// setup date formatter
 	let formatter: DateFormatter = {
 		let formatter = DateFormatter()
 		formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
 		return formatter
 	}()
 	
-	func parseString(string: String) -> Date {
+	
+	func parseString(with string: String) -> Date {
 		return formatter.date(from: string)!
 	}
 	
-	func getString(date: Date) -> String {
+	func getString(from date: Date) -> String {
 		return formatter.string(from: date)
 	}
 	

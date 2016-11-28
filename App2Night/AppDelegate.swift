@@ -14,20 +14,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		initWindow()
-		initColors()
+		setupViews()
 		
 		return true
 	}
 	
-	func initColors() {
-		// TODO: set colors
-	}
-	
-	func initWindow() {
+	func setupViews() {
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
-		window?.rootViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
+		
+		// root tab bar controller
+		let partyTabBarController = PartyTabBarController()
+		
+		// tab views embedded in navigation controllers
+		let partyTableViewController = PartyNavigationController(rootViewController: PartyTableViewController())
+		partyTableViewController.tabBarItem = UITabBarItem(title: "Parties", image: #imageLiteral(resourceName: "Party Baloons"), selectedImage: #imageLiteral(resourceName: "Party Baloons Filled"))
+		
+		let partyMapViewController = PartyNavigationController(rootViewController: PartyMapViewController())
+		partyMapViewController.tabBarItem = UITabBarItem(title: "Karte", image: #imageLiteral(resourceName: "Map"), selectedImage: #imageLiteral(resourceName: "Map Filled"))
+		
+		// add tab views to tab bar controller
+		let tabViews = [partyTableViewController, partyMapViewController]
+		partyTabBarController.viewControllers = tabViews
+		
+		// set root view to tab bar controller
+		window?.rootViewController = partyTabBarController
 	}
 	
 	func applicationWillResignActive(_ application: UIApplication) {

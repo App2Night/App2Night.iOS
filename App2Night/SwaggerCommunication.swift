@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 import Alamofire
 import SwiftyJSON
 
@@ -20,10 +21,10 @@ class SwaggerCommunication {
 	private static let userUrl = "https://app2nightuser.azurewebsites.net/"
 	
 	
-	func getParties(completionHandler: @escaping (Bool) -> ()) {
+	func getParties(at location: CLLocationCoordinate2D, completionHandler: @escaping (Bool) -> ()) {
 		let coordinates: Parameters = [
-			"lat": PositionManager.shared.currentLocation.coordinate.latitude,
-			"lon": PositionManager.shared.currentLocation.coordinate.longitude,
+			"lat": location.latitude,
+			"lon": location.longitude,
 			"radius": "200"
 		]
 		
