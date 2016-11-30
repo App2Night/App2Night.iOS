@@ -10,13 +10,12 @@ import UIKit
 
 class PartyDetailViewController: UIViewController {
 	
-	var party: Party = Party()
+	var selectedParty: Party = Party()
 	
-	let partyNameLabel: UILabel = {
+	let nameLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-
-		label.text = "Party Name Label"
+		
 		label.textAlignment = .center
 		label.font = UIFont.systemFont(ofSize: 24)
 		
@@ -27,21 +26,20 @@ class PartyDetailViewController: UIViewController {
 		super.viewDidLoad()
 		
 		// background color
-		navigationItem.title = party.name
+		navigationItem.title = selectedParty.name
 		view.backgroundColor = .white
 		
 		// set labels
-		partyNameLabel.text = party.name
+		nameLabel.text = selectedParty.name
 		
 		// add labels
-		view.addSubview(partyNameLabel)
+		view.addSubview(nameLabel)
 		
 		// horizontal
-		view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": partyNameLabel]))
+		view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
 		
 		// vertical
-		view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": partyNameLabel]))
-		
+		view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
 	}
 	
 }

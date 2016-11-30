@@ -11,7 +11,7 @@ import MapKit
 import RealmSwift
 
 class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-
+	
 	// get parties from realm
 	var parties = try! Realm().objects(Party.self)
 	
@@ -19,8 +19,8 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 	var mapView: MKMapView = MKMapView()
 	let locationManager = CLLocationManager()
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
 		// setup navigation bar
 		navigationItem.title = "Parties"
@@ -43,20 +43,16 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		parseAnnotations()
 		
 		view.addSubview(mapView)
-    }
+	}
 	
 	// MARK: - parse parties to annotations
 	func parseAnnotations() {
-		var annotations = [PartyAnnotation]()
-		
 		for object in parties {
-			let party = PartyAnnotation(party: object)
-			annotations.append(party)
+			let pin = PartyPin(party: object)
+			mapView.addAnnotation(pin)
 		}
-		
-		mapView.addAnnotations(annotations)
 	}
-
+	
 	// MARK: - Location delegate
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		let lastLocation = locations.last
@@ -68,7 +64,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 	
 	// display pins
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-		if let annotation = annotation as? PartyAnnotation {
+		if let annotation = annotation as? PartyPin {
 			let identifier = "pin"
 			var view: MKPinAnnotationView
 			
@@ -86,26 +82,6 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		}
 		
 		return nil
-	}
-	
-}
-
-class PartyAnnotation: NSObject, MKAnnotation {
-	
-	let title: String?
-	let location: String
-	let coordinate: CLLocationCoordinate2D
-	
-	init(party: Party) {
-		self.title = party.name
-		self.location = party.cityName
-		self.coordinate = CLLocationCoordinate2D(latitude: party.latitude, longitude: party.longitude)
-		
-		super.init()
-	}
-	
-	var subtitle: String? {
-		return location
 	}
 	
 }

@@ -33,8 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let partyMapViewController = PartyNavigationController(rootViewController: PartyMapViewController())
 		partyMapViewController.tabBarItem = UITabBarItem(title: "Karte", image: #imageLiteral(resourceName: "Map"), selectedImage: #imageLiteral(resourceName: "Map Filled"))
 		
+		let partyUserProfileViewController = PartyNavigationController(rootViewController: PartyUserProfileViewController(style: .grouped))
+		partyUserProfileViewController.tabBarItem = UITabBarItem(title: "Profil", image: #imageLiteral(resourceName: "Circled User Male"), selectedImage: #imageLiteral(resourceName: "Circled User Male Filled"))
+		
 		// add tab views to tab bar controller
-		let tabViews = [partyTableViewController, partyMapViewController]
+		let tabViews = [partyTableViewController, partyMapViewController, partyUserProfileViewController]
 		partyTabBarController.viewControllers = tabViews
 		
 		// set root view to tab bar controller

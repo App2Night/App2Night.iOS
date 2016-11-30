@@ -34,6 +34,12 @@
 		00F0ABA41DE4B74C00512CF0 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0ABA31DE4B74C00512CF0 /* RealmSwift.framework */; };
 		00F0ABA51DE4B74C00512CF0 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0ABA31DE4B74C00512CF0 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00F0ABA71DE4BC1400512CF0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0ABA61DE4BC1400512CF0 /* MapKit.framework */; };
+		00F5698F1DEF1B7C00528F54 /* PartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F5698E1DEF1B7C00528F54 /* PartyTableViewCell.swift */; };
+		00F569911DEF1BBA00528F54 /* PartyMapViewPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569901DEF1BBA00528F54 /* PartyMapViewPin.swift */; };
+		00F569931DEF1C8500528F54 /* PartyUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569921DEF1C8500528F54 /* PartyUserProfileViewController.swift */; };
+		00F569951DEF292900528F54 /* PartyUserProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569941DEF292900528F54 /* PartyUserProfileViewCell.swift */; };
+		00F569971DEF2CB500528F54 /* PartyCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569961DEF2CB500528F54 /* PartyCreateViewController.swift */; };
+		00F569991DEF3B7500528F54 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569981DEF3B7500528F54 /* CurrentUser.swift */; };
 		00FF19181DEC45FF00ADA439 /* PartyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF19171DEC45FF00ADA439 /* PartyTabBarController.swift */; };
 		00FF191A1DEC466900ADA439 /* PartyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF19191DEC466900ADA439 /* PartyNavigationController.swift */; };
 		00FF191C1DEC46EC00ADA439 /* PartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF191B1DEC46EC00ADA439 /* PartyTableViewController.swift */; };
@@ -86,6 +92,12 @@
 		00F0ABA01DE4B73E00512CF0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Realm.framework; sourceTree = "<group>"; };
 		00F0ABA31DE4B74C00512CF0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/RealmSwift.framework; sourceTree = "<group>"; };
 		00F0ABA61DE4BC1400512CF0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		00F5698E1DEF1B7C00528F54 /* PartyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewCell.swift; sourceTree = "<group>"; };
+		00F569901DEF1BBA00528F54 /* PartyMapViewPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyMapViewPin.swift; sourceTree = "<group>"; };
+		00F569921DEF1C8500528F54 /* PartyUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyUserProfileViewController.swift; sourceTree = "<group>"; };
+		00F569941DEF292900528F54 /* PartyUserProfileViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyUserProfileViewCell.swift; sourceTree = "<group>"; };
+		00F569961DEF2CB500528F54 /* PartyCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyCreateViewController.swift; sourceTree = "<group>"; };
+		00F569981DEF3B7500528F54 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		00FF19171DEC45FF00ADA439 /* PartyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTabBarController.swift; sourceTree = "<group>"; };
 		00FF19191DEC466900ADA439 /* PartyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyNavigationController.swift; sourceTree = "<group>"; };
 		00FF191B1DEC46EC00ADA439 /* PartyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				00FF2B861DD5250400312084 /* Party.swift */,
+				00F569981DEF3B7500528F54 /* CurrentUser.swift */,
 				005BF77B1DD3C7F3003C9036 /* RealmManager.swift */,
 				004433F81DD11A2B0012755C /* SwaggerCommunication.swift */,
 				00257E621DEB1E9500E05884 /* UserDefaults.swift */,
@@ -213,8 +226,13 @@
 			isa = PBXGroup;
 			children = (
 				00FF191B1DEC46EC00ADA439 /* PartyTableViewController.swift */,
+				00F5698E1DEF1B7C00528F54 /* PartyTableViewCell.swift */,
+				00F569961DEF2CB500528F54 /* PartyCreateViewController.swift */,
 				00297F991DEC724800527955 /* PartyDetailViewController.swift */,
 				00297F971DEC5D7500527955 /* PartyMapViewController.swift */,
+				00F569901DEF1BBA00528F54 /* PartyMapViewPin.swift */,
+				00F569921DEF1C8500528F54 /* PartyUserProfileViewController.swift */,
+				00F569941DEF292900528F54 /* PartyUserProfileViewCell.swift */,
 			);
 			name = "Tab Views";
 			sourceTree = "<group>";
@@ -305,16 +323,22 @@
 				00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */,
 				005A9BC01DD122CA001F4B4E /* SPartyTableViewController.swift in Sources */,
 				00F060331DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift in Sources */,
+				00F569931DEF1C8500528F54 /* PartyUserProfileViewController.swift in Sources */,
 				00297F981DEC5D7500527955 /* PartyMapViewController.swift in Sources */,
 				00FF191C1DEC46EC00ADA439 /* PartyTableViewController.swift in Sources */,
 				009D973C1DBE562F005D94FF /* PartyDeprecated.swift in Sources */,
 				00EE27861DD65750004053FE /* Colors+Style.swift in Sources */,
+				00F569951DEF292900528F54 /* PartyUserProfileViewCell.swift in Sources */,
 				0037A86F1DD3819800DA5E9E /* DummyParty.swift in Sources */,
 				005A424F1DC90025005E1C8E /* Properties+Enumerations.swift in Sources */,
 				005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */,
 				00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */,
 				00FF191A1DEC466900ADA439 /* PartyNavigationController.swift in Sources */,
+				00F569911DEF1BBA00528F54 /* PartyMapViewPin.swift in Sources */,
+				00F569971DEF2CB500528F54 /* PartyCreateViewController.swift in Sources */,
+				00F5698F1DEF1B7C00528F54 /* PartyTableViewCell.swift in Sources */,
 				00297F9A1DEC724800527955 /* PartyDetailViewController.swift in Sources */,
+				00F569991DEF3B7500528F54 /* CurrentUser.swift in Sources */,
 				002D16F21DDCC48800FE5895 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

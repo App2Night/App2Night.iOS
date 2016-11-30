@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 class SwaggerCommunication {
 	
@@ -59,29 +60,30 @@ class SwaggerCommunication {
 			}.resume()
 	}
 	
-	func postParty(completionHandler: @escaping (Bool) -> ()) {
-		
+	func postParty(with party: JSON, completionHandler: @escaping (Bool) -> ()) {
+		/*
 		let partyJson: JSON = [
-			"partyName": "iOS Party 2",
-			"partyDate": "2016-12-24T12:00:00.000Z",
-			"musicGenre": 0,
-			"countryName": "Germany",
-			"cityName": "Horb am Neckar",
-			"streetName": "Florianstraße",
-			"houseNumber": "12",
-			"zipcode": "72160",
-			"partyType": 0,
-			"description": "iOS Description"
+		"partyName": "iOS Party 2",
+		"partyDate": "2016-12-24T12:00:00.000Z",
+		"musicGenre": 0,
+		"countryName": "Germany",
+		"cityName": "Horb am Neckar",
+		"streetName": "Florianstraße",
+		"houseNumber": "12",
+		"zipcode": "72160",
+		"partyType": 0,
+		"description": "iOS Description"
 		]
+		*/
 		
-		let partyData = try! partyJson.rawData()
+		let currentUser = try! Realm().object(ofType: CurrentUser.self, forPrimaryKey: "0")
 		
 		let requestUrl: URLRequest = {
 			var request = URLRequest(url: URL(string: SwaggerCommunication.apiUrl + "api/party")!)
 			request.httpMethod = "POST"
 			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-			request.setValue("\(UserDefaults.standard.string(forKey: "token_type")) \(UserDefaults.standard.string(forKey: "access_token"))", forHTTPHeaderField: "Authorization")
-			request.httpBody = partyData
+			request.setValue("\(currentUser?.tokenType) \(currentUser?.accessToken)", forHTTPHeaderField: "Authorization")
+			request.httpBody = try! party.rawData()
 			
 			return request
 		}()
@@ -128,18 +130,14 @@ class SwaggerCommunication {
 			
 			switch response.result {
 			case .success:
+				// create current user
+				let currentUser = CurrentUser(username: username, password: password, json: JSON(response.result.value!))
+				
+				try! RealmManager.currentRealm.write {
+					RealmManager.currentRealm.add(currentUser, update: true)
+				}
+				
 				DispatchQueue.main.async(execute: { () -> Void in
-					let json = JSON(response.result.value!)
-					
-					// replace with keychain later..
-					UserDefaults.standard.set(username, forKey: "username")
-					UserDefaults.standard.set(password, forKey: "password")
-					UserDefaults.standard.set(json["access_token"].stringValue, forKey: "access_token")
-					UserDefaults.standard.set(json["expires_in"].intValue, forKey: "expires_in")
-					UserDefaults.standard.set(json["refresh_token"].stringValue, forKey: "refresh_token")
-					UserDefaults.standard.set(json["token_type"].stringValue, forKey: "token_type")
-					UserDefaults.standard.synchronize()
-					
 					completionHandler(true)
 				})
 			case .failure(let e):
