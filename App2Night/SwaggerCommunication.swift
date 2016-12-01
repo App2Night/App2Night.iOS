@@ -61,28 +61,16 @@ class SwaggerCommunication {
 	}
 	
 	func postParty(with party: JSON, completionHandler: @escaping (Bool) -> ()) {
-		/*
-		let partyJson: JSON = [
-		"partyName": "iOS Party 2",
-		"partyDate": "2016-12-24T12:00:00.000Z",
-		"musicGenre": 0,
-		"countryName": "Germany",
-		"cityName": "Horb am Neckar",
-		"streetName": "Florianstraße",
-		"houseNumber": "12",
-		"zipcode": "72160",
-		"partyType": 0,
-		"description": "iOS Description"
-		]
-		*/
-		
 		let currentUser = try! Realm().object(ofType: CurrentUser.self, forPrimaryKey: "0")
+		
+		let tokenType = (currentUser?.tokenType)!
+		let accessToken = (currentUser?.accessToken)!
 		
 		let requestUrl: URLRequest = {
 			var request = URLRequest(url: URL(string: SwaggerCommunication.apiUrl + "api/party")!)
 			request.httpMethod = "POST"
 			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-			request.setValue("\(currentUser?.tokenType) \(currentUser?.accessToken)", forHTTPHeaderField: "Authorization")
+			request.setValue("\(tokenType) \(accessToken)", forHTTPHeaderField: "Authorization")
 			request.httpBody = try! party.rawData()
 			
 			return request

@@ -29,6 +29,9 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		// update
+		parties = try! Realm().objects(Party.self)
+		
 		// setup navigation bar
 		navigationItem.title = "Parties"
 		
@@ -62,6 +65,7 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		let lastLocation = locations.last
 		self.currentLocation = CLLocationCoordinate2D(latitude: lastLocation!.coordinate.latitude, longitude: lastLocation!.coordinate.longitude)
+		self.tableView.reloadData()
 	}
 	
 	// MARK: - Navigation items

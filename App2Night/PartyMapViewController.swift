@@ -22,6 +22,9 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		// update
+		parties = try! Realm().objects(Party.self)
+		
 		// setup navigation bar
 		navigationItem.title = "Parties"
 		
