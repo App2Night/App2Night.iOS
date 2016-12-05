@@ -17,7 +17,7 @@ extension UIColor {
 	static var a2nRed: UIColor { get { return UIColor(red: 171/255, green: 26/255, blue: 37/255, alpha: 1.0) } }
 	static var a2nOrange: UIColor { get { return UIColor(red: 217/255, green: 121/255, blue: 37/255, alpha: 1.0) } }
 	
-	// misc
+	// ui colors
 	static var a2nWhite: UIColor { get { return UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0) } }
 	
 	

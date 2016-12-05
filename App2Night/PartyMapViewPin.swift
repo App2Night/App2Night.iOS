@@ -9,24 +9,27 @@
 import UIKit
 import MapKit
 
-class PartyPin: NSObject, MKAnnotation {
+extension PartyMapViewController {
 	
-	let title: String?
-	let cityName: String?
-	
-	var subtitle: String? {
-		return cityName
-	}
-	
-	let coordinate: CLLocationCoordinate2D
-	
-	init(party: Party) {
-		self.title = party.name
-		self.cityName = party.cityName
-		self.coordinate = CLLocationCoordinate2D(latitude: party.latitude, longitude: party.longitude)
+	class PartyMapViewPin: NSObject, MKAnnotation {
 		
-		super.init()
+		let title: String?
+		let cityName: String?
+		let coordinate: CLLocationCoordinate2D
+		let object: Party
+		var subtitle: String? {
+			return cityName
+		}
+		
+		init(party: Party) {
+			self.object = party
+			self.title = self.object.name
+			self.cityName = self.object.cityName
+			self.coordinate = CLLocationCoordinate2D(latitude: self.object.latitude, longitude: self.object.longitude)
+			
+			super.init()
+		}
+		
 	}
 	
 }
-

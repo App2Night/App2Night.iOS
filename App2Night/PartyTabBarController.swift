@@ -23,9 +23,9 @@ class PartyTabBarController: UITabBarController {
 	}
 	
 	func showLoginController() {
-		let loginController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginController")
+		let loginViewController = LoginViewController()
 		
-		present(loginController, animated: true, completion: {
+		present(loginViewController, animated: true, completion: {
 		})
 	}
 	

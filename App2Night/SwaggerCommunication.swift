@@ -138,5 +138,41 @@ class SwaggerCommunication {
 			}.resume()
 	}
 	
+	func postUser(username: String, email: String, password: String, completionHandler: @escaping (Bool) -> ()) {
+		let userPayload: JSON = [
+			"username": username,
+			"password": password,
+			"email": email
+		]
+		
+		let requestUrl: URLRequest = {
+			var request = URLRequest(url: URL(string: SwaggerCommunication.userUrl + "api/user")!)
+			request.httpMethod = "POST"
+			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+			request.httpBody = try! userPayload.rawData()
+			
+			return request
+		}()
+		
+		Alamofire.request(requestUrl).validate().responseData { (response) in
+			print("REQUEST URL: \(response.request)")
+			print("HTTP URL RESPONSE: \(response.response)")
+			print("SERVER DATA: \(response.data)")
+			print("RESULT OF SERIALIZATION: \(response.result)")
+			
+			switch response.result {
+			case .success:
+				DispatchQueue.main.async(execute: { () -> Void in
+					completionHandler(true)
+				})
+			case .failure(let e):
+				print(e)
+				DispatchQueue.main.async(execute: { () -> Void in
+					completionHandler(false)
+				})
+			}
+			}.resume()
+	}
+	
 }
 

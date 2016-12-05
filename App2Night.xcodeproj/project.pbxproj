@@ -10,21 +10,16 @@
 		00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00257E621DEB1E9500E05884 /* UserDefaults.swift */; };
 		00297F981DEC5D7500527955 /* PartyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297F971DEC5D7500527955 /* PartyMapViewController.swift */; };
 		00297F9A1DEC724800527955 /* PartyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297F991DEC724800527955 /* PartyDetailViewController.swift */; };
-		002D16F01DDCC45A00FE5895 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 002D16EF1DDCC45A00FE5895 /* Login.storyboard */; };
-		002D16F21DDCC48800FE5895 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D16F11DDCC48800FE5895 /* LoginController.swift */; };
-		0037A86F1DD3819800DA5E9E /* DummyParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037A86E1DD3819800DA5E9E /* DummyParty.swift */; };
+		002AD04D1DF5DAD600BCB74A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD04C1DF5DAD600BCB74A /* LoginViewController.swift */; };
+		002AD04F1DF5DCD800BCB74A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD04E1DF5DCD800BCB74A /* UIView+Extension.swift */; };
+		002AD0511DF5E01200BCB74A /* LoginCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD0501DF5E01200BCB74A /* LoginCollectionViewCell.swift */; };
 		004433F91DD11A2B0012755C /* SwaggerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004433F81DD11A2B0012755C /* SwaggerCommunication.swift */; };
-		005A424F1DC90025005E1C8E /* Properties+Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */; };
-		005A9BC01DD122CA001F4B4E /* SPartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005A9BBF1DD122CA001F4B4E /* SPartyTableViewController.swift */; };
 		005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005BF77B1DD3C7F3003C9036 /* RealmManager.swift */; };
-		009D973C1DBE562F005D94FF /* PartyDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D973B1DBE562F005D94FF /* PartyDeprecated.swift */; };
 		00CD68AA1DC8FF6D00A0172F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CD68A91DC8FF6D00A0172F /* Launch.storyboard */; };
 		00D921DA1DCB7DDA00737FA1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D921D91DCB7DDA00737FA1 /* Home.storyboard */; };
 		00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */; };
 		00EE27861DD65750004053FE /* Colors+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EE27851DD65750004053FE /* Colors+Style.swift */; };
-		00EE27881DD65E37004053FE /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EE27871DD65E37004053FE /* RootTabBarController.swift */; };
 		00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F060091DBBD85C003A2A38 /* Assets.xcassets */; };
-		00F060331DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F060321DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift */; };
 		00F0AB9B1DE4B72B00512CF0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0AB9A1DE4B72B00512CF0 /* Alamofire.framework */; };
 		00F0AB9C1DE4B72B00512CF0 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0AB9A1DE4B72B00512CF0 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00F0AB9E1DE4B73400512CF0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0AB9D1DE4B73400512CF0 /* SwiftyJSON.framework */; };
@@ -68,25 +63,20 @@
 		00257E621DEB1E9500E05884 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		00297F971DEC5D7500527955 /* PartyMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyMapViewController.swift; sourceTree = "<group>"; };
 		00297F991DEC724800527955 /* PartyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyDetailViewController.swift; sourceTree = "<group>"; };
-		002D16EF1DDCC45A00FE5895 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		002D16F11DDCC48800FE5895 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		0037A86E1DD3819800DA5E9E /* DummyParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyParty.swift; sourceTree = "<group>"; };
+		002AD04C1DF5DAD600BCB74A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		002AD04E1DF5DCD800BCB74A /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		002AD0501DF5E01200BCB74A /* LoginCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCollectionViewCell.swift; sourceTree = "<group>"; };
 		004433F81DD11A2B0012755C /* SwaggerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunication.swift; sourceTree = "<group>"; };
-		005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Properties+Enumerations.swift"; sourceTree = "<group>"; };
-		005A9BBF1DD122CA001F4B4E /* SPartyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPartyTableViewController.swift; sourceTree = "<group>"; };
 		005BF77B1DD3C7F3003C9036 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		0093C8801DBF563D00FB7FCA /* PartyGetValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyGetValue.json; sourceTree = "<group>"; };
 		0097E1E51DD9B8C500220AEF /* UserRobin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserRobin.json; sourceTree = "<group>"; };
-		009D973B1DBE562F005D94FF /* PartyDeprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyDeprecated.swift; sourceTree = "<group>"; };
 		00CD68A91DC8FF6D00A0172F /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		00D921D91DCB7DDA00737FA1 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00EE27851DD65750004053FE /* Colors+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Colors+Style.swift"; sourceTree = "<group>"; };
-		00EE27871DD65E37004053FE /* RootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		00F05FFF1DBBD85C003A2A38 /* App2Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App2Night.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F060091DBBD85C003A2A38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00F0600E1DBBD85C003A2A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00F060321DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunicationDeprecated.swift; sourceTree = "<group>"; };
 		00F0AB9A1DE4B72B00512CF0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		00F0AB9D1DE4B73400512CF0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Frameworks/SwiftyJSON.framework; sourceTree = "<group>"; };
 		00F0ABA01DE4B73E00512CF0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Realm.framework; sourceTree = "<group>"; };
@@ -120,23 +110,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		004433FA1DD11AA10012755C /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				00EE27871DD65E37004053FE /* RootTabBarController.swift */,
-				005A9BBF1DD122CA001F4B4E /* SPartyTableViewController.swift */,
-				0037A86E1DD3819800DA5E9E /* DummyParty.swift */,
-				009D973B1DBE562F005D94FF /* PartyDeprecated.swift */,
-				00F060321DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift */,
-				005A424E1DC90025005E1C8E /* Properties+Enumerations.swift */,
-			);
-			name = Deprecated;
-			sourceTree = "<group>";
-		};
 		007404591DC8D92900C3C7DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				002D16F11DDCC48800FE5895 /* LoginController.swift */,
+				002AD04C1DF5DAD600BCB74A /* LoginViewController.swift */,
+				002AD0501DF5E01200BCB74A /* LoginCollectionViewCell.swift */,
 				00FF19171DEC45FF00ADA439 /* PartyTabBarController.swift */,
 				00FF19191DEC466900ADA439 /* PartyNavigationController.swift */,
 				00FF191D1DEC473200ADA439 /* Tab Views */,
@@ -161,8 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				00CD68A91DC8FF6D00A0172F /* Launch.storyboard */,
-				002D16EF1DDCC45A00FE5895 /* Login.storyboard */,
 				00D921D91DCB7DDA00737FA1 /* Home.storyboard */,
+				002AD04E1DF5DCD800BCB74A /* UIView+Extension.swift */,
 				00EE27851DD65750004053FE /* Colors+Style.swift */,
 			);
 			name = View;
@@ -205,7 +183,6 @@
 				00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */,
 				00F060091DBBD85C003A2A38 /* Assets.xcassets */,
 				00F0600E1DBBD85C003A2A38 /* Info.plist */,
-				004433FA1DD11AA10012755C /* Deprecated */,
 			);
 			path = App2Night;
 			sourceTree = "<group>";
@@ -302,7 +279,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				002D16F01DDCC45A00FE5895 /* Login.storyboard in Resources */,
 				00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */,
 				00D921DA1DCB7DDA00737FA1 /* Home.storyboard in Resources */,
 				00CD68AA1DC8FF6D00A0172F /* Launch.storyboard in Resources */,
@@ -318,28 +294,24 @@
 			files = (
 				00FF19181DEC45FF00ADA439 /* PartyTabBarController.swift in Sources */,
 				004433F91DD11A2B0012755C /* SwaggerCommunication.swift in Sources */,
-				00EE27881DD65E37004053FE /* RootTabBarController.swift in Sources */,
 				00FF2B871DD5250400312084 /* Party.swift in Sources */,
 				00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */,
-				005A9BC01DD122CA001F4B4E /* SPartyTableViewController.swift in Sources */,
-				00F060331DBBE9C6003A2A38 /* SwaggerCommunicationDeprecated.swift in Sources */,
 				00F569931DEF1C8500528F54 /* PartyUserProfileViewController.swift in Sources */,
 				00297F981DEC5D7500527955 /* PartyMapViewController.swift in Sources */,
 				00FF191C1DEC46EC00ADA439 /* PartyTableViewController.swift in Sources */,
-				009D973C1DBE562F005D94FF /* PartyDeprecated.swift in Sources */,
 				00EE27861DD65750004053FE /* Colors+Style.swift in Sources */,
 				00F569951DEF292900528F54 /* PartyUserProfileViewCell.swift in Sources */,
-				0037A86F1DD3819800DA5E9E /* DummyParty.swift in Sources */,
-				005A424F1DC90025005E1C8E /* Properties+Enumerations.swift in Sources */,
+				002AD04D1DF5DAD600BCB74A /* LoginViewController.swift in Sources */,
+				002AD04F1DF5DCD800BCB74A /* UIView+Extension.swift in Sources */,
 				005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */,
 				00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */,
 				00FF191A1DEC466900ADA439 /* PartyNavigationController.swift in Sources */,
 				00F569911DEF1BBA00528F54 /* PartyMapViewPin.swift in Sources */,
+				002AD0511DF5E01200BCB74A /* LoginCollectionViewCell.swift in Sources */,
 				00F569971DEF2CB500528F54 /* PartyCreateViewController.swift in Sources */,
 				00F5698F1DEF1B7C00528F54 /* PartyTableViewCell.swift in Sources */,
 				00297F9A1DEC724800527955 /* PartyDetailViewController.swift in Sources */,
 				00F569991DEF3B7500528F54 /* CurrentUser.swift in Sources */,
-				002D16F21DDCC48800FE5895 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

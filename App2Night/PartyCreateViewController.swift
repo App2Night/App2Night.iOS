@@ -37,7 +37,7 @@ class PartyCreateViewController: UIViewController {
 	// try to submit party
 	func tryPost() {
 		let partyJson: JSON = [
-		"partyName": "iOS Party 4",
+		"partyName": "iOS Party BESPR",
 		"partyDate": "2016-12-25T12:00:00.000Z",
 		"musicGenre": 0,
 		"countryName": "Germany",

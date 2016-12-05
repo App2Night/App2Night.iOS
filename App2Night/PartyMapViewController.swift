@@ -19,6 +19,8 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 	var mapView: MKMapView = MKMapView()
 	let locationManager = CLLocationManager()
 	
+	let pinId = "PartyMapViewPin"
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -43,6 +45,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		mapView.delegate = self
 		mapView.showsUserLocation = true
 		
+		// parse realm objects to pins and add them to the mapView
 		parseAnnotations()
 		
 		view.addSubview(mapView)
@@ -51,7 +54,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 	// MARK: - parse parties to annotations
 	func parseAnnotations() {
 		for object in parties {
-			let pin = PartyPin(party: object)
+			let pin = PartyMapViewPin(party: object)
 			mapView.addAnnotation(pin)
 		}
 	}
@@ -67,23 +70,23 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 	
 	// display pins
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-		if let annotation = annotation as? PartyPin {
-			let identifier = "pin"
+		if let annotation = annotation as? PartyMapViewPin {
+			let id = pinId
 			var view: MKPinAnnotationView
 			
-			if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
+			if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: id) as? MKPinAnnotationView {
 				dequeuedView.annotation = annotation
 				view = dequeuedView
 			}
 			else {
-				view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+				view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: id)
 				view.canShowCallout = true
+				// TODO: replace with button to show party
 				// view.calloutOffset = CGPoint(x: -5, y: 5)
 				// view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
 			}
 			return view
 		}
-		
 		return nil
 	}
 	
