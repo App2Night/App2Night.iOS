@@ -11,11 +11,45 @@ import UIKit
 protocol LoginViewControllerDelegate: class {
 	
 	func finishLoggingIn()
+	func showActivityIndicator()
+	func hideActivityIndicator()
 	
 }
 
 class LoginViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, LoginViewControllerDelegate {
 	
+	// spinner stuff
+	var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+	var loadingView: UIView = UIView()
+	
+	func showActivityIndicator() {
+		DispatchQueue.main.async {
+			self.loadingView = UIView()
+			self.loadingView.frame = CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0)
+			self.loadingView.center = self.view.center
+			self.loadingView.backgroundColor = UIColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 68/255)
+			self.loadingView.alpha = 0.7
+			self.loadingView.clipsToBounds = true
+			self.loadingView.layer.cornerRadius = 10
+			
+			self.spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+			self.spinner.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
+			self.spinner.center = CGPoint(x:self.loadingView.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
+			
+			self.loadingView.addSubview(self.spinner)
+			self.view.addSubview(self.loadingView)
+			self.spinner.startAnimating()
+		}
+	}
+	
+	func hideActivityIndicator() {
+		DispatchQueue.main.async {
+			self.spinner.stopAnimating()
+			self.loadingView.removeFromSuperview()
+		}
+	}
+	
+	// fancy pages
 	lazy var collectionView: UICollectionView = {
 		let layout = UICollectionViewFlowLayout()
 		layout.scrollDirection = .horizontal
@@ -84,7 +118,11 @@ class LoginViewController: UIViewController, UICollectionViewDataSource, UIColle
 	func keyboardShow() {
 		UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
 			
-			self.view.frame = CGRect(x: 0, y: -75, width: self.view.frame.width, height: self.view.frame.height)
+			if (self.pageControl.currentPage == 0) {
+				self.view.frame = CGRect(x: 0, y: -80, width: self.view.frame.width, height: self.view.frame.height)
+			} else {
+				self.view.frame = CGRect(x: 0, y: -75, width: self.view.frame.width, height: self.view.frame.height)
+			}
 			
 		}, completion: nil)
 	}

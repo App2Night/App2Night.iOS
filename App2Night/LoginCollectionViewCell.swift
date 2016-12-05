@@ -32,7 +32,8 @@ extension LoginViewController {
 			field.layer.borderColor = UIColor.lightGray.cgColor
 			field.layer.borderWidth = 1
 			field.layer.cornerRadius = 12
-			field.keyboardType = .emailAddress
+			field.keyboardType = .default
+			field.autocapitalizationType = .none
 			return field
 		}()
 		
@@ -69,10 +70,14 @@ extension LoginViewController {
 				return
 			}
 			
+			delegate?.showActivityIndicator()
+			
 			SwaggerCommunication.shared.getToken(username: username, password: password) { success in
 				if success {
+					self.delegate?.hideActivityIndicator()
 					self.delegate?.finishLoggingIn()
 				} else {
+					self.delegate?.hideActivityIndicator()
 					print("LOGIN FAILED.")
 				}
 			}
@@ -136,7 +141,8 @@ extension LoginViewController {
 			field.layer.borderColor = UIColor.lightGray.cgColor
 			field.layer.borderWidth = 1
 			field.layer.cornerRadius = 12
-			field.keyboardType = .emailAddress
+			field.keyboardType = .default
+			field.autocapitalizationType = .none
 			return field
 		}()
 		
@@ -147,6 +153,7 @@ extension LoginViewController {
 			field.layer.borderWidth = 1
 			field.layer.cornerRadius = 12
 			field.keyboardType = .emailAddress
+			field.autocapitalizationType = .none
 			return field
 		}()
 		
@@ -188,10 +195,14 @@ extension LoginViewController {
 				return
 			}
 			
+			delegate?.showActivityIndicator()
+			
 			SwaggerCommunication.shared.postUser(username: username, email: email, password: password) { success in
 				if success {
+					self.delegate?.hideActivityIndicator()
 					print("REGISTER SUCESS.")
 				} else {
+					self.delegate?.hideActivityIndicator()
 					print("REGISTER FAILED.")
 				}
 			}

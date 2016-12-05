@@ -36,7 +36,6 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 		navigationItem.title = "Parties"
 		
 		// location things
-		locationManager.requestAlwaysAuthorization()
 		locationManager.requestWhenInUseAuthorization()
 		if CLLocationManager.locationServicesEnabled() {
 			locationManager.delegate = self

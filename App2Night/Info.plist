@@ -2,10 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>App2Night needs Location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>App2Night needs Location.</string>
+	<string>App2Night braucht deinen aktuellen Standort um die Entfernung zu Parties in deiner Nähe zu berechnen.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
