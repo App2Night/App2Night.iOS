@@ -14,6 +14,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 	
 	// get parties from realm
 	var parties = try! Realm().objects(Party.self)
+	var pins: [PartyMapViewPin] = [PartyMapViewPin]()
 	
 	// location things
 	var mapView: MKMapView = MKMapView()
@@ -25,7 +26,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		super.viewDidLoad()
 		
 		// update
-		parties = try! Realm().objects(Party.self)
+		// parties = try! Realm().objects(Party.self)
 		
 		// setup navigation bar
 		navigationItem.title = "Parties"
@@ -45,17 +46,31 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		mapView.showsUserLocation = true
 		
 		// parse realm objects to pins and add them to the mapView
-		parseAnnotations()
+		// parseAnnotations()
 		
 		view.addSubview(mapView)
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		mapView.removeAnnotations(pins)
+		mapView.reloadInputViews()
+		pins.removeAll()
+		
+		parseAnnotations()
+	}
+	
 	// MARK: - parse parties to annotations
 	func parseAnnotations() {
+		parties = try! Realm().objects(Party.self)
+		
 		for object in parties {
 			let pin = PartyMapViewPin(party: object)
-			mapView.addAnnotation(pin)
+			pins.append(pin)
 		}
+		
+		mapView.addAnnotations(pins)
 	}
 	
 	// MARK: - Location delegate
@@ -80,7 +95,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 			else {
 				view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: id)
 				view.canShowCallout = true
-				// hacky custom Button class to pass annotation pin reference
+				// hacky custom button class to pass annotation pin reference
 				let detailViewButton = PartyDetailViewButton(type: .detailDisclosure)
 				detailViewButton.currentPin = annotation
 				detailViewButton.addTarget(self, action: #selector(handleDetailViewButton), for: .touchUpInside)
@@ -94,7 +109,9 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 	// handle button tap
 	func handleDetailViewButton(sender: PartyDetailViewButton) {
 		let detailView = PartyDetailViewController()
-		detailView.selectedParty = (sender.currentPin?.object)!
+		// use primary key string from pin to get party object from realm -> cant pass object reference because of realm limits
+		let partyId = sender.currentPin?.id
+		detailView.selectedParty =  try! Realm().object(ofType: Party.self, forPrimaryKey: partyId)!
 		let wrappedDetailView = PartyNavigationController(rootViewController: detailView)
 		present(wrappedDetailView, animated: true, completion: nil)
 	}

@@ -48,6 +48,7 @@ class PartyCreateViewController: UIViewController {
 			self.view.isUserInteractionEnabled = true
 			self.spinner.stopAnimating()
 			self.loadingView.removeFromSuperview()
+			self.darkView.removeFromSuperview()
 		}
 	}
 	

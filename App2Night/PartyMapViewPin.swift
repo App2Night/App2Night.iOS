@@ -15,17 +15,17 @@ extension PartyMapViewController {
 		
 		let title: String?
 		let cityName: String?
+		let id: String?
 		let coordinate: CLLocationCoordinate2D
-		let object: Party
 		var subtitle: String? {
 			return cityName
 		}
 		
 		init(party: Party) {
-			self.object = party
-			self.title = self.object.name
-			self.cityName = self.object.cityName
-			self.coordinate = CLLocationCoordinate2D(latitude: self.object.latitude, longitude: self.object.longitude)
+			self.id = party.id
+			self.title = party.name
+			self.cityName = party.cityName
+			self.coordinate = CLLocationCoordinate2D(latitude: party.latitude, longitude: party.longitude)
 			
 			super.init()
 		}

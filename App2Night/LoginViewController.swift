@@ -57,6 +57,7 @@ class LoginViewController: UIViewController, UICollectionViewDataSource, UIColle
 			self.view.isUserInteractionEnabled = true
 			self.spinner.stopAnimating()
 			self.loadingView.removeFromSuperview()
+			self.darkView.removeFromSuperview()
 		}
 	}
 	
