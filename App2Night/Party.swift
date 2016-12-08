@@ -43,6 +43,7 @@ class Party: Object {
 	
 	let committedUser = List<User>()
 	
+	dynamic var userCommitmentState: Int = 2
 	
 	override static func primaryKey() -> String? {
 		return "id"
@@ -82,6 +83,8 @@ class Party: Object {
 		for (_, object) in json["CommittedUser"] {
 			self.committedUser.append(User(json: object))
 		}
+		
+		self.userCommitmentState = json["UserCommitmentState"].intValue
 	}
 	
 	private func getDate(string: String) -> Date {

@@ -23,10 +23,21 @@ class SwaggerCommunication {
 	
 	
 	func getParties(at location: CLLocationCoordinate2D, completionHandler: @escaping (Bool) -> ()) {
+		// get user radius settings
+		let currentUser = try! Realm().object(ofType: CurrentUser.self, forPrimaryKey: "0")
+		let radius = currentUser?.radius
+		var radiusValue: Int
+		
+		if (radius != nil) {
+			radiusValue = radius!
+		} else {
+			radiusValue = 100
+		}
+		
 		let coordinates: Parameters = [
 			"lat": location.latitude,
 			"lon": location.longitude,
-			"radius": "200"
+			"radius": radiusValue
 		]
 		
 		Alamofire.request(SwaggerCommunication.apiUrl + "api/party", method: .get, parameters: coordinates).validate().responseJSON { (response) in
@@ -38,7 +49,16 @@ class SwaggerCommunication {
 			switch response.result {
 			case .success:
 				DispatchQueue.main.async(execute: { () -> Void in
-					for (_, object) in JSON(response.result.value!) {
+					
+					// prepare comparision
+					let responseValue = JSON(response.result.value!)
+					let parties = try! Realm().objects(Party.self)
+					
+					try! RealmManager.currentRealm.write {
+						RealmManager.currentRealm.delete(parties)
+					}
+					
+					for (_, object) in responseValue {
 						let party = Party(json: object)
 						
 						try! RealmManager.currentRealm.write {
@@ -60,7 +80,7 @@ class SwaggerCommunication {
 			}.resume()
 	}
 	
-	func postParty(with party: JSON, completionHandler: @escaping (Bool) -> ()) {
+	func postParty(with party: Data, completionHandler: @escaping (Bool) -> ()) {
 		let currentUser = try! Realm().object(ofType: CurrentUser.self, forPrimaryKey: "0")
 		
 		let tokenType = (currentUser?.tokenType)!
@@ -71,7 +91,7 @@ class SwaggerCommunication {
 			request.httpMethod = "POST"
 			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 			request.setValue("\(tokenType) \(accessToken)", forHTTPHeaderField: "Authorization")
-			request.httpBody = try! party.rawData()
+			request.httpBody = party
 			
 			return request
 		}()

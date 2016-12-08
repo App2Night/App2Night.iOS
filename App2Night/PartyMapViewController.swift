@@ -80,13 +80,23 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 			else {
 				view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: id)
 				view.canShowCallout = true
-				// TODO: replace with button to show party
-				// view.calloutOffset = CGPoint(x: -5, y: 5)
-				// view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+				// hacky custom Button class to pass annotation pin reference
+				let detailViewButton = PartyDetailViewButton(type: .detailDisclosure)
+				detailViewButton.currentPin = annotation
+				detailViewButton.addTarget(self, action: #selector(handleDetailViewButton), for: .touchUpInside)
+				view.rightCalloutAccessoryView = detailViewButton
 			}
 			return view
 		}
 		return nil
+	}
+	
+	// handle button tap
+	func handleDetailViewButton(sender: PartyDetailViewButton) {
+		let detailView = PartyDetailViewController()
+		detailView.selectedParty = (sender.currentPin?.object)!
+		let wrappedDetailView = PartyNavigationController(rootViewController: detailView)
+		present(wrappedDetailView, animated: true, completion: nil)
 	}
 	
 }

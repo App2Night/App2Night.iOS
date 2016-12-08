@@ -32,6 +32,9 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 		// update
 		parties = try! Realm().objects(Party.self)
 		
+		// remove "empty" seperators
+		self.tableView.tableFooterView = UIView()
+		
 		// setup navigation bar
 		navigationItem.title = "Parties"
 		
@@ -47,7 +50,7 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 		tableView.addSubview(partyRefreshControl)
 		
 		// debug button to clear realm
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Löschen", style: .plain, target: self, action: #selector(clear))
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "REALM CLEAR", style: .plain, target: self, action: #selector(clear))
 		
 		// button to add parties
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(create))
@@ -117,10 +120,12 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 		return cell
 	}
 	
+	// tap on cell
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let detailView = PartyDetailViewController()
 		detailView.selectedParty = parties[indexPath.row]
-		self.show(detailView, sender: self)
+		let wrappedDetailView = PartyNavigationController(rootViewController: detailView)
+		present(wrappedDetailView, animated: true, completion: nil)
 	}
 	
 }

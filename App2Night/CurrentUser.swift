@@ -22,6 +22,8 @@ class CurrentUser: Object {
 	dynamic var refreshToken: String = ""
 	dynamic var tokenType: String = ""
 	
+	dynamic var radius: Int = 100
+	
 	
 	override static func primaryKey() -> String? {
 		return "id"

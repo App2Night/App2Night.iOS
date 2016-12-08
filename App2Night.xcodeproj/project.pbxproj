@@ -11,7 +11,7 @@
 		00297F981DEC5D7500527955 /* PartyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297F971DEC5D7500527955 /* PartyMapViewController.swift */; };
 		00297F9A1DEC724800527955 /* PartyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297F991DEC724800527955 /* PartyDetailViewController.swift */; };
 		002AD04D1DF5DAD600BCB74A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD04C1DF5DAD600BCB74A /* LoginViewController.swift */; };
-		002AD04F1DF5DCD800BCB74A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD04E1DF5DCD800BCB74A /* UIView+Extension.swift */; };
+		002AD04F1DF5DCD800BCB74A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD04E1DF5DCD800BCB74A /* Extensions.swift */; };
 		002AD0511DF5E01200BCB74A /* LoginCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD0501DF5E01200BCB74A /* LoginCollectionViewCell.swift */; };
 		004433F91DD11A2B0012755C /* SwaggerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004433F81DD11A2B0012755C /* SwaggerCommunication.swift */; };
 		005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005BF77B1DD3C7F3003C9036 /* RealmManager.swift */; };
@@ -64,7 +64,7 @@
 		00297F971DEC5D7500527955 /* PartyMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyMapViewController.swift; sourceTree = "<group>"; };
 		00297F991DEC724800527955 /* PartyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyDetailViewController.swift; sourceTree = "<group>"; };
 		002AD04C1DF5DAD600BCB74A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		002AD04E1DF5DCD800BCB74A /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		002AD04E1DF5DCD800BCB74A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		002AD0501DF5E01200BCB74A /* LoginCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCollectionViewCell.swift; sourceTree = "<group>"; };
 		004433F81DD11A2B0012755C /* SwaggerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunication.swift; sourceTree = "<group>"; };
 		005BF77B1DD3C7F3003C9036 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			children = (
 				00CD68A91DC8FF6D00A0172F /* Launch.storyboard */,
 				00D921D91DCB7DDA00737FA1 /* Home.storyboard */,
-				002AD04E1DF5DCD800BCB74A /* UIView+Extension.swift */,
+				002AD04E1DF5DCD800BCB74A /* Extensions.swift */,
 				00EE27851DD65750004053FE /* Colors+Style.swift */,
 			);
 			name = View;
@@ -302,7 +302,7 @@
 				00EE27861DD65750004053FE /* Colors+Style.swift in Sources */,
 				00F569951DEF292900528F54 /* PartyUserProfileViewCell.swift in Sources */,
 				002AD04D1DF5DAD600BCB74A /* LoginViewController.swift in Sources */,
-				002AD04F1DF5DCD800BCB74A /* UIView+Extension.swift in Sources */,
+				002AD04F1DF5DCD800BCB74A /* Extensions.swift in Sources */,
 				005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */,
 				00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */,
 				00FF191A1DEC466900ADA439 /* PartyNavigationController.swift in Sources */,

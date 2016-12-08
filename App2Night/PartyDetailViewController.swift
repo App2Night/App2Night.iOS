@@ -7,18 +7,44 @@
 //
 
 import UIKit
+import MapKit
 
-class PartyDetailViewController: UIViewController {
+class PartyDetailViewController: UIViewController, UIScrollViewDelegate {
 	
 	var selectedParty: Party = Party()
 	
-	let nameLabel: UILabel = {
+	let priceLabel: UILabel = {
 		let label = UILabel()
-		label.translatesAutoresizingMaskIntoConstraints = false
-		
-		label.textAlignment = .center
-		label.font = UIFont.systemFont(ofSize: 24)
-		
+		return label
+	}()
+	
+	let dateLabel: UILabel = {
+		let label = UILabel()
+		return label
+	}()
+	
+	let musicGenreLabel: UILabel = {
+		let label = UILabel()
+		return label
+	}()
+	
+	let partyTypeLabel: UILabel = {
+		let label = UILabel()
+		return label
+	}()
+	
+	let partyDescriptionLabel: UILabel = {
+		let label = UILabel()
+		return label
+	}()
+	
+	let countryNameLabel: UILabel = {
+		let label = UILabel()
+		return label
+	}()
+	
+	let cityNameLabel: UILabel = {
+		let label = UILabel()
 		return label
 	}()
 	
@@ -29,17 +55,41 @@ class PartyDetailViewController: UIViewController {
 		navigationItem.title = selectedParty.name
 		view.backgroundColor = .white
 		
-		// set labels
-		nameLabel.text = selectedParty.name
+		// nav bar button
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissView))
 		
-		// add labels
-		view.addSubview(nameLabel)
+		setupContent()
+	}
+	
+	func setupContent() {
+		view.addSubview(priceLabel)
+		view.addSubview(dateLabel)
+		view.addSubview(musicGenreLabel)
+		view.addSubview(partyTypeLabel)
+		view.addSubview(partyDescriptionLabel)
+		view.addSubview(countryNameLabel)
 		
-		// horizontal
-		view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
+		priceLabel.text = String(describing: selectedParty.price)
+		dateLabel.text = DateHelper.shared.getString(from: selectedParty.date)
+		musicGenreLabel.text = String(describing: selectedParty.musicGenre)
+		partyTypeLabel.text = String(describing: selectedParty.type)
+		partyDescriptionLabel.text = selectedParty.text
+		countryNameLabel.text = selectedParty.countryName
 		
-		// vertical
-		view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
+		_ = priceLabel.anchor(topLayoutGuide.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 0)
+		
+		_ = dateLabel.anchor(priceLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 0)
+		
+		_ = musicGenreLabel.anchor(dateLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 0)
+		
+		_ = partyTypeLabel.anchor(musicGenreLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 0)
+		
+		_ = partyDescriptionLabel.anchor(partyTypeLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 0)
+	}
+	
+	// dismiss view
+	func dismissView() {
+		dismiss(animated: true, completion: nil)
 	}
 	
 }

@@ -12,7 +12,7 @@ import RealmSwift
 class PartyUserProfileViewController: UITableViewController {
 	
 	let profileCell = BaseCell()
-	let radiusCell = BaseCell()
+	let radiusCell = RadiusCell()
 	let logoutCell = BaseCell()
 	
 	override func viewDidLoad() {
@@ -22,7 +22,7 @@ class PartyUserProfileViewController: UITableViewController {
 		profileCell.accessoryType = .disclosureIndicator
 		profileCell.textLabel?.text = try! Realm().object(ofType: CurrentUser.self, forPrimaryKey: "0")?.username
 		
-		radiusCell.textLabel?.text = "Radius"
+		// radiusCell.textLabel?.text = "Radius"
 		
 		logoutCell.accessoryType = .disclosureIndicator
 		logoutCell.textLabel?.text = "Ausloggen"
@@ -78,7 +78,7 @@ class PartyUserProfileViewController: UITableViewController {
 			}
 		case 1:
 			switch(indexPath.row) {
-			case 0: return 44
+			case 0: return 60
 			default: fatalError("More than 1 row in section")
 			}
 		case 2:
@@ -113,15 +113,15 @@ class PartyUserProfileViewController: UITableViewController {
 	}
 	
 	// set header titles
-	/*
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-	switch(section) {
-	case 0: return "Profile"
-	case 1: return "Social"
-	default: fatalError("Unknown section")
+		switch(section) {
+		case 0: return ""
+		case 1: return "Radius"
+		case 2: return ""
+		default: fatalError("More than 3 sections in tableView")
+		}
 	}
-	}
-	*/
+	
 	
 }
 

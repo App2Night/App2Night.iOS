@@ -34,6 +34,7 @@ extension LoginViewController {
 			field.layer.cornerRadius = 12
 			field.keyboardType = .default
 			field.autocapitalizationType = .none
+			field.autocorrectionType = .no
 			return field
 		}()
 		
@@ -60,6 +61,8 @@ extension LoginViewController {
 		weak var delegate: LoginViewControllerDelegate?
 		
 		func handleLogin() {
+			delegate?.dismissKeyboard()
+			
 			guard let username = usernameTextField.text, !username.isEmpty else {
 				print("NO USERNAME INPUT.")
 				return
@@ -143,6 +146,7 @@ extension LoginViewController {
 			field.layer.cornerRadius = 12
 			field.keyboardType = .default
 			field.autocapitalizationType = .none
+			field.autocorrectionType = .no
 			return field
 		}()
 		
@@ -154,6 +158,7 @@ extension LoginViewController {
 			field.layer.cornerRadius = 12
 			field.keyboardType = .emailAddress
 			field.autocapitalizationType = .none
+			field.autocorrectionType = .no
 			return field
 		}()
 		
@@ -180,6 +185,8 @@ extension LoginViewController {
 		weak var delegate: LoginViewControllerDelegate?
 		
 		func handleRegister() {
+			delegate?.dismissKeyboard()
+			
 			guard let username = usernameTextField.text, !username.isEmpty else {
 				print("NO USERNAME INPUT.")
 				return
