@@ -53,9 +53,11 @@ class SwaggerCommunication {
 					// prepare comparision
 					let responseValue = JSON(response.result.value!)
 					let parties = try! Realm().objects(Party.self)
+					let users = try! Realm().objects(User.self)
 					
 					try! RealmManager.currentRealm.write {
 						RealmManager.currentRealm.delete(parties)
+						RealmManager.currentRealm.delete(users)
 					}
 					
 					for (_, object) in responseValue {

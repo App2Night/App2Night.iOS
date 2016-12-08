@@ -39,8 +39,17 @@ class RealmManager {
 	}
 	
 	func clear() {
+		/*
 		try! RealmManager.currentRealm.write {
 			RealmManager.currentRealm.deleteAll()
+		}
+		*/
+		let parties = try! Realm().objects(Party.self)
+		let users = try! Realm().objects(User.self)
+		
+		try! RealmManager.currentRealm.write {
+			RealmManager.currentRealm.delete(parties)
+			RealmManager.currentRealm.delete(users)
 		}
 	}
 	

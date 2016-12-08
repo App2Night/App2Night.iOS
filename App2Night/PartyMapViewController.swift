@@ -95,10 +95,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 			else {
 				view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: id)
 				view.canShowCallout = true
-				// hacky custom button class to pass annotation pin reference
-				let detailViewButton = PartyDetailViewButton(type: .detailDisclosure)
-				detailViewButton.currentPin = annotation
-				detailViewButton.addTarget(self, action: #selector(handleDetailViewButton), for: .touchUpInside)
+				let detailViewButton = UIButton(type: .detailDisclosure)
 				view.rightCalloutAccessoryView = detailViewButton
 			}
 			return view
@@ -106,12 +103,12 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		return nil
 	}
 	
-	// handle button tap
-	func handleDetailViewButton(sender: PartyDetailViewButton) {
+	func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+		let pin: PartyMapViewPin = view.annotation as! PartyMapViewPin
+		
 		let detailView = PartyDetailViewController()
 		// use primary key string from pin to get party object from realm -> cant pass object reference because of realm limits
-		let partyId = sender.currentPin?.id
-		detailView.selectedParty =  try! Realm().object(ofType: Party.self, forPrimaryKey: partyId)!
+		detailView.selectedParty =  try! Realm().object(ofType: Party.self, forPrimaryKey: pin.id)!
 		let wrappedDetailView = PartyNavigationController(rootViewController: detailView)
 		present(wrappedDetailView, animated: true, completion: nil)
 	}
