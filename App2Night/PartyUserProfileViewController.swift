@@ -19,8 +19,8 @@ class PartyUserProfileViewController: UITableViewController {
 		super.viewDidLoad()
 		
 		// setup cells
-		profileCell.accessoryType = .disclosureIndicator
-		profileCell.textLabel?.text = try! Realm().object(ofType: CurrentUser.self, forPrimaryKey: "0")?.username
+		profileCell.textLabel?.text = try! Realm().object(ofType: You.self, forPrimaryKey: "0")?.username ?? "Username"
+		profileCell.isUserInteractionEnabled = false
 		
 		// radiusCell.textLabel?.text = "Radius"
 		
@@ -29,6 +29,12 @@ class PartyUserProfileViewController: UITableViewController {
 		
 		// setup navigation bar
 		navigationItem.title = "Profil"
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		try! RealmManager.currentRealm.write {
+			RealmManager.currentRealm.create(You.self, value: ["id": "0", "radius": Int(radiusCell.radiusSlider.value)], update: true)
+		}
 	}
 	
 	// MARK: - Table view data
@@ -103,6 +109,7 @@ class PartyUserProfileViewController: UITableViewController {
 	func handleLogOut() {
 		UserDefaults.standard.setIsLoggedIn(value: false)
 		perform(#selector(showLoginController), with: nil, afterDelay: 0.01)
+		RealmManager.shared.clearAll()
 	}
 	
 	func showLoginController() {
@@ -115,8 +122,8 @@ class PartyUserProfileViewController: UITableViewController {
 	// set header titles
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		switch(section) {
-		case 0: return ""
-		case 1: return "Radius"
+		case 0: return "Username"
+		case 1: return "Radius (km)"
 		case 2: return ""
 		default: fatalError("More than 3 sections in tableView")
 		}

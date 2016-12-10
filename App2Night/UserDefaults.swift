@@ -14,7 +14,6 @@ extension UserDefaults {
 		case IsLoggedIn
 	}
 	
-	
 	func setIsLoggedIn(value bool: Bool) {
 		set(bool, forKey: UserDefaultsKeys.IsLoggedIn.rawValue)
 		synchronize()

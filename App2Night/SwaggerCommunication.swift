@@ -21,10 +21,9 @@ class SwaggerCommunication {
 	private static let apiUrl = "https://app2nightapi.azurewebsites.net/"
 	private static let userUrl = "https://app2nightuser.azurewebsites.net/"
 	
-	
 	func getParties(at location: CLLocationCoordinate2D, completionHandler: @escaping (Bool) -> ()) {
 		// get user radius settings
-		let currentUser = try! Realm().object(ofType: CurrentUser.self, forPrimaryKey: "0")
+		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
 		let radius = currentUser?.radius
 		var radiusValue: Int
 		
@@ -83,7 +82,7 @@ class SwaggerCommunication {
 	}
 	
 	func postParty(with party: Data, completionHandler: @escaping (Bool) -> ()) {
-		let currentUser = try! Realm().object(ofType: CurrentUser.self, forPrimaryKey: "0")
+		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
 		
 		let tokenType = (currentUser?.tokenType)!
 		let accessToken = (currentUser?.accessToken)!
@@ -141,7 +140,7 @@ class SwaggerCommunication {
 			switch response.result {
 			case .success:
 				// create current user
-				let currentUser = CurrentUser(username: username, password: password, json: JSON(response.result.value!))
+				let currentUser = You(username: username, password: password, json: JSON(response.result.value!))
 				
 				try! RealmManager.currentRealm.write {
 					RealmManager.currentRealm.add(currentUser, update: true)

@@ -50,7 +50,7 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 		tableView.addSubview(partyRefreshControl)
 		
 		// debug button to clear realm
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "REALM CLEAR", style: .plain, target: self, action: #selector(clear))
+		// navigationItem.leftBarButtonItem = UIBarButtonItem(title: "REALM CLEAR", style: .plain, target: self, action: #selector(clear))
 		
 		// button to add parties
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(create))
@@ -78,7 +78,7 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 	
 	// MARK: - Create new party
 	func create() {
-		let createView = PartyNavigationController(rootViewController: PartyCreateViewController())
+		let createView = PartyNavigationController(rootViewController: PartyCreateFormViewController())
 		present(createView, animated: true, completion: nil)
 	}
 	
@@ -113,7 +113,20 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 		// location things
 		let distance = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude).distance(from: CLLocation(latitude: party.latitude, longitude: party.longitude))
 		
-		cell.distanceLabel.text = String(format: "%.1f", (distance/1000))
+		// smaller as 1 kilometer -> display 1 decimal
+		if distance < 1000 {
+			cell.distanceLabel.text = String(format: "%.1f", (distance/1000))
+		} else {
+			// smaller as 10 kilomter -> display 1 decimal
+			if distance < 10000 {
+				cell.distanceLabel.text = String(format: "%.1f", (distance/1000))
+			}
+				// bigger as 10 kilometer -> dont display any decimal
+			else {
+				cell.distanceLabel.text = String(format: "%.0f", (distance/1000))
+			}
+		}
+		
 		cell.nameLabel.text = party.name
 		cell.ratingLabel.text = String(describing: (party.generalUpVoting-party.generalDownVoting))
 		

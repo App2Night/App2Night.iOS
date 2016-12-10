@@ -68,7 +68,7 @@ extension PartyUserProfileViewController {
 			addSubview(radiusSlider)
 			addSubview(radiusLabel)
 			
-			let currentUser = try! Realm().object(ofType: CurrentUser.self, forPrimaryKey: "0")
+			let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
 			
 			let radius = currentUser?.radius
 			
@@ -93,11 +93,6 @@ extension PartyUserProfileViewController {
 		{
 			let roundedStepValue = round(sender.value / radiusStep) * radiusStep
 			sender.value = roundedStepValue
-			
-			try! RealmManager.currentRealm.write {
-				RealmManager.currentRealm.create(CurrentUser.self, value: ["id": "0", "radius": Int(roundedStepValue)], update: true)
-			}
-			
 			radiusLabel.text = String(describing: Int(roundedStepValue))
 		}
 		

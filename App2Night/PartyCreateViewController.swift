@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PartyCreateViewController: UIViewController {
 	
@@ -88,9 +89,22 @@ class PartyCreateViewController: UIViewController {
 		return field
 	}()
 	
+	/*
 	let partyDescriptionTextField: CreatePartyTextField = {
 		let field = CreatePartyTextField()
 		field.placeholder = "Beschreibung"
+		return field
+	}()
+	*/
+	
+	let partyDescriptionTextField: UITextView = {
+		let field = UITextView()
+		
+		field.layer.borderColor = UIColor.lightGray.cgColor
+		field.layer.borderWidth = 1
+		field.layer.cornerRadius = 12
+		field.keyboardType = .default
+		
 		return field
 	}()
 	
@@ -205,11 +219,11 @@ class PartyCreateViewController: UIViewController {
 		
 		_ = partyDescriptionTextField.anchor(partyDateTextField.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 44)
 		
-		_ = partyTypeTextField.anchor(partyDescriptionTextField.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 44)
+		_ = partyTypeTextField.anchor(partyDescriptionTextField.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.centerXAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: 44)
 		
-		_ = partyMusicGenreTextField.anchor(partyTypeTextField.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 44)
+		_ = partyMusicGenreTextField.anchor(partyDescriptionTextField.bottomAnchor, left: view.centerXAnchor, bottom: nil, right: view.rightAnchor, topConstant: 8, leftConstant: 4, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 44)
 		
-		_ = locationHeaderLabel.anchor(partyMusicGenreTextField.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 44)
+		_ = locationHeaderLabel.anchor(partyTypeTextField.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 44)
 		
 		_ = locationCountryNameTextField.anchor(locationHeaderLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 44)
 		
@@ -251,14 +265,18 @@ class PartyCreateViewController: UIViewController {
 	
 	// dismiss view
 	func dismissView() {
+		self.view.endEditing(true)
 		dismiss(animated: true, completion: nil)
 	}
 	
 	// try to submit party
 	func postParty() {
+		self.view.endEditing(true)
 		showActivityIndicator()
 		
 		let postParty = createTemporaryParty().toRawData()
+		
+		
 		
 		SwaggerCommunication.shared.postParty(with: postParty) { success in
 			if success {
@@ -300,60 +318,3 @@ class CreatePartyTextField: UITextField, UITextFieldDelegate {
 	
 }
 
-
-/*
-Be sure to declare your ViewController as UITextFieldDelegate and set correct delegates in your initialization methods: ex:
-
-self.you_text_field.delegate = self
-And remember to call registerForKeyboardNotifications on viewInit and deregisterFromKeyboardNotifications on exit.
-
-func registerForKeyboardNotifications(){
-//Adding notifies on keyboard appearing
-NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-}
-
-func deregisterFromKeyboardNotifications(){
-//Removing notifies on keyboard appearing
-NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-}
-
-func keyboardWasShown(notification: NSNotification){
-//Need to calculate keyboard exact size due to Apple suggestions
-self.scrollView.isScrollEnabled = true
-var info = notification.userInfo!
-let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
-
-self.scrollView.contentInset = contentInsets
-self.scrollView.scrollIndicatorInsets = contentInsets
-
-var aRect : CGRect = self.view.frame
-aRect.size.height -= keyboardSize!.height
-if let activeField = self.activeField {
-if (!aRect.contains(activeField.frame.origin)){
-self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
-}
-}
-}
-
-func keyboardWillBeHidden(notification: NSNotification){
-//Once keyboard disappears, restore original positions
-var info = notification.userInfo!
-let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
-self.scrollView.contentInset = contentInsets
-self.scrollView.scrollIndicatorInsets = contentInsets
-self.view.endEditing(true)
-self.scrollView.isScrollEnabled = false
-}
-
-func textFieldDidBeginEditing(_ textField: UITextField){
-activeField = textField
-}
-
-func textFieldDidEndEditing(_ textField: UITextField){
-activeField = nil
-}
-*/

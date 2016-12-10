@@ -122,7 +122,6 @@ class User: Object {
 	dynamic var id: String = ""
 	dynamic var userName: String = ""
 	
-	
 	override static func primaryKey() -> String? {
 		return "id"
 	}
@@ -148,19 +147,18 @@ class DateHelper {
 	static let shared = DateHelper()
 	
 	// setup date formatter
-	let formatter: DateFormatter = {
+	let apiFormatter: DateFormatter = {
 		let formatter = DateFormatter()
 		formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
 		return formatter
 	}()
 	
-	
 	func parseString(with string: String) -> Date {
-		return formatter.date(from: string)!
+		return apiFormatter.date(from: string)!
 	}
 	
 	func getString(from date: Date) -> String {
-		return formatter.string(from: date)
+		return apiFormatter.string(from: date)
 	}
 	
 }

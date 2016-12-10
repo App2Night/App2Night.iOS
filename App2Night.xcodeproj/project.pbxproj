@@ -15,26 +15,30 @@
 		002AD0511DF5E01200BCB74A /* LoginCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD0501DF5E01200BCB74A /* LoginCollectionViewCell.swift */; };
 		004433F91DD11A2B0012755C /* SwaggerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004433F81DD11A2B0012755C /* SwaggerCommunication.swift */; };
 		005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005BF77B1DD3C7F3003C9036 /* RealmManager.swift */; };
+		0089086F1DFC595800BB1070 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0089086E1DFC595800BB1070 /* Alamofire.framework */; };
+		008908701DFC595800BB1070 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0089086E1DFC595800BB1070 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		008908731DFC596300BB1070 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008908721DFC596300BB1070 /* Eureka.framework */; };
+		008908741DFC596300BB1070 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 008908721DFC596300BB1070 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		008908761DFC596E00BB1070 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008908751DFC596E00BB1070 /* Realm.framework */; };
+		008908771DFC596E00BB1070 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 008908751DFC596E00BB1070 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		008908791DFC597700BB1070 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008908781DFC597700BB1070 /* RealmSwift.framework */; };
+		0089087A1DFC597700BB1070 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 008908781DFC597700BB1070 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0089087C1DFC598100BB1070 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0089087B1DFC598100BB1070 /* SwiftyJSON.framework */; };
+		0089087D1DFC598100BB1070 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0089087B1DFC598100BB1070 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		008908811DFC6FCB00BB1070 /* PartyCreateFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008908801DFC6FCB00BB1070 /* PartyCreateFormViewController.swift */; };
+		008908831DFC785D00BB1070 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008908821DFC785D00BB1070 /* Enumerations.swift */; };
 		00CD68AA1DC8FF6D00A0172F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CD68A91DC8FF6D00A0172F /* Launch.storyboard */; };
 		00D921DA1DCB7DDA00737FA1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D921D91DCB7DDA00737FA1 /* Home.storyboard */; };
 		00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */; };
 		00EE27861DD65750004053FE /* Colors+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EE27851DD65750004053FE /* Colors+Style.swift */; };
 		00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F060091DBBD85C003A2A38 /* Assets.xcassets */; };
-		00F0AB9B1DE4B72B00512CF0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0AB9A1DE4B72B00512CF0 /* Alamofire.framework */; };
-		00F0AB9C1DE4B72B00512CF0 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0AB9A1DE4B72B00512CF0 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		00F0AB9E1DE4B73400512CF0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0AB9D1DE4B73400512CF0 /* SwiftyJSON.framework */; };
-		00F0AB9F1DE4B73400512CF0 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0AB9D1DE4B73400512CF0 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		00F0ABA11DE4B73E00512CF0 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0ABA01DE4B73E00512CF0 /* Realm.framework */; };
-		00F0ABA21DE4B73E00512CF0 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0ABA01DE4B73E00512CF0 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		00F0ABA41DE4B74C00512CF0 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0ABA31DE4B74C00512CF0 /* RealmSwift.framework */; };
-		00F0ABA51DE4B74C00512CF0 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0ABA31DE4B74C00512CF0 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00F0ABA71DE4BC1400512CF0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0ABA61DE4BC1400512CF0 /* MapKit.framework */; };
 		00F5698F1DEF1B7C00528F54 /* PartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F5698E1DEF1B7C00528F54 /* PartyTableViewCell.swift */; };
 		00F569911DEF1BBA00528F54 /* PartyMapViewPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569901DEF1BBA00528F54 /* PartyMapViewPin.swift */; };
 		00F569931DEF1C8500528F54 /* PartyUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569921DEF1C8500528F54 /* PartyUserProfileViewController.swift */; };
 		00F569951DEF292900528F54 /* PartyUserProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569941DEF292900528F54 /* PartyUserProfileViewCell.swift */; };
 		00F569971DEF2CB500528F54 /* PartyCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569961DEF2CB500528F54 /* PartyCreateViewController.swift */; };
-		00F569991DEF3B7500528F54 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569981DEF3B7500528F54 /* CurrentUser.swift */; };
+		00F569991DEF3B7500528F54 /* You.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569981DEF3B7500528F54 /* You.swift */; };
 		00FF19181DEC45FF00ADA439 /* PartyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF19171DEC45FF00ADA439 /* PartyTabBarController.swift */; };
 		00FF191A1DEC466900ADA439 /* PartyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF19191DEC466900ADA439 /* PartyNavigationController.swift */; };
 		00FF191C1DEC46EC00ADA439 /* PartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF191B1DEC46EC00ADA439 /* PartyTableViewController.swift */; };
@@ -42,16 +46,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		006C496E1DD3B8B6005FC4DF /* Embed Frameworks */ = {
+		008908711DFC595800BB1070 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				00F0ABA21DE4B73E00512CF0 /* Realm.framework in Embed Frameworks */,
-				00F0AB9F1DE4B73400512CF0 /* SwiftyJSON.framework in Embed Frameworks */,
-				00F0ABA51DE4B74C00512CF0 /* RealmSwift.framework in Embed Frameworks */,
-				00F0AB9C1DE4B72B00512CF0 /* Alamofire.framework in Embed Frameworks */,
+				008908771DFC596E00BB1070 /* Realm.framework in Embed Frameworks */,
+				008908701DFC595800BB1070 /* Alamofire.framework in Embed Frameworks */,
+				0089087A1DFC597700BB1070 /* RealmSwift.framework in Embed Frameworks */,
+				008908741DFC596300BB1070 /* Eureka.framework in Embed Frameworks */,
+				0089087D1DFC598100BB1070 /* SwiftyJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +73,13 @@
 		002AD0501DF5E01200BCB74A /* LoginCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCollectionViewCell.swift; sourceTree = "<group>"; };
 		004433F81DD11A2B0012755C /* SwaggerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunication.swift; sourceTree = "<group>"; };
 		005BF77B1DD3C7F3003C9036 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		0089086E1DFC595800BB1070 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
+		008908721DFC596300BB1070 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Frameworks/Eureka.framework; sourceTree = "<group>"; };
+		008908751DFC596E00BB1070 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Realm.framework; sourceTree = "<group>"; };
+		008908781DFC597700BB1070 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/RealmSwift.framework; sourceTree = "<group>"; };
+		0089087B1DFC598100BB1070 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Frameworks/SwiftyJSON.framework; sourceTree = "<group>"; };
+		008908801DFC6FCB00BB1070 /* PartyCreateFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyCreateFormViewController.swift; sourceTree = "<group>"; };
+		008908821DFC785D00BB1070 /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		0093C8801DBF563D00FB7FCA /* PartyGetValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyGetValue.json; sourceTree = "<group>"; };
 		0097E1E51DD9B8C500220AEF /* UserRobin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserRobin.json; sourceTree = "<group>"; };
 		00CD68A91DC8FF6D00A0172F /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
@@ -77,17 +89,13 @@
 		00F05FFF1DBBD85C003A2A38 /* App2Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App2Night.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F060091DBBD85C003A2A38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00F0600E1DBBD85C003A2A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00F0AB9A1DE4B72B00512CF0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
-		00F0AB9D1DE4B73400512CF0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Frameworks/SwiftyJSON.framework; sourceTree = "<group>"; };
-		00F0ABA01DE4B73E00512CF0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Realm.framework; sourceTree = "<group>"; };
-		00F0ABA31DE4B74C00512CF0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/RealmSwift.framework; sourceTree = "<group>"; };
 		00F0ABA61DE4BC1400512CF0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		00F5698E1DEF1B7C00528F54 /* PartyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewCell.swift; sourceTree = "<group>"; };
 		00F569901DEF1BBA00528F54 /* PartyMapViewPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyMapViewPin.swift; sourceTree = "<group>"; };
 		00F569921DEF1C8500528F54 /* PartyUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyUserProfileViewController.swift; sourceTree = "<group>"; };
 		00F569941DEF292900528F54 /* PartyUserProfileViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyUserProfileViewCell.swift; sourceTree = "<group>"; };
 		00F569961DEF2CB500528F54 /* PartyCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyCreateViewController.swift; sourceTree = "<group>"; };
-		00F569981DEF3B7500528F54 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		00F569981DEF3B7500528F54 /* You.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = You.swift; sourceTree = "<group>"; };
 		00FF19171DEC45FF00ADA439 /* PartyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTabBarController.swift; sourceTree = "<group>"; };
 		00FF19191DEC466900ADA439 /* PartyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyNavigationController.swift; sourceTree = "<group>"; };
 		00FF191B1DEC46EC00ADA439 /* PartyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewController.swift; sourceTree = "<group>"; };
@@ -99,11 +107,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00F0ABA11DE4B73E00512CF0 /* Realm.framework in Frameworks */,
-				00F0AB9E1DE4B73400512CF0 /* SwiftyJSON.framework in Frameworks */,
+				008908761DFC596E00BB1070 /* Realm.framework in Frameworks */,
+				008908791DFC597700BB1070 /* RealmSwift.framework in Frameworks */,
+				0089087C1DFC598100BB1070 /* SwiftyJSON.framework in Frameworks */,
+				008908731DFC596300BB1070 /* Eureka.framework in Frameworks */,
 				00F0ABA71DE4BC1400512CF0 /* MapKit.framework in Frameworks */,
-				00F0ABA41DE4B74C00512CF0 /* RealmSwift.framework in Frameworks */,
-				00F0AB9B1DE4B72B00512CF0 /* Alamofire.framework in Frameworks */,
+				0089086F1DFC595800BB1070 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,11 +135,12 @@
 			isa = PBXGroup;
 			children = (
 				00FF2B861DD5250400312084 /* Party.swift */,
-				00F569981DEF3B7500528F54 /* CurrentUser.swift */,
+				00F569981DEF3B7500528F54 /* You.swift */,
 				005BF77B1DD3C7F3003C9036 /* RealmManager.swift */,
 				004433F81DD11A2B0012755C /* SwaggerCommunication.swift */,
 				00257E621DEB1E9500E05884 /* UserDefaults.swift */,
 				009D973A1DBE556F005D94FF /* Examples */,
+				008908821DFC785D00BB1070 /* Enumerations.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -191,10 +201,11 @@
 			isa = PBXGroup;
 			children = (
 				00F0ABA61DE4BC1400512CF0 /* MapKit.framework */,
-				00F0AB9A1DE4B72B00512CF0 /* Alamofire.framework */,
-				00F0AB9D1DE4B73400512CF0 /* SwiftyJSON.framework */,
-				00F0ABA01DE4B73E00512CF0 /* Realm.framework */,
-				00F0ABA31DE4B74C00512CF0 /* RealmSwift.framework */,
+				0089087B1DFC598100BB1070 /* SwiftyJSON.framework */,
+				008908781DFC597700BB1070 /* RealmSwift.framework */,
+				008908751DFC596E00BB1070 /* Realm.framework */,
+				008908721DFC596300BB1070 /* Eureka.framework */,
+				0089086E1DFC595800BB1070 /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -205,6 +216,7 @@
 				00FF191B1DEC46EC00ADA439 /* PartyTableViewController.swift */,
 				00F5698E1DEF1B7C00528F54 /* PartyTableViewCell.swift */,
 				00F569961DEF2CB500528F54 /* PartyCreateViewController.swift */,
+				008908801DFC6FCB00BB1070 /* PartyCreateFormViewController.swift */,
 				00297F991DEC724800527955 /* PartyDetailViewController.swift */,
 				00297F971DEC5D7500527955 /* PartyMapViewController.swift */,
 				00F569901DEF1BBA00528F54 /* PartyMapViewPin.swift */,
@@ -224,7 +236,7 @@
 				00F05FFB1DBBD85C003A2A38 /* Sources */,
 				00F05FFC1DBBD85C003A2A38 /* Frameworks */,
 				00F05FFD1DBBD85C003A2A38 /* Resources */,
-				006C496E1DD3B8B6005FC4DF /* Embed Frameworks */,
+				008908711DFC595800BB1070 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,12 +318,14 @@
 				005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */,
 				00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */,
 				00FF191A1DEC466900ADA439 /* PartyNavigationController.swift in Sources */,
+				008908811DFC6FCB00BB1070 /* PartyCreateFormViewController.swift in Sources */,
 				00F569911DEF1BBA00528F54 /* PartyMapViewPin.swift in Sources */,
 				002AD0511DF5E01200BCB74A /* LoginCollectionViewCell.swift in Sources */,
 				00F569971DEF2CB500528F54 /* PartyCreateViewController.swift in Sources */,
 				00F5698F1DEF1B7C00528F54 /* PartyTableViewCell.swift in Sources */,
 				00297F9A1DEC724800527955 /* PartyDetailViewController.swift in Sources */,
-				00F569991DEF3B7500528F54 /* CurrentUser.swift in Sources */,
+				00F569991DEF3B7500528F54 /* You.swift in Sources */,
+				008908831DFC785D00BB1070 /* Enumerations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

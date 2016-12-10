@@ -25,9 +25,6 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// update
-		// parties = try! Realm().objects(Party.self)
-		
 		// setup navigation bar
 		navigationItem.title = "Parties"
 		
@@ -44,9 +41,6 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		mapView.frame = view.frame
 		mapView.delegate = self
 		mapView.showsUserLocation = true
-		
-		// parse realm objects to pins and add them to the mapView
-		// parseAnnotations()
 		
 		view.addSubview(mapView)
 	}
@@ -79,6 +73,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		let center = CLLocationCoordinate2D(latitude: lastLocation!.coordinate.latitude, longitude: lastLocation!.coordinate.longitude)
 		let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
 		self.mapView.setRegion(region, animated: true)
+		
 		self.locationManager.stopUpdatingLocation()
 	}
 	

@@ -4,17 +4,17 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>B92AEB4F-AD6A-331C-BF49-206652D8240E.bcsymbolmap</key>
+		<key>493B1463-5846-38E2-8EE9-04EF23BAE7BD.bcsymbolmap</key>
 		<data>
-		z48Be6EpcPqNo7VLPc4tPPODbmQ=
+		Igs2uUTeCeaP/cewx7xq8T+M02Q=
+		</data>
+		<key>C3E09EB3-519E-3B73-B368-E742467075E7.bcsymbolmap</key>
+		<data>
+		TBUri7lon8CgI0wLmdBsVhsD2TE=
 		</data>
 		<key>CHANGELOG.md</key>
 		<data>
-		WpmHCdEBbu15j8IkSxfXOuSDpJw=
-		</data>
-		<key>F7408B2D-F0C4-3011-A211-49DA2D21BA04.bcsymbolmap</key>
-		<data>
-		WG5J17lAb9Y6weiuWRb/QbmumUc=
+		AiHFYGQjKCSY9Mju2Phg55uic5o=
 		</data>
 		<key>Headers/RLMArray.h</key>
 		<data>
@@ -90,7 +90,7 @@
 		</data>
 		<key>Headers/RLMSyncManager.h</key>
 		<data>
-		6bjRrex6gQiVb7sRm3tYA4x0TQE=
+		iGWdITvm8ESCbqGrCdKZr8bF2CE=
 		</data>
 		<key>Headers/RLMSyncPermissionChange.h</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Ke3p4Fxz95tpD1geyN1oJYv5pbY=
+		+9oYu5nUEfKt9r1d7UBr71n7X3w=
 		</data>
 		<key>LICENSE</key>
 		<data>
@@ -195,37 +195,37 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>B92AEB4F-AD6A-331C-BF49-206652D8240E.bcsymbolmap</key>
+		<key>493B1463-5846-38E2-8EE9-04EF23BAE7BD.bcsymbolmap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			z48Be6EpcPqNo7VLPc4tPPODbmQ=
+			Igs2uUTeCeaP/cewx7xq8T+M02Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			gYRLOonCNDahnRkf5zo1wl+J8hxlQ+IvcDorhHZ68e8=
+			7Y6D+mgOf2c70qRdkVaeyZZnlQDJlXJNY0kvRtBDhXM=
+			</data>
+		</dict>
+		<key>C3E09EB3-519E-3B73-B368-E742467075E7.bcsymbolmap</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			TBUri7lon8CgI0wLmdBsVhsD2TE=
+			</data>
+			<key>hash2</key>
+			<data>
+			HsDU2b24zcGdo5BTFoWAn4X+PQQt6kNftLb0ilBV3f0=
 			</data>
 		</dict>
 		<key>CHANGELOG.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WpmHCdEBbu15j8IkSxfXOuSDpJw=
+			AiHFYGQjKCSY9Mju2Phg55uic5o=
 			</data>
 			<key>hash2</key>
 			<data>
-			4Wd+ZGHWtr423hA5fruCTIjAEKS9jTYE58tZu3ukpfk=
-			</data>
-		</dict>
-		<key>F7408B2D-F0C4-3011-A211-49DA2D21BA04.bcsymbolmap</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WG5J17lAb9Y6weiuWRb/QbmumUc=
-			</data>
-			<key>hash2</key>
-			<data>
-			tg3QfXc2DU3SN7wXKN0uTbx7w5ILrSW8+xHqtNku3kw=
+			ti4mzReGTDhhJ9GgpK3Bc9LoWv7alYZfK5Q9J+9XsC4=
 			</data>
 		</dict>
 		<key>Headers/RLMArray.h</key>
@@ -430,11 +430,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6bjRrex6gQiVb7sRm3tYA4x0TQE=
+			iGWdITvm8ESCbqGrCdKZr8bF2CE=
 			</data>
 			<key>hash2</key>
 			<data>
-			5dYo4G9PbiAeDy3Et99zxonLSM1Qnmt5xUIeModj81k=
+			+IjELiW40iLAd1RgYloeFf1oLEwREJaheUl2mA41Tsc=
 			</data>
 		</dict>
 		<key>Headers/RLMSyncPermissionChange.h</key>
