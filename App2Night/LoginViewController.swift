@@ -11,55 +11,12 @@ import UIKit
 protocol LoginViewControllerDelegate: class {
 	
 	func finishLoggingIn()
-	func showActivityIndicator()
-	func hideActivityIndicator()
 	func dismissKeyboard()
+	func displayAlert(title: String, message: String, buttonTitle: String)
 	
 }
 
 class LoginViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, LoginViewControllerDelegate {
-	
-	// spinner stuff
-	var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-	var loadingView: UIView = UIView()
-	var darkView: UIView = UIView()
-	
-	func showActivityIndicator() {
-		DispatchQueue.main.async {
-			self.view.isUserInteractionEnabled = false
-			
-			self.darkView = UIView()
-			self.darkView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-			self.darkView.backgroundColor = .black
-			self.darkView.alpha = 0.2
-			
-			self.loadingView = UIView()
-			self.loadingView.frame = CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0)
-			self.loadingView.center = self.view.center
-			self.loadingView.backgroundColor = .a2nRed
-			self.loadingView.alpha = 1
-			self.loadingView.clipsToBounds = true
-			self.loadingView.layer.cornerRadius = 10
-			
-			self.spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-			self.spinner.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
-			self.spinner.center = CGPoint(x:self.loadingView.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
-			
-			self.view.addSubview(self.darkView)
-			self.loadingView.addSubview(self.spinner)
-			self.view.addSubview(self.loadingView)
-			self.spinner.startAnimating()
-		}
-	}
-	
-	func hideActivityIndicator() {
-		DispatchQueue.main.async {
-			self.view.isUserInteractionEnabled = true
-			self.spinner.stopAnimating()
-			self.loadingView.removeFromSuperview()
-			self.darkView.removeFromSuperview()
-		}
-	}
 	
 	// fancy pages
 	lazy var collectionView: UICollectionView = {
@@ -172,6 +129,14 @@ class LoginViewController: UIViewController, UICollectionViewDataSource, UIColle
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		return CGSize(width: view.frame.width, height: view.frame.height)
+	}
+	
+	// alert controllers
+	func displayAlert(title: String, message: String, buttonTitle: String) {
+		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		let defaultAction = UIAlertAction(title: buttonTitle, style: .default, handler: nil)
+		alert.addAction(defaultAction)
+		self.present(alert, animated: true, completion: nil)
 	}
 }
 

@@ -97,7 +97,7 @@ class Party: Object {
 		return dateFormatter.date(from: string)!
 	}
 	
-	func toRawData() -> Data {
+	func toPartyRawData() -> Data {
 		let json: JSON = [
 			"partyName": self.name,
 			"partyDate": DateHelper.shared.getString(from: self.date),
@@ -109,6 +109,20 @@ class Party: Object {
 			"zipcode": self.zipcode,
 			"partyType": self.type,
 			"description": self.text
+		]
+		
+		return try! json.rawData()
+	}
+	
+	func toLocationRawData() -> Data {
+		let json: JSON = [
+			"countryName": self.countryName,
+			"cityName": self.cityName,
+			"streetName": self.streetName,
+			"houseNumber": self.houseNumber,
+			"zipcode": self.zipcode,
+			"latitude": 0.0,
+			"longitude": 0.0,
 		]
 		
 		return try! json.rawData()

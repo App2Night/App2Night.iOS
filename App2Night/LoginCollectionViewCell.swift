@@ -64,24 +64,25 @@ extension LoginViewController {
 			delegate?.dismissKeyboard()
 			
 			guard let username = usernameTextField.text, !username.isEmpty else {
-				print("NO USERNAME INPUT.")
+				self.delegate?.displayAlert(title: "Username-Feld darf nicht leer sein!", message: "Bitte gib deinen Username ein.", buttonTitle: "Okay")
 				return
 			}
 			
 			guard let password = passwordTextField.text, !password.isEmpty else {
-				print("NO PASSWORD INPUT.")
+				self.delegate?.displayAlert(title: "Passwort-Feld darf nicht leer sein!", message: "Bitte gib dein Passwort ein.", buttonTitle: "Okay")
 				return
 			}
 			
-			delegate?.showActivityIndicator()
+			SwiftSpinner.show("Login wird übertragen...")
 			
 			SwaggerCommunication.shared.getToken(username: username, password: password) { success in
 				if success {
-					self.delegate?.hideActivityIndicator()
 					self.delegate?.finishLoggingIn()
+					SwiftSpinner.hide()
 				} else {
-					self.delegate?.hideActivityIndicator()
 					print("LOGIN FAILED.")
+					SwiftSpinner.hide()
+					self.delegate?.displayAlert(title: "Login fehlgeschlagen!", message: "Überprüfe bitte deine eingegebenen Daten.", buttonTitle: "Okay")
 				}
 			}
 		}
@@ -188,29 +189,30 @@ extension LoginViewController {
 			delegate?.dismissKeyboard()
 			
 			guard let username = usernameTextField.text, !username.isEmpty else {
-				print("NO USERNAME INPUT.")
+				self.delegate?.displayAlert(title: "Username-Feld darf nicht leer sein!", message: "Bitte gib deinen Username ein.", buttonTitle: "Okay")
 				return
 			}
 			
 			guard let email = emailTextField.text, !email.isEmpty else {
-				print("NO EMAIL INPUT.")
+				self.delegate?.displayAlert(title: "E-Mail-Feld darf nicht leer sein!", message: "Bitte gib eine gültige E-Mail-Adresse ein.", buttonTitle: "Okay")
 				return
 			}
 			
 			guard let password = passwordTextField.text, !password.isEmpty else {
-				print("NO PASSWORD INPUT.")
+				self.delegate?.displayAlert(title: "Passwort-Feld darf nicht leer sein!", message: "Bitte gib dein Passwort ein.", buttonTitle: "Okay")
 				return
 			}
 			
-			delegate?.showActivityIndicator()
+			SwiftSpinner.show("Registrierung wird übertragen...")
 			
 			SwaggerCommunication.shared.postUser(username: username, email: email, password: password) { success in
 				if success {
-					self.delegate?.hideActivityIndicator()
 					print("REGISTER SUCESS.")
+					SwiftSpinner.hide()
 				} else {
-					self.delegate?.hideActivityIndicator()
 					print("REGISTER FAILED.")
+					self.delegate?.displayAlert(title: "Registrierung fehlgeschlagen!", message: "Irgendetwas ist schiefgelaufen.", buttonTitle: "Okay")
+					SwiftSpinner.hide()
 				}
 			}
 		}

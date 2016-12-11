@@ -70,3 +70,11 @@ extension UIViewController {
 	
 }
 
+extension Date {
+	
+	func floorSeconds() -> Date {
+		let timeInterval = floor(self.timeIntervalSinceReferenceDate / 60.0) * 60.0
+		return Date(timeIntervalSinceReferenceDate: timeInterval)
+	}
+	
+}

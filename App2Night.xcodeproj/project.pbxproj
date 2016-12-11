@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000D8D061DFC9A0400F8AC8F /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D8D051DFC9A0400F8AC8F /* SwiftSpinner.swift */; };
 		00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00257E621DEB1E9500E05884 /* UserDefaults.swift */; };
 		00297F981DEC5D7500527955 /* PartyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297F971DEC5D7500527955 /* PartyMapViewController.swift */; };
 		00297F9A1DEC724800527955 /* PartyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297F991DEC724800527955 /* PartyDetailViewController.swift */; };
@@ -37,7 +38,6 @@
 		00F569911DEF1BBA00528F54 /* PartyMapViewPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569901DEF1BBA00528F54 /* PartyMapViewPin.swift */; };
 		00F569931DEF1C8500528F54 /* PartyUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569921DEF1C8500528F54 /* PartyUserProfileViewController.swift */; };
 		00F569951DEF292900528F54 /* PartyUserProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569941DEF292900528F54 /* PartyUserProfileViewCell.swift */; };
-		00F569971DEF2CB500528F54 /* PartyCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569961DEF2CB500528F54 /* PartyCreateViewController.swift */; };
 		00F569991DEF3B7500528F54 /* You.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569981DEF3B7500528F54 /* You.swift */; };
 		00FF19181DEC45FF00ADA439 /* PartyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF19171DEC45FF00ADA439 /* PartyTabBarController.swift */; };
 		00FF191A1DEC466900ADA439 /* PartyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF19191DEC466900ADA439 /* PartyNavigationController.swift */; };
@@ -64,6 +64,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		000D8D051DFC9A0400F8AC8F /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		001F1F191DBFCB21006F668C /* PartyPostValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyPostValue.json; sourceTree = "<group>"; };
 		00257E621DEB1E9500E05884 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		00297F971DEC5D7500527955 /* PartyMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyMapViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +95,6 @@
 		00F569901DEF1BBA00528F54 /* PartyMapViewPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyMapViewPin.swift; sourceTree = "<group>"; };
 		00F569921DEF1C8500528F54 /* PartyUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyUserProfileViewController.swift; sourceTree = "<group>"; };
 		00F569941DEF292900528F54 /* PartyUserProfileViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyUserProfileViewCell.swift; sourceTree = "<group>"; };
-		00F569961DEF2CB500528F54 /* PartyCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyCreateViewController.swift; sourceTree = "<group>"; };
 		00F569981DEF3B7500528F54 /* You.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = You.swift; sourceTree = "<group>"; };
 		00FF19171DEC45FF00ADA439 /* PartyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTabBarController.swift; sourceTree = "<group>"; };
 		00FF19191DEC466900ADA439 /* PartyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyNavigationController.swift; sourceTree = "<group>"; };
@@ -139,8 +139,8 @@
 				005BF77B1DD3C7F3003C9036 /* RealmManager.swift */,
 				004433F81DD11A2B0012755C /* SwaggerCommunication.swift */,
 				00257E621DEB1E9500E05884 /* UserDefaults.swift */,
-				009D973A1DBE556F005D94FF /* Examples */,
 				008908821DFC785D00BB1070 /* Enumerations.swift */,
+				009D973A1DBE556F005D94FF /* Examples */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -150,6 +150,7 @@
 			children = (
 				00CD68A91DC8FF6D00A0172F /* Launch.storyboard */,
 				00D921D91DCB7DDA00737FA1 /* Home.storyboard */,
+				000D8D051DFC9A0400F8AC8F /* SwiftSpinner.swift */,
 				002AD04E1DF5DCD800BCB74A /* Extensions.swift */,
 				00EE27851DD65750004053FE /* Colors+Style.swift */,
 			);
@@ -215,7 +216,6 @@
 			children = (
 				00FF191B1DEC46EC00ADA439 /* PartyTableViewController.swift */,
 				00F5698E1DEF1B7C00528F54 /* PartyTableViewCell.swift */,
-				00F569961DEF2CB500528F54 /* PartyCreateViewController.swift */,
 				008908801DFC6FCB00BB1070 /* PartyCreateFormViewController.swift */,
 				00297F991DEC724800527955 /* PartyDetailViewController.swift */,
 				00297F971DEC5D7500527955 /* PartyMapViewController.swift */,
@@ -316,12 +316,12 @@
 				002AD04D1DF5DAD600BCB74A /* LoginViewController.swift in Sources */,
 				002AD04F1DF5DCD800BCB74A /* Extensions.swift in Sources */,
 				005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */,
+				000D8D061DFC9A0400F8AC8F /* SwiftSpinner.swift in Sources */,
 				00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */,
 				00FF191A1DEC466900ADA439 /* PartyNavigationController.swift in Sources */,
 				008908811DFC6FCB00BB1070 /* PartyCreateFormViewController.swift in Sources */,
 				00F569911DEF1BBA00528F54 /* PartyMapViewPin.swift in Sources */,
 				002AD0511DF5E01200BCB74A /* LoginCollectionViewCell.swift in Sources */,
-				00F569971DEF2CB500528F54 /* PartyCreateViewController.swift in Sources */,
 				00F5698F1DEF1B7C00528F54 /* PartyTableViewCell.swift in Sources */,
 				00297F9A1DEC724800527955 /* PartyDetailViewController.swift in Sources */,
 				00F569991DEF3B7500528F54 /* You.swift in Sources */,

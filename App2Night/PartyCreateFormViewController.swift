@@ -11,6 +11,8 @@ import Eureka
 
 class PartyCreateFormViewController: FormViewController {
 	
+	var delegate: PartyTableViewController?
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -46,9 +48,22 @@ class PartyCreateFormViewController: FormViewController {
 						cell.titleLabel?.textColor = .red
 					}
 			}
+			<<< IntRow() { row in
+				row.title = "Preis (€)"
+				row.placeholder = "z.B. 5"
+				row.add(rule: RuleRequired())
+				row.tag = "price"
+				}
+				.cellUpdate { cell, row in
+					if !row.isValid {
+						cell.titleLabel?.textColor = .red
+					}
+			}
 			<<< DateTimeRow() { row in
 				row.title = "Datum"
 				row.value = Date()
+				row.dateFormatter?.dateFormat = "dd.MM.yyyy', 'HH:mm"
+				row.minimumDate = Date()
 				row.tag = "date"
 			}
 			<<< ActionSheetRow<String>() { row in
@@ -136,40 +151,71 @@ class PartyCreateFormViewController: FormViewController {
 	
 	// post party
 	func post() {
-		SwaggerCommunication.shared.postParty(with: assembleParty()) { success in
-			if success {
-				print("POST OK.")
-				self.dismissView()
-			} else {
-				print("POST FAILED.")
+		let errors = form.validate()
+		tableView?.reloadData()
+		
+		if (errors.isEmpty) {
+			SwiftSpinner.show("Party wird gepostet...")
+			let assembledParty = assembleParty()
+			
+			SwaggerCommunication.shared.validateLocation(with: assembledParty.toLocationRawData()) { success in
+				if success {
+					SwaggerCommunication.shared.postParty(with: assembledParty.toPartyRawData()) { success in
+						if success {
+							print("POST OK.")
+							
+							// start updating parties after succesful post
+							self.delegate?.updateParties()
+							// stop the spinner
+							SwiftSpinner.hide()
+							// dismiss this view
+							self.dismissView()
+						} else {
+							print("POST FAILED.")
+							
+							// stop the spinner
+							SwiftSpinner.hide()
+							
+							self.displayAlert(title: "Party wurde nicht gepostet!", message: "Irgendetwas ist schiefgelaufen.", buttonTitle: "Okay")
+						}
+					}
+				} else {
+					SwiftSpinner.hide()
+					self.displayAlert(title: "Standort wurde nicht gefunden!", message: "Bitte gib einen gültigen Standort ein.", buttonTitle: "Okay")
+				}
 			}
+			
+		}
+		else {
+			displayAlert(title: "Alle Felder müssen korrekt ausgefüllt werden!", message: "Überprüfe bitte deine Eingaben.", buttonTitle: "Okay")
 		}
 	}
 	
-	func assembleParty() -> Data {
+	func assembleParty() -> Party {
 		let party = Party()
-		
 		let values = form.values()
 		
-		/*
-		// cut seconds from date
-		var newDate = Date()
-		let timeInterval = floor(newDate.timeIntervalSinceReferenceDate / 60.0) * 60.0
-		newDate = Date(timeIntervalSinceReferenceDate: timeInterval)
+		party.name = values["name"] as! String
+		party.date = (values["date"] as! Date).floorSeconds()
+		party.musicGenre = (MusicGenre(rawValue: values["musicGenre"] as! String)?.hashValue)!
+		party.countryName = values["countryName"] as! String
+		party.cityName = values["cityName"] as! String
+		party.streetName = values["streetName"] as! String
+		party.houseNumber = values["houseNumber"] as! String
+		party.zipcode = values["zipcode"] as! String
+		party.type = (PartyType(rawValue: values["type"] as! String)?.hashValue)!
+		party.text = values["text"] as! String
+		party.price = values["price"] as! Int
 		
-		tempParty.name = partyNameTextField.text!
-		tempParty.date = newDate
-		tempParty.musicGenre = Int(partyMusicGenreTextField.text!)!
-		tempParty.countryName = locationCountryNameTextField.text!
-		tempParty.cityName = locationCityNameTextField.text!
-		tempParty.streetName = locationStreetNameTextField.text!
-		tempParty.houseNumber = locationHouseNumberTextField.text!
-		tempParty.zipcode = locationZipcodeTextField.text!
-		tempParty.type = Int(partyTypeTextField.text!)!
-		tempParty.text = partyDescriptionTextField.text!
-		*/
-		
-		return party.toRawData()
+		return party
+	}
+	
+	// alert controllers
+	func displayAlert(title: String, message: String, buttonTitle: String) {
+		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		let defaultAction = UIAlertAction(title: buttonTitle, style: .default, handler: nil)
+		alert.addAction(defaultAction)
+		self.present(alert, animated: true, completion: nil)
 	}
 	
 }

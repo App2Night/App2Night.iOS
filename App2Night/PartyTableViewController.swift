@@ -10,7 +10,13 @@ import UIKit
 import MapKit
 import RealmSwift
 
-class PartyTableViewController: UITableViewController, CLLocationManagerDelegate {
+protocol PartyTableViewControllerDelegate: class {
+	
+	func updateParties()
+	
+}
+
+class PartyTableViewController: UITableViewController, CLLocationManagerDelegate, PartyTableViewControllerDelegate {
 	
 	// get parties from realm
 	var parties = try! Realm().objects(Party.self)
@@ -28,6 +34,23 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		/*
+		self.tableView.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
+		
+		self.tableView.separatorInset = .init(top: 0, left: 80, bottom: 0, right: 0)
+		
+		let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 0.5))
+		headerView.backgroundColor = UIColor(red: 200/255, green: 199/255, blue: 204/255, alpha: 1)
+		
+		let footerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 0.5))
+		headerView.backgroundColor = UIColor(red: 200/255, green: 199/255, blue: 204/255, alpha: 1)
+		
+		self.tableView.tableHeaderView = headerView
+		self.tableView.tableFooterView = footerView
+		*/
+		
+		self.tableView.separatorInset = .init(top: 0, left: 76, bottom: 0, right: 0)
 		
 		// update
 		parties = try! Realm().objects(Party.self)
@@ -63,6 +86,15 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 		tableView.register(PartyTableViewCell.self, forCellReuseIdentifier: "PartyCell")
 	}
 	
+	func updateParties() {
+		SwaggerCommunication.shared.getParties(at: currentLocation) { success in
+			if success {
+				self.parties = try! Realm().objects(Party.self)
+				self.tableView.reloadData()
+			}
+		}
+	}
+	
 	// MARK: - Location delegate
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		let lastLocation = locations.last
@@ -78,7 +110,9 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 	
 	// MARK: - Create new party
 	func create() {
-		let createView = PartyNavigationController(rootViewController: PartyCreateFormViewController())
+		let form = PartyCreateFormViewController()
+		form.delegate = self
+		let createView = PartyNavigationController(rootViewController: form)
 		present(createView, animated: true, completion: nil)
 	}
 	
