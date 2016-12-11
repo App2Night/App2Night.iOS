@@ -18,17 +18,14 @@ enum EventCommitment: String {
 	case Noted = "Vorgemerkt"
 	case Declined = "Abgesagt"
 	
-}
-
-enum Gender: String {
-	
-	// Unknown
-	// Men
-	// Woman
-	
-	case Neutral = "Neutral"
-	case Male = "Männlich"
-	case Female = "Weiblich"
+	static func from(hashValue value: Int) -> EventCommitment {
+		switch (value) {
+		case 0: return .Attending
+		case 1: return .Noted
+		case 2: return .Declined
+		default: return .Attending
+		}
+	}
 	
 }
 
@@ -48,6 +45,18 @@ enum MusicGenre: String {
 	case Rap = "Rap"
 	case Electro = "Electro"
 	
+	static func from(hashValue value: Int) -> MusicGenre {
+		switch (value) {
+		case 0: return .Mixed
+		case 1: return .Rock
+		case 2: return .Pop
+		case 3: return .HipHop
+		case 4: return .Rap
+		case 5: return .Electro
+		default: return .Mixed
+		}
+	}
+	
 }
 
 enum PartyType: String {
@@ -57,7 +66,16 @@ enum PartyType: String {
 	// Forest
 	
 	case Venue = "Lokal"
-	case Disco = "Diskothek"
+	case Disco = "Disko"
 	case Remote = "Abseits"
+	
+	static func from(hashValue value: Int) -> PartyType {
+		switch (value) {
+		case 0: return .Venue
+		case 1: return .Disco
+		case 2: return .Remote
+		default: return .Venue
+		}
+	}
 	
 }

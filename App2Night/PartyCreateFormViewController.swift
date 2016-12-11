@@ -11,7 +11,7 @@ import Eureka
 
 class PartyCreateFormViewController: FormViewController {
 	
-	var delegate: PartyTableViewController?
+	var delegate: PartyCollectionViewController?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

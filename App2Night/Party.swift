@@ -123,7 +123,7 @@ class Party: Object {
 			"zipcode": self.zipcode,
 			"latitude": 0.0,
 			"longitude": 0.0,
-		]
+			]
 		
 		return try! json.rawData()
 	}

@@ -6,6 +6,9 @@
 //  Copyright © 2016 DHBW. All rights reserved.
 //
 
+// REPLACED WITH COLLECTIONVIEW
+
+/*
 import UIKit
 import MapKit
 import RealmSwift
@@ -34,21 +37,6 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		/*
-		self.tableView.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
-		
-		self.tableView.separatorInset = .init(top: 0, left: 80, bottom: 0, right: 0)
-		
-		let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 0.5))
-		headerView.backgroundColor = UIColor(red: 200/255, green: 199/255, blue: 204/255, alpha: 1)
-		
-		let footerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 0.5))
-		headerView.backgroundColor = UIColor(red: 200/255, green: 199/255, blue: 204/255, alpha: 1)
-		
-		self.tableView.tableHeaderView = headerView
-		self.tableView.tableFooterView = footerView
-		*/
 		
 		self.tableView.separatorInset = .init(top: 0, left: 76, bottom: 0, right: 0)
 		
@@ -176,4 +164,5 @@ class PartyTableViewController: UITableViewController, CLLocationManagerDelegate
 	}
 	
 }
+*/
 

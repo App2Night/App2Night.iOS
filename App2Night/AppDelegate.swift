@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let partyTabBarController = PartyTabBarController()
 		
 		// tab views embedded in navigation controllers
-		let partyTableViewController = PartyNavigationController(rootViewController: PartyTableViewController())
+		let partyTableViewController = PartyNavigationController(rootViewController: PartyCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout()))
 		partyTableViewController.tabBarItem = UITabBarItem(title: "Parties", image: #imageLiteral(resourceName: "Party Baloons"), selectedImage: #imageLiteral(resourceName: "Party Baloons Filled"))
 		
 		let partyMapViewController = PartyNavigationController(rootViewController: PartyMapViewController())

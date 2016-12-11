@@ -15,6 +15,8 @@
 		002AD04F1DF5DCD800BCB74A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD04E1DF5DCD800BCB74A /* Extensions.swift */; };
 		002AD0511DF5E01200BCB74A /* LoginCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD0501DF5E01200BCB74A /* LoginCollectionViewCell.swift */; };
 		004433F91DD11A2B0012755C /* SwaggerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004433F81DD11A2B0012755C /* SwaggerCommunication.swift */; };
+		0046DF821DFDA3B00051BC5B /* PartyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0046DF811DFDA3B00051BC5B /* PartyCollectionViewController.swift */; };
+		0046DF841DFDA6950051BC5B /* PartyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0046DF831DFDA6950051BC5B /* PartyCollectionViewCell.swift */; };
 		005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005BF77B1DD3C7F3003C9036 /* RealmManager.swift */; };
 		0089086F1DFC595800BB1070 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0089086E1DFC595800BB1070 /* Alamofire.framework */; };
 		008908701DFC595800BB1070 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0089086E1DFC595800BB1070 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -73,6 +75,8 @@
 		002AD04E1DF5DCD800BCB74A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		002AD0501DF5E01200BCB74A /* LoginCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCollectionViewCell.swift; sourceTree = "<group>"; };
 		004433F81DD11A2B0012755C /* SwaggerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunication.swift; sourceTree = "<group>"; };
+		0046DF811DFDA3B00051BC5B /* PartyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyCollectionViewController.swift; sourceTree = "<group>"; };
+		0046DF831DFDA6950051BC5B /* PartyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyCollectionViewCell.swift; sourceTree = "<group>"; };
 		005BF77B1DD3C7F3003C9036 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		0089086E1DFC595800BB1070 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		008908721DFC596300BB1070 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Frameworks/Eureka.framework; sourceTree = "<group>"; };
@@ -119,6 +123,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0046DF851DFDFFF40051BC5B /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				00FF191B1DEC46EC00ADA439 /* PartyTableViewController.swift */,
+				00F5698E1DEF1B7C00528F54 /* PartyTableViewCell.swift */,
+			);
+			name = Old;
+			sourceTree = "<group>";
+		};
 		007404591DC8D92900C3C7DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +207,7 @@
 				00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */,
 				00F060091DBBD85C003A2A38 /* Assets.xcassets */,
 				00F0600E1DBBD85C003A2A38 /* Info.plist */,
+				0046DF851DFDFFF40051BC5B /* Old */,
 			);
 			path = App2Night;
 			sourceTree = "<group>";
@@ -214,8 +228,8 @@
 		00FF191D1DEC473200ADA439 /* Tab Views */ = {
 			isa = PBXGroup;
 			children = (
-				00FF191B1DEC46EC00ADA439 /* PartyTableViewController.swift */,
-				00F5698E1DEF1B7C00528F54 /* PartyTableViewCell.swift */,
+				0046DF811DFDA3B00051BC5B /* PartyCollectionViewController.swift */,
+				0046DF831DFDA6950051BC5B /* PartyCollectionViewCell.swift */,
 				008908801DFC6FCB00BB1070 /* PartyCreateFormViewController.swift */,
 				00297F991DEC724800527955 /* PartyDetailViewController.swift */,
 				00297F971DEC5D7500527955 /* PartyMapViewController.swift */,
@@ -307,6 +321,7 @@
 				00FF19181DEC45FF00ADA439 /* PartyTabBarController.swift in Sources */,
 				004433F91DD11A2B0012755C /* SwaggerCommunication.swift in Sources */,
 				00FF2B871DD5250400312084 /* Party.swift in Sources */,
+				0046DF821DFDA3B00051BC5B /* PartyCollectionViewController.swift in Sources */,
 				00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */,
 				00F569931DEF1C8500528F54 /* PartyUserProfileViewController.swift in Sources */,
 				00297F981DEC5D7500527955 /* PartyMapViewController.swift in Sources */,
@@ -318,6 +333,7 @@
 				005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */,
 				000D8D061DFC9A0400F8AC8F /* SwiftSpinner.swift in Sources */,
 				00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */,
+				0046DF841DFDA6950051BC5B /* PartyCollectionViewCell.swift in Sources */,
 				00FF191A1DEC466900ADA439 /* PartyNavigationController.swift in Sources */,
 				008908811DFC6FCB00BB1070 /* PartyCreateFormViewController.swift in Sources */,
 				00F569911DEF1BBA00528F54 /* PartyMapViewPin.swift in Sources */,

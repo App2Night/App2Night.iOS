@@ -6,6 +6,9 @@
 //  Copyright © 2016 DHBW. All rights reserved.
 //
 
+// REPLACED WITH COLLECTIONVIEWCELL
+
+/*
 import UIKit
 
 class PartyTableViewCell: UITableViewCell {
@@ -92,4 +95,5 @@ class PartyTableViewCell: UITableViewCell {
 	}
 	
 }
+*/
 

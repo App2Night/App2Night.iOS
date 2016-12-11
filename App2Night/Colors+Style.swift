@@ -18,8 +18,8 @@ extension UIColor {
 	static var a2nOrange: UIColor { get { return UIColor(red: 217/255, green: 121/255, blue: 37/255, alpha: 1.0) } }
 	
 	// ui colors
-	static var a2nWhite: UIColor { get { return UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0) } }
-	
+	static var a2nLightGray: UIColor { get { return UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1.0) } }
+	static var a2nGray: UIColor { get { return UIColor(red: 200/255, green: 199/255, blue: 204/255, alpha: 1.0) } }
 	
 }
 
@@ -42,7 +42,6 @@ struct Style {
 		sectionHeaderAlpha: CGFloat = 0.8
 	}
 	*/
-	
 	
 }
 
