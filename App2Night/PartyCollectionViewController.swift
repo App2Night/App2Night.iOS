@@ -149,7 +149,7 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let detailView = PartyDetailViewController()
+		let detailView = PartyDetailTableViewController(style: .grouped)
 		detailView.selectedParty = parties[indexPath.row]
 		let wrappedDetailView = PartyNavigationController(rootViewController: detailView)
 		present(wrappedDetailView, animated: true, completion: nil)

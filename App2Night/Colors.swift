@@ -22,26 +22,3 @@ extension UIColor {
 	static var a2nGray: UIColor { get { return UIColor(red: 200/255, green: 199/255, blue: 204/255, alpha: 1.0) } }
 	
 }
-
-// static struct to define UI themes - source: http://sdbr.net/post/Themes-in-Swift/
-struct Style {
-	
-	/*
-	static var sectionHeaderTitleFont = UIFont(name: "Helvetica-Bold", size: 20)
-	static var sectionHeaderTitleColor = UIColor.whiteColor()
-	static var sectionHeaderBackgroundColor = UIColor.blackColor()
-	static var sectionHeaderBackgroundColorHighlighted = UIColor.grayColor()
-	static var sectionHeaderAlpha: CGFloat = 1.0
-	
-	static func themeBlue(){
-		// MARK: ToDo Table Section Headers
-		sectionHeaderTitleFont = UIFont(name: "Helvetica", size: 18)
-		sectionHeaderTitleColor = UIColor.whiteColor()
-		sectionHeaderBackgroundColor = UIColor.blueColor()
-		sectionHeaderBackgroundColorHighlighted = UIColor.lightGrayColor()
-		sectionHeaderAlpha: CGFloat = 0.8
-	}
-	*/
-	
-}
-

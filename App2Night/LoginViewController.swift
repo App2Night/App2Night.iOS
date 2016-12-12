@@ -8,6 +8,7 @@
 
 import UIKit
 
+// delegate methods
 protocol LoginViewControllerDelegate: class {
 	
 	func finishLoggingIn()
@@ -33,6 +34,7 @@ class LoginViewController: UIViewController, UICollectionViewDataSource, UIColle
 		return view
 	}()
 	
+	// page circles
 	let pageControl: UIPageControl = {
 		let control = UIPageControl()
 		control.pageIndicatorTintColor = .lightGray

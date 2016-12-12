@@ -159,6 +159,48 @@ class SwaggerCommunication {
 			}.resume()
 	}
 	
+	func getUserInfo(completionHandler: @escaping (Bool) -> ()) {
+		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
+		
+		let tokenType = (currentUser?.tokenType)!
+		let accessToken = (currentUser?.accessToken)!
+		
+		let requestUrl: URLRequest = {
+			var request = URLRequest(url: URL(string: SwaggerCommunication.userUrl + "connect/userinfo")!)
+			request.httpMethod = "GET"
+			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+			request.setValue("\(tokenType) \(accessToken)", forHTTPHeaderField: "Authorization")
+			return request
+		}()
+		
+		Alamofire.request(requestUrl).validate().responseJSON { (response) in
+			print("REQUEST URL: \(response.request)")
+			print("HTTP URL RESPONSE: \(response.response)")
+			print("SERVER DATA: \(response.data)")
+			print("RESULT OF SERIALIZATION: \(response.result)")
+			
+			switch response.result {
+			case .success:
+				DispatchQueue.main.async(execute: { () -> Void in
+					let responseValue = JSON(response.result.value!)
+					let sub = responseValue["sub"].stringValue
+					let email = responseValue["email"].stringValue
+					
+					try! RealmManager.currentRealm.write {
+						RealmManager.currentRealm.create(You.self, value: ["id": "0", "userId": sub, "email": email], update: true)
+					}
+					
+					completionHandler(true)
+				})
+			case .failure(let e):
+				print(e)
+				DispatchQueue.main.async(execute: { () -> Void in
+					completionHandler(false)
+				})
+			}
+			}.resume()
+	}
+	
 	func postUser(username: String, email: String, password: String, completionHandler: @escaping (Bool) -> ()) {
 		let userPayload: JSON = [
 			"username": username,

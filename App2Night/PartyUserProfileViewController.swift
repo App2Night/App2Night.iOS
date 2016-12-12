@@ -11,19 +11,21 @@ import RealmSwift
 
 class PartyUserProfileViewController: UITableViewController {
 	
-	let profileCell = BaseCell()
+	let profileCell = ProfileCell()
 	let radiusCell = RadiusCell()
 	let logoutCell = BaseCell()
+	
+	let error = "Switch case failed in tableView!"
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		// setup cells
-		profileCell.textLabel?.text = try! Realm().object(ofType: You.self, forPrimaryKey: "0")?.username ?? "Username"
+		profileCell.user.text = try! Realm().object(ofType: You.self, forPrimaryKey: "0")?.username ?? "Username"
+		profileCell.email.text = try! Realm().object(ofType: You.self, forPrimaryKey: "0")?.email ?? "Email"
 		profileCell.isUserInteractionEnabled = false
 		
-		// radiusCell.textLabel?.text = "Radius"
-		
+		// configure basecell
 		logoutCell.accessoryType = .disclosureIndicator
 		logoutCell.textLabel?.text = "Ausloggen"
 		
@@ -31,13 +33,18 @@ class PartyUserProfileViewController: UITableViewController {
 		navigationItem.title = "Profil"
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		tableView.reloadData()
+	}
+	
+	// the moment the view disappears save the settings to realm
 	override func viewWillDisappear(_ animated: Bool) {
 		try! RealmManager.currentRealm.write {
-			RealmManager.currentRealm.create(You.self, value: ["id": "0", "radius": Int(radiusCell.radiusSlider.value)], update: true)
+			RealmManager.currentRealm.create(You.self, value: ["id": "0", "radius": Int(radiusCell.slider.value)], update: true)
 		}
 	}
 	
-	// MARK: - Table view data
+	// table view data
 	override func numberOfSections(in tableView: UITableView) -> Int {
 		return 3
 	}
@@ -48,7 +55,7 @@ class PartyUserProfileViewController: UITableViewController {
 		case 0: return 1
 		case 1: return 1
 		case 2: return 1
-		default: fatalError("More than 3 sections in tableView")
+		default: fatalError(error)
 		}
 	}
 	
@@ -58,19 +65,19 @@ class PartyUserProfileViewController: UITableViewController {
 		case 0:
 			switch(indexPath.row) {
 			case 0: return self.profileCell
-			default: fatalError("More than 1 row in section")
+			default: fatalError(error)
 			}
 		case 1:
 			switch(indexPath.row) {
 			case 0: return self.radiusCell
-			default: fatalError("More than 1 row in section")
+			default: fatalError(error)
 			}
 		case 2:
 			switch(indexPath.row) {
 			case 0: return self.logoutCell
-			default: fatalError("More than 1 row in section")
+			default: fatalError(error)
 			}
-		default: fatalError("More than 3 sections in tableView")
+		default: fatalError(error)
 		}
 	}
 	
@@ -79,20 +86,20 @@ class PartyUserProfileViewController: UITableViewController {
 		switch(indexPath.section) {
 		case 0:
 			switch(indexPath.row) {
-			case 0: return 88
-			default: fatalError("More than 1 row in section")
+			case 0: return 90
+			default: fatalError(error)
 			}
 		case 1:
 			switch(indexPath.row) {
-			case 0: return 60
-			default: fatalError("More than 1 row in section")
+			case 0: return 80
+			default: fatalError(error)
 			}
 		case 2:
 			switch(indexPath.row) {
-			case 0: return 44
-			default: fatalError("More than 1 row in section")
+			case 0: return 50
+			default: fatalError(error)
 			}
-		default: fatalError("More than 3 sections in tableView")
+		default: fatalError(error)
 		}
 	}
 	
@@ -112,6 +119,7 @@ class PartyUserProfileViewController: UITableViewController {
 		RealmManager.shared.clearAll()
 	}
 	
+	// crete new login controller and present
 	func showLoginController() {
 		let loginViewController = LoginViewController()
 		
@@ -122,10 +130,10 @@ class PartyUserProfileViewController: UITableViewController {
 	// set header titles
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		switch(section) {
-		case 0: return "Username"
-		case 1: return "Radius (km)"
+		case 0: return "Account"
+		case 1: return "Einstellungen"
 		case 2: return ""
-		default: fatalError("More than 3 sections in tableView")
+		default: fatalError(error)
 		}
 	}
 	

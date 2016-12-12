@@ -14,6 +14,9 @@ class You: Object {
 	
 	dynamic var id: String = "0"
 	
+	dynamic var userId: String = ""
+	dynamic var email: String = ""
+	
 	dynamic var username: String = ""
 	dynamic var password: String = ""
 	
@@ -34,6 +37,8 @@ class You: Object {
 		self.id = "0"
 		self.username = username
 		self.password = password
+		self.userId = ""
+		self.email = ""
 		self.accessToken = json["access_token"].stringValue
 		self.expiresIn = Date().addingTimeInterval(TimeInterval(json["expires_in"].doubleValue))
 		self.refreshToken = json["refresh_token"].stringValue

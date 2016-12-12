@@ -10,13 +10,14 @@
 		000D8D061DFC9A0400F8AC8F /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D8D051DFC9A0400F8AC8F /* SwiftSpinner.swift */; };
 		00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00257E621DEB1E9500E05884 /* UserDefaults.swift */; };
 		00297F981DEC5D7500527955 /* PartyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297F971DEC5D7500527955 /* PartyMapViewController.swift */; };
-		00297F9A1DEC724800527955 /* PartyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297F991DEC724800527955 /* PartyDetailViewController.swift */; };
+		00297F9A1DEC724800527955 /* PartyDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297F991DEC724800527955 /* PartyDetailTableViewController.swift */; };
 		002AD04D1DF5DAD600BCB74A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD04C1DF5DAD600BCB74A /* LoginViewController.swift */; };
 		002AD04F1DF5DCD800BCB74A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD04E1DF5DCD800BCB74A /* Extensions.swift */; };
 		002AD0511DF5E01200BCB74A /* LoginCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AD0501DF5E01200BCB74A /* LoginCollectionViewCell.swift */; };
 		004433F91DD11A2B0012755C /* SwaggerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004433F81DD11A2B0012755C /* SwaggerCommunication.swift */; };
 		0046DF821DFDA3B00051BC5B /* PartyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0046DF811DFDA3B00051BC5B /* PartyCollectionViewController.swift */; };
 		0046DF841DFDA6950051BC5B /* PartyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0046DF831DFDA6950051BC5B /* PartyCollectionViewCell.swift */; };
+		0046DF871DFE0B290051BC5B /* PartyDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0046DF861DFE0B290051BC5B /* PartyDetailTableViewCell.swift */; };
 		005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005BF77B1DD3C7F3003C9036 /* RealmManager.swift */; };
 		0089086F1DFC595800BB1070 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0089086E1DFC595800BB1070 /* Alamofire.framework */; };
 		008908701DFC595800BB1070 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0089086E1DFC595800BB1070 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -31,19 +32,16 @@
 		008908811DFC6FCB00BB1070 /* PartyCreateFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008908801DFC6FCB00BB1070 /* PartyCreateFormViewController.swift */; };
 		008908831DFC785D00BB1070 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008908821DFC785D00BB1070 /* Enumerations.swift */; };
 		00CD68AA1DC8FF6D00A0172F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CD68A91DC8FF6D00A0172F /* Launch.storyboard */; };
-		00D921DA1DCB7DDA00737FA1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D921D91DCB7DDA00737FA1 /* Home.storyboard */; };
 		00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */; };
-		00EE27861DD65750004053FE /* Colors+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EE27851DD65750004053FE /* Colors+Style.swift */; };
+		00EE27861DD65750004053FE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EE27851DD65750004053FE /* Colors.swift */; };
 		00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F060091DBBD85C003A2A38 /* Assets.xcassets */; };
 		00F0ABA71DE4BC1400512CF0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F0ABA61DE4BC1400512CF0 /* MapKit.framework */; };
-		00F5698F1DEF1B7C00528F54 /* PartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F5698E1DEF1B7C00528F54 /* PartyTableViewCell.swift */; };
 		00F569911DEF1BBA00528F54 /* PartyMapViewPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569901DEF1BBA00528F54 /* PartyMapViewPin.swift */; };
 		00F569931DEF1C8500528F54 /* PartyUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569921DEF1C8500528F54 /* PartyUserProfileViewController.swift */; };
 		00F569951DEF292900528F54 /* PartyUserProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569941DEF292900528F54 /* PartyUserProfileViewCell.swift */; };
 		00F569991DEF3B7500528F54 /* You.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F569981DEF3B7500528F54 /* You.swift */; };
 		00FF19181DEC45FF00ADA439 /* PartyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF19171DEC45FF00ADA439 /* PartyTabBarController.swift */; };
 		00FF191A1DEC466900ADA439 /* PartyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF19191DEC466900ADA439 /* PartyNavigationController.swift */; };
-		00FF191C1DEC46EC00ADA439 /* PartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF191B1DEC46EC00ADA439 /* PartyTableViewController.swift */; };
 		00FF2B871DD5250400312084 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF2B861DD5250400312084 /* Party.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,13 +68,14 @@
 		001F1F191DBFCB21006F668C /* PartyPostValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyPostValue.json; sourceTree = "<group>"; };
 		00257E621DEB1E9500E05884 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		00297F971DEC5D7500527955 /* PartyMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyMapViewController.swift; sourceTree = "<group>"; };
-		00297F991DEC724800527955 /* PartyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyDetailViewController.swift; sourceTree = "<group>"; };
+		00297F991DEC724800527955 /* PartyDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyDetailTableViewController.swift; sourceTree = "<group>"; };
 		002AD04C1DF5DAD600BCB74A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		002AD04E1DF5DCD800BCB74A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		002AD0501DF5E01200BCB74A /* LoginCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCollectionViewCell.swift; sourceTree = "<group>"; };
 		004433F81DD11A2B0012755C /* SwaggerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerCommunication.swift; sourceTree = "<group>"; };
 		0046DF811DFDA3B00051BC5B /* PartyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyCollectionViewController.swift; sourceTree = "<group>"; };
 		0046DF831DFDA6950051BC5B /* PartyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyCollectionViewCell.swift; sourceTree = "<group>"; };
+		0046DF861DFE0B290051BC5B /* PartyDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyDetailTableViewCell.swift; sourceTree = "<group>"; };
 		005BF77B1DD3C7F3003C9036 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		0089086E1DFC595800BB1070 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		008908721DFC596300BB1070 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Frameworks/Eureka.framework; sourceTree = "<group>"; };
@@ -88,21 +87,18 @@
 		0093C8801DBF563D00FB7FCA /* PartyGetValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyGetValue.json; sourceTree = "<group>"; };
 		0097E1E51DD9B8C500220AEF /* UserRobin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserRobin.json; sourceTree = "<group>"; };
 		00CD68A91DC8FF6D00A0172F /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
-		00D921D91DCB7DDA00737FA1 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		00EE27851DD65750004053FE /* Colors+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Colors+Style.swift"; sourceTree = "<group>"; };
+		00EE27851DD65750004053FE /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		00F05FFF1DBBD85C003A2A38 /* App2Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App2Night.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F060091DBBD85C003A2A38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00F0600E1DBBD85C003A2A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00F0ABA61DE4BC1400512CF0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		00F5698E1DEF1B7C00528F54 /* PartyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewCell.swift; sourceTree = "<group>"; };
 		00F569901DEF1BBA00528F54 /* PartyMapViewPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyMapViewPin.swift; sourceTree = "<group>"; };
 		00F569921DEF1C8500528F54 /* PartyUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyUserProfileViewController.swift; sourceTree = "<group>"; };
 		00F569941DEF292900528F54 /* PartyUserProfileViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyUserProfileViewCell.swift; sourceTree = "<group>"; };
 		00F569981DEF3B7500528F54 /* You.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = You.swift; sourceTree = "<group>"; };
 		00FF19171DEC45FF00ADA439 /* PartyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTabBarController.swift; sourceTree = "<group>"; };
 		00FF19191DEC466900ADA439 /* PartyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyNavigationController.swift; sourceTree = "<group>"; };
-		00FF191B1DEC46EC00ADA439 /* PartyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewController.swift; sourceTree = "<group>"; };
 		00FF2B861DD5250400312084 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,15 +119,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0046DF851DFDFFF40051BC5B /* Old */ = {
-			isa = PBXGroup;
-			children = (
-				00FF191B1DEC46EC00ADA439 /* PartyTableViewController.swift */,
-				00F5698E1DEF1B7C00528F54 /* PartyTableViewCell.swift */,
-			);
-			name = Old;
-			sourceTree = "<group>";
-		};
 		007404591DC8D92900C3C7DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,10 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				00CD68A91DC8FF6D00A0172F /* Launch.storyboard */,
-				00D921D91DCB7DDA00737FA1 /* Home.storyboard */,
 				000D8D051DFC9A0400F8AC8F /* SwiftSpinner.swift */,
-				002AD04E1DF5DCD800BCB74A /* Extensions.swift */,
-				00EE27851DD65750004053FE /* Colors+Style.swift */,
+				00EE27851DD65750004053FE /* Colors.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -205,9 +190,9 @@
 				009D97381DBE54A8005D94FF /* View */,
 				007404591DC8D92900C3C7DE /* Controller */,
 				00EDF7AE1DC8CF7F0065CEF9 /* AppDelegate.swift */,
+				002AD04E1DF5DCD800BCB74A /* Extensions.swift */,
 				00F060091DBBD85C003A2A38 /* Assets.xcassets */,
 				00F0600E1DBBD85C003A2A38 /* Info.plist */,
-				0046DF851DFDFFF40051BC5B /* Old */,
 			);
 			path = App2Night;
 			sourceTree = "<group>";
@@ -231,7 +216,8 @@
 				0046DF811DFDA3B00051BC5B /* PartyCollectionViewController.swift */,
 				0046DF831DFDA6950051BC5B /* PartyCollectionViewCell.swift */,
 				008908801DFC6FCB00BB1070 /* PartyCreateFormViewController.swift */,
-				00297F991DEC724800527955 /* PartyDetailViewController.swift */,
+				00297F991DEC724800527955 /* PartyDetailTableViewController.swift */,
+				0046DF861DFE0B290051BC5B /* PartyDetailTableViewCell.swift */,
 				00297F971DEC5D7500527955 /* PartyMapViewController.swift */,
 				00F569901DEF1BBA00528F54 /* PartyMapViewPin.swift */,
 				00F569921DEF1C8500528F54 /* PartyUserProfileViewController.swift */,
@@ -306,7 +292,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				00F0600A1DBBD85C003A2A38 /* Assets.xcassets in Resources */,
-				00D921DA1DCB7DDA00737FA1 /* Home.storyboard in Resources */,
 				00CD68AA1DC8FF6D00A0172F /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,10 +308,10 @@
 				00FF2B871DD5250400312084 /* Party.swift in Sources */,
 				0046DF821DFDA3B00051BC5B /* PartyCollectionViewController.swift in Sources */,
 				00EDF7AF1DC8CF7F0065CEF9 /* AppDelegate.swift in Sources */,
+				0046DF871DFE0B290051BC5B /* PartyDetailTableViewCell.swift in Sources */,
 				00F569931DEF1C8500528F54 /* PartyUserProfileViewController.swift in Sources */,
 				00297F981DEC5D7500527955 /* PartyMapViewController.swift in Sources */,
-				00FF191C1DEC46EC00ADA439 /* PartyTableViewController.swift in Sources */,
-				00EE27861DD65750004053FE /* Colors+Style.swift in Sources */,
+				00EE27861DD65750004053FE /* Colors.swift in Sources */,
 				00F569951DEF292900528F54 /* PartyUserProfileViewCell.swift in Sources */,
 				002AD04D1DF5DAD600BCB74A /* LoginViewController.swift in Sources */,
 				002AD04F1DF5DCD800BCB74A /* Extensions.swift in Sources */,
@@ -338,8 +323,7 @@
 				008908811DFC6FCB00BB1070 /* PartyCreateFormViewController.swift in Sources */,
 				00F569911DEF1BBA00528F54 /* PartyMapViewPin.swift in Sources */,
 				002AD0511DF5E01200BCB74A /* LoginCollectionViewCell.swift in Sources */,
-				00F5698F1DEF1B7C00528F54 /* PartyTableViewCell.swift in Sources */,
-				00297F9A1DEC724800527955 /* PartyDetailViewController.swift in Sources */,
+				00297F9A1DEC724800527955 /* PartyDetailTableViewController.swift in Sources */,
 				00F569991DEF3B7500528F54 /* You.swift in Sources */,
 				008908831DFC785D00BB1070 /* Enumerations.swift in Sources */,
 			);

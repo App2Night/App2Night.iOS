@@ -101,7 +101,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 	func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
 		let pin: PartyMapViewPin = view.annotation as! PartyMapViewPin
 		
-		let detailView = PartyDetailViewController()
+		let detailView = PartyDetailTableViewController(style: .grouped)
 		// use primary key string from pin to get party object from realm -> cant pass object reference because of realm limits
 		detailView.selectedParty =  try! Realm().object(ofType: Party.self, forPrimaryKey: pin.id)!
 		let wrappedDetailView = PartyNavigationController(rootViewController: detailView)

@@ -77,8 +77,16 @@ extension LoginViewController {
 			
 			SwaggerCommunication.shared.getToken(username: username, password: password) { success in
 				if success {
-					self.delegate?.finishLoggingIn()
-					SwiftSpinner.hide()
+					SwaggerCommunication.shared.getUserInfo { (success) in
+						if success {
+							self.delegate?.finishLoggingIn()
+							SwiftSpinner.hide()
+						} else {
+							print("LOGIN FAILED.")
+							SwiftSpinner.hide()
+							self.delegate?.displayAlert(title: "Login fehlgeschlagen!", message: "Überprüfe bitte deine eingegebenen Daten.", buttonTitle: "Okay")
+						}
+					}
 				} else {
 					print("LOGIN FAILED.")
 					SwiftSpinner.hide()
