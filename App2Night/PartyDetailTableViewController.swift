@@ -78,7 +78,14 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate {
 		mapView.addAnnotation(pin)
 		
 		// nav bar button
-		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissView))
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissView))
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
+		
+		if selectedParty.hostedByUser {
+			navigationItem.rightBarButtonItem?.isEnabled = true
+		} else {
+			navigationItem.rightBarButtonItem?.isEnabled = false
+		}
 		
 		tableView.register(BaseCell.self, forCellReuseIdentifier: cellId)
 	}
@@ -119,7 +126,7 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate {
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 44
 	}
-
+	
 	// set header
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		switch(section) {

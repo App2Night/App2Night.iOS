@@ -155,40 +155,54 @@ class PartyCreateFormViewController: FormViewController {
 		tableView?.reloadData()
 		
 		if (errors.isEmpty) {
-			SwiftSpinner.show("Party wird gepostet...")
+			// SwiftSpinner.show("Party wird gepostet...")
 			let assembledParty = assembleParty()
 			
-			SwaggerCommunication.shared.validateLocation(with: assembledParty.toLocationRawData()) { success in
+			// overly nested check if token is old -> check if location is valid -> post party
+			SwiftSpinner.show("Dein Token wird geprüft...")
+			SwaggerCommunication.shared.revokeToken { (success) in
 				if success {
-					SwaggerCommunication.shared.postParty(with: assembledParty.toPartyRawData()) { success in
+					SwiftSpinner.show("Dein Standort wird gegoogelt...")
+					SwaggerCommunication.shared.validateLocation(with: assembledParty.toLocationRawData()) { success in
 						if success {
-							print("POST OK.")
-							
-							// start updating parties after succesful post
-							self.delegate?.updateParties()
-							// stop the spinner
-							SwiftSpinner.hide()
-							// dismiss this view
-							self.dismissView()
+							SwiftSpinner.show("Deine Party wird gepostet...")
+							SwaggerCommunication.shared.postParty(with: assembledParty.toPartyRawData()) { success in
+								if success {
+									print("POST OK.")
+									
+									// start updating parties after succesful post
+									self.delegate?.updateParties()
+									// stop the spinner
+									SwiftSpinner.hide()
+									// dismiss this view
+									self.dismissView()
+								} else {
+									print("POST FAILED.")
+									
+									// stop the spinner
+									SwiftSpinner.hide()
+									
+									self.displayAlert(title: "Party wurde nicht gepostet!", message: "Irgendetwas ist schiefgelaufen.", buttonTitle: "Okay")
+								}
+							}
 						} else {
-							print("POST FAILED.")
-							
-							// stop the spinner
 							SwiftSpinner.hide()
-							
-							self.displayAlert(title: "Party wurde nicht gepostet!", message: "Irgendetwas ist schiefgelaufen.", buttonTitle: "Okay")
+							self.displayAlert(title: "Standort wurde nicht gefunden!", message: "Bitte gib einen gültigen Standort ein.", buttonTitle: "Okay")
 						}
 					}
-				} else {
+					
+				}
+				else {
 					SwiftSpinner.hide()
-					self.displayAlert(title: "Standort wurde nicht gefunden!", message: "Bitte gib einen gültigen Standort ein.", buttonTitle: "Okay")
+					self.displayAlert(title: "Token konnte nicht widerrufen werden!", message: "Oops.", buttonTitle: "Okay")
 				}
 			}
-			
 		}
 		else {
-			displayAlert(title: "Alle Felder müssen korrekt ausgefüllt werden!", message: "Überprüfe bitte deine Eingaben.", buttonTitle: "Okay")
+			SwiftSpinner.hide()
+			self.displayAlert(title: "Alle Felder müssen korrekt ausgefüllt werden!", message: "Überprüfe bitte deine Eingaben.", buttonTitle: "Okay")
 		}
+		
 	}
 	
 	func assembleParty() -> Party {

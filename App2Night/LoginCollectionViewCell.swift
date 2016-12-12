@@ -74,9 +74,9 @@ extension LoginViewController {
 			}
 			
 			SwiftSpinner.show("Login wird übertragen...")
-			
 			SwaggerCommunication.shared.getToken(username: username, password: password) { success in
 				if success {
+					SwiftSpinner.show("Profil wird geladen...")
 					SwaggerCommunication.shared.getUserInfo { (success) in
 						if success {
 							self.delegate?.finishLoggingIn()

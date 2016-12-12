@@ -70,7 +70,18 @@ class Party: Object {
 		
 		self.host = User(json: json["Host"])
 		
-		self.hostedByUser = json["HostedByUser"].boolValue
+		// ist immer false da get keine userinfo mitschickt?
+		// self.hostedByUser = json["HostedByUser"].boolValue
+		
+		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
+		let myId = currentUser?.userId
+		
+		if self.host?.id == myId {
+			self.hostedByUser = true
+		} else {
+			self.hostedByUser = false
+		}
+		
 		self.generalUpVoting = json["GeneralUpVoting"].intValue
 		self.generalDownVoting = json["GeneralDownVoting"].intValue
 		self.priceUpVotring = json["PriceUpVotring"].intValue

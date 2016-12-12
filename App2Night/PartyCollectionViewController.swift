@@ -135,6 +135,15 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 			cell.check.isHidden = true
 		}
 		
+		switch (party.hostedByUser) {
+		case true:
+			cell.myOverlay.isHidden = false
+			break
+		case false:
+			cell.myOverlay.isHidden = true
+			break
+		}
+		
 		return cell
 	}
 	

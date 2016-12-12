@@ -13,6 +13,8 @@ extension PartyCollectionViewController {
 	
 	class PartyCell: BaseCell {
 		
+		var isMine: Bool = false
+		
 		let overlay: UIView = {
 			let view = UIView()
 			view.backgroundColor = .black
@@ -30,6 +32,13 @@ extension PartyCollectionViewController {
 				}
 			}
 		}
+		
+		let myOverlay: UIView = {
+			let view = UIView()
+			view.backgroundColor = UIColor(red: 21/255, green: 126/255, blue: 251/255, alpha: 1)
+			view.alpha = 0.1
+			return view
+		}()
 		
 		let check: UIImageView = {
 			let imageView = UIImageView()
@@ -131,8 +140,13 @@ extension PartyCollectionViewController {
 			addSubview(subtitle)
 			addSubview(upperDivider)
 			addSubview(lowerDivider)
+			addSubview(myOverlay)
 			
 			check.isHidden = true
+			myOverlay.isHidden = true
+			
+			// my party overlay
+			_ = myOverlay.anchor(self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
 			
 			// thumbnail
 			_ = thumbnail.anchor(nil, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 13, bottomConstant: 0, rightConstant: 0, widthConstant: 74, heightConstant: 74)
