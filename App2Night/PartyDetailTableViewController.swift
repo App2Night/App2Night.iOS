@@ -12,6 +12,7 @@ import MapKit
 protocol PartyDetailTableViewControllerDelegate: class {
 	
 	func putCommitmentState()
+	func reloadTable()
 	
 }
 
@@ -209,7 +210,7 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 		
 		// nav bar button
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissView))
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(presentEditForm))
 		
 		if selectedParty.hostedByUser {
 			navigationItem.rightBarButtonItem?.isEnabled = true
@@ -220,11 +221,19 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 		tableView.register(BaseCell.self, forCellReuseIdentifier: cellId)
 	}
 	
+	func reloadTable() {
+		configureCells()
+		navigationItem.title = selectedParty.name
+		self.tableView.reloadData()
+	}
+	
 	override func viewWillAppear(_ animated: Bool) {
 		// zoom to pin
 		let center = CLLocationCoordinate2D(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
 		let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
 		self.mapView.setRegion(region, animated: true)
+		
+		self.tableView?.reloadData()
 	}
 	
 	// dismiss view
@@ -346,6 +355,13 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 			}
 
 		}
+	}
+	
+	func presentEditForm() {
+		let editFormView = PartyEditFormViewController()
+		editFormView.party = selectedParty
+		editFormView.delegate = self
+		show(editFormView, sender: self)
 	}
 	
 	// alert controllers

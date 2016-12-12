@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000A2BA81DFF4145000704EF /* PartyEditFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A2BA71DFF4145000704EF /* PartyEditFormViewController.swift */; };
 		000D8D061DFC9A0400F8AC8F /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D8D051DFC9A0400F8AC8F /* SwiftSpinner.swift */; };
 		00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00257E621DEB1E9500E05884 /* UserDefaults.swift */; };
 		00297F981DEC5D7500527955 /* PartyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297F971DEC5D7500527955 /* PartyMapViewController.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		000A2BA71DFF4145000704EF /* PartyEditFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyEditFormViewController.swift; sourceTree = "<group>"; };
 		000D8D051DFC9A0400F8AC8F /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		001F1F191DBFCB21006F668C /* PartyPostValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartyPostValue.json; sourceTree = "<group>"; };
 		00257E621DEB1E9500E05884 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				00F569901DEF1BBA00528F54 /* PartyMapViewPin.swift */,
 				00F569921DEF1C8500528F54 /* PartyUserProfileViewController.swift */,
 				00F569941DEF292900528F54 /* PartyUserProfileViewCell.swift */,
+				000A2BA71DFF4145000704EF /* PartyEditFormViewController.swift */,
 			);
 			name = "Tab Views";
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				005BF77C1DD3C7F3003C9036 /* RealmManager.swift in Sources */,
 				000D8D061DFC9A0400F8AC8F /* SwiftSpinner.swift in Sources */,
 				00257E631DEB1E9500E05884 /* UserDefaults.swift in Sources */,
+				000A2BA81DFF4145000704EF /* PartyEditFormViewController.swift in Sources */,
 				0046DF841DFDA6950051BC5B /* PartyCollectionViewCell.swift in Sources */,
 				00FF191A1DEC466900ADA439 /* PartyNavigationController.swift in Sources */,
 				008908811DFC6FCB00BB1070 /* PartyCreateFormViewController.swift in Sources */,
