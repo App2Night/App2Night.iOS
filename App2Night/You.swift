@@ -37,13 +37,10 @@ class You: Object {
 		self.id = "0"
 		self.username = username
 		self.password = password
-		self.userId = ""
-		self.email = ""
 		self.accessToken = json["access_token"].stringValue
 		self.expiresIn = Date().addingTimeInterval(TimeInterval(json["expires_in"].doubleValue))
 		self.refreshToken = json["refresh_token"].stringValue
 		self.tokenType = json["token_type"].stringValue
-		self.radius = 100
 	}
 	
 }

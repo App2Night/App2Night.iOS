@@ -33,7 +33,10 @@ class PartyUserProfileViewController: UITableViewController {
 		navigationItem.title = "Profil"
 	}
 	
+	// fix for empty username/email after first creation
 	override func viewWillAppear(_ animated: Bool) {
+		profileCell.user.text = try! Realm().object(ofType: You.self, forPrimaryKey: "0")?.username ?? "Username"
+		profileCell.email.text = try! Realm().object(ofType: You.self, forPrimaryKey: "0")?.email ?? "Email"
 		tableView.reloadData()
 	}
 	

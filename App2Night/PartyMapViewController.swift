@@ -45,6 +45,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		view.addSubview(mapView)
 	}
 	
+	// update all pins when view appears
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
@@ -55,7 +56,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		parseAnnotations()
 	}
 	
-	// MARK: - parse parties to annotations
+	// parse parties to annotations
 	func parseAnnotations() {
 		parties = try! Realm().objects(Party.self)
 		
@@ -67,7 +68,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		mapView.addAnnotations(pins)
 	}
 	
-	// MARK: - Location delegate
+	// location delegate
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		let lastLocation = locations.last
 		let center = CLLocationCoordinate2D(latitude: lastLocation!.coordinate.latitude, longitude: lastLocation!.coordinate.longitude)
@@ -98,6 +99,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		return nil
 	}
 	
+	// handle detailView on button press
 	func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
 		let pin: PartyMapViewPin = view.annotation as! PartyMapViewPin
 		

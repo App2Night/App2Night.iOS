@@ -34,13 +34,28 @@ class SwaggerCommunication {
 			radiusValue = 100
 		}
 		
-		let coordinates: Parameters = [
-			"lat": location.latitude,
-			"lon": location.longitude,
-			"radius": radiusValue
-		]
+		let tokenType = (currentUser?.tokenType)!
+		let accessToken = (currentUser?.accessToken)!
 		
-		Alamofire.request(SwaggerCommunication.apiUrl + "api/party", method: .get, parameters: coordinates).validate().responseJSON { (response) in
+		/*
+		let coordinates: Parameters = [
+		"lat": location.latitude,
+		"lon": location.longitude,
+		"radius": radiusValue
+		]
+		*/
+		
+		let requestUrl: URLRequest = {
+			var request = URLRequest(url: URL(string: "\(SwaggerCommunication.apiUrl)api/party?lat=\(location.latitude)&lon=\(location.longitude)&radius=\(radiusValue)")!)
+			//"\(SwaggerCommunication.apiUrl)api/party?lat=\(location.latitude)&lon=\(location.longitude)&radius=\(radiusValue)"
+			
+			request.httpMethod = "GET"
+			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+			request.setValue("\(tokenType) \(accessToken)", forHTTPHeaderField: "Authorization")
+			return request
+		}()
+		
+		Alamofire.request(requestUrl).validate().responseJSON { (response) in
 			print("REQUEST URL: \(response.request)")
 			print("HTTP URL RESPONSE: \(response.response)")
 			print("SERVER DATA: \(response.data)")
@@ -343,6 +358,50 @@ class SwaggerCommunication {
 			})
 		}
 		
+	}
+	
+	func putCommitmentState(for party: String, with state: Int, completionHandler: @escaping (Bool) -> ()) {
+		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
+		
+		let tokenType = (currentUser?.tokenType)!
+		let accessToken = (currentUser?.accessToken)!
+		
+		let body: JSON = [
+			"eventCommitment": state
+		]
+		
+		let bodyData = try! body.rawData()
+		
+		let requestUrl: URLRequest = {
+			var request = URLRequest(url: URL(string: SwaggerCommunication.apiUrl + "api/userparty/commitmentState" + "?id=" + party)!)
+			request.httpMethod = "PUT"
+			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+			request.setValue("\(tokenType) \(accessToken)", forHTTPHeaderField: "Authorization")
+			request.httpBody = bodyData
+			
+			return request
+		}()
+		
+		Alamofire.request(requestUrl).validate().responseString { (response) in
+			print("REQUEST URL: \(response.request)")
+			print("HTTP URL RESPONSE: \(response.response)")
+			print("SERVER DATA: \(response.data)")
+			print("RESULT OF SERIALIZATION: \(response.result)")
+			
+			switch response.result {
+			case .success:
+				DispatchQueue.main.async(execute: { () -> Void in
+					print("COMMITMENT SUCESS.")
+					completionHandler(true)
+				})
+			case .failure(let e):
+				print(e)
+				DispatchQueue.main.async(execute: { () -> Void in
+					print("COMMITMENT FAILED.")
+					completionHandler(false)
+				})
+			}
+			}.resume()
 	}
 	
 	

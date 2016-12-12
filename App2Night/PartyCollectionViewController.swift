@@ -35,11 +35,17 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 	
 	// handle the refresh
 	func handleRefresh(_ refreshControl: UIRefreshControl) {
-		SwaggerCommunication.shared.getParties(at: currentLocation) { success in
+		SwaggerCommunication.shared.revokeToken { (success) in
 			if success {
-				self.parties = try! Realm().objects(Party.self)
-				self.collectionView?.reloadData()
-				refreshControl.endRefreshing()
+				SwaggerCommunication.shared.getParties(at: self.currentLocation) { success in
+					if success {
+						self.parties = try! Realm().objects(Party.self)
+						self.collectionView?.reloadData()
+						refreshControl.endRefreshing()
+					} else {
+						refreshControl.endRefreshing()
+					}
+				}
 			} else {
 				refreshControl.endRefreshing()
 			}
@@ -125,14 +131,14 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 			cell.check.isHidden = false
 			break
 		case 1:
-			cell.check.isHidden = false
-			cell.check.tintColor = UIColor(red: 254/255, green: 203/255, blue: 47/255, alpha: 1)
+			cell.check.isHidden = true
 			break
 		case 2:
 			cell.check.isHidden = true
 			break
 		default:
 			cell.check.isHidden = true
+			break
 		}
 		
 		switch (party.hostedByUser) {
@@ -174,10 +180,20 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 	// delegate background update
 	func updateParties() {
 		print("STARTED UPDATE IN BACKGROUND.")
-		SwaggerCommunication.shared.getParties(at: currentLocation) { success in
+		
+		SwaggerCommunication.shared.revokeToken { (success) in
 			if success {
-				self.parties = try! Realm().objects(Party.self)
-				self.collectionView?.reloadData()
+				SwaggerCommunication.shared.getParties(at: self.currentLocation) { success in
+					if success {
+						self.parties = try! Realm().objects(Party.self)
+						self.collectionView?.reloadData()
+						self.refreshControl.endRefreshing()
+					} else {
+						self.refreshControl.endRefreshing()
+					}
+				}
+			} else {
+				self.refreshControl.endRefreshing()
 			}
 		}
 	}
