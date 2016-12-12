@@ -11,7 +11,7 @@ import Eureka
 import RealmSwift
 
 // this is just a straight copy of PartyCreateFormViewController with replaced post functions.. could be solved by just inheriting the other controller..
-// last minute implementation
+// last minute implementation probably buggy
 
 class PartyEditFormViewController: FormViewController {
 	

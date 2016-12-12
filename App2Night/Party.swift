@@ -121,7 +121,8 @@ class Party: Object {
 			"houseNumber": self.houseNumber,
 			"zipcode": self.zipcode,
 			"partyType": self.type,
-			"description": self.text
+			"description": self.text,
+			"price": self.price
 		]
 		
 		return try! json.rawData()
