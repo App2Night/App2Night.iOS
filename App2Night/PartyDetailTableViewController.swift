@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import RealmSwift
 
 protocol PartyDetailTableViewControllerDelegate: class {
 	
@@ -336,7 +337,9 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 		
 		// write new state to realm
 		try! RealmManager.currentRealm.write {
-			RealmManager.currentRealm.create(Party.self, value: ["id": selectedParty.id, "userCommitmentState": commitmentCell.segmentedControl.selectedSegmentIndex], update: true)
+			let state = commitmentCell.segmentedControl.selectedSegmentIndex
+			RealmManager.currentRealm.create(Party.self, value: ["id": selectedParty.id, "userCommitmentState": state], update: true)
+			// TODO: remove myself from list
 		}
 		
 		SwaggerCommunication.shared.revokeToken { (success) in

@@ -26,7 +26,7 @@ class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 		super.viewDidLoad()
 		
 		// setup navigation bar
-		navigationItem.title = "Parties"
+		navigationItem.title = "Parties in deiner Nähe"
 		
 		// location things
 		locationManager.requestWhenInUseAuthorization()
