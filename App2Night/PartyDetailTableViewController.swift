@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import RealmSwift
+import SwiftyJSON
 
 protocol PartyDetailTableViewControllerDelegate: class {
 	
@@ -102,6 +103,13 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 	
 	let commitmentCell = CommitmentCell()
 	
+	let generalRatingCell = RatingCell()
+	let priceRatingCell = RatingCell()
+	let locationRatingCell = RatingCell()
+	let moodRatingCell = RatingCell()
+	
+	let ratingButtonCell = RatingButtonCell()
+	
 	func configureCells() {
 		// init date formatter
 		let dateFormatter: DateFormatter = {
@@ -121,6 +129,28 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 			}
 			counter = counter+1
 		}
+		
+		if (selectedParty.userCommitmentState == 0) {
+			if ((Date() >= selectedParty.date) && (Date() <= selectedParty.date + 86400)) {
+				enableRating()
+			} else {
+				disableRating()
+			}
+		} else {
+			disableRating()
+		}
+		
+		ratingButtonCell.button.addTarget(self, action: #selector(handleRating), for: .touchUpInside)
+		
+		generalRatingCell.leftLabel.text = "Allgemein"
+		priceRatingCell.leftLabel.text = "Preis"
+		locationRatingCell.leftLabel.text = "Standort"
+		moodRatingCell.leftLabel.text = "Stimmung"
+		
+		generalRatingCell.rightLabel.text = String(describing: (selectedParty.generalUpVoting-selectedParty.generalUpVoting))
+		priceRatingCell.rightLabel.text = String(describing: (selectedParty.priceUpVoting-selectedParty.priceDownVoting))
+		locationRatingCell.rightLabel.text = String(describing: (selectedParty.locationUpVoting-selectedParty.locationDownVoting))
+		moodRatingCell.rightLabel.text = String(describing: (selectedParty.moodUpVoting-selectedParty.moodDownVoting))
 		
 		commitmentCell.delegate = self
 		
@@ -142,6 +172,74 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 		zipcodeCell.rightLabel.text = selectedParty.zipcode
 	}
 	// init end
+	
+	func refresh() {
+		configureCells()
+		self.tableView.reloadData()
+	}
+	
+	func handleRating() {
+		let json: JSON = [
+			"generalRating": getRating(from: generalRatingCell.segmentedControl.selectedSegmentIndex),
+			"priceRating": getRating(from: priceRatingCell.segmentedControl.selectedSegmentIndex),
+			"locationRating": getRating(from: locationRatingCell.segmentedControl.selectedSegmentIndex),
+			"moodRating": getRating(from: moodRatingCell.segmentedControl.selectedSegmentIndex)
+		]
+		
+		let data = try! json.rawData()
+		
+		disableRating()
+		
+		SwiftSpinner.show("Dein Token wird überprüft...")
+		SwaggerCommunication.shared.revokeToken { (success) in
+			if success {
+				SwiftSpinner.show("Deine Bewertung wird gesendet...")
+				SwaggerCommunication.shared.putPartyRating(with: data, for: self.selectedParty.id) { (success) in
+					if success {
+						SwiftSpinner.hide()
+						self.enableRating()
+						self.refresh()
+					} else {
+						SwiftSpinner.hide()
+						self.displayAlert(title: "Dein Rating konnte nicht übertragen werden.", message: "Irgendetwas ist schiefgelaufen.", buttonTitle: "Okay")
+						self.enableRating()
+					}
+				}
+			} else {
+				SwiftSpinner.hide()
+				self.displayAlert(title: "Dein Rating konnte nicht übertragen werden.", message: "Irgendetwas ist schiefgelaufen.", buttonTitle: "Okay")
+				self.enableRating()
+			}
+			
+		}
+	}
+	
+	func getRating(from index: Int) -> Int {
+		switch (index) {
+		case 0: return -1
+		case 1: return 0
+		case 2: return 1
+		default: return 0
+		}
+	}
+	
+	func disableRating() {
+		ratingButtonCell.button.backgroundColor = .lightGray
+		ratingButtonCell.button.isEnabled = false
+		generalRatingCell.segmentedControl.isEnabled = false
+		priceRatingCell.segmentedControl.isEnabled = false
+		locationRatingCell.segmentedControl.isEnabled = false
+		moodRatingCell.segmentedControl.isEnabled = false
+	}
+	
+	func enableRating() {
+		ratingButtonCell.button.backgroundColor = UIColor(red: 21/255, green: 126/255, blue: 251/255, alpha: 1)
+		ratingButtonCell.button.isEnabled = true
+		generalRatingCell.segmentedControl.isEnabled = true
+		priceRatingCell.segmentedControl.isEnabled = true
+		locationRatingCell.segmentedControl.isEnabled = true
+		moodRatingCell.segmentedControl.isEnabled = true
+	}
 	
 	let pin = MKPointAnnotation()
 	
@@ -251,7 +349,7 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		switch (section) {
 		case 0: return 12
-		case 1: return 1
+		case 1: return 5
 		case 2: return 1
 		case 3: return 1
 		default: fatalError(error)
@@ -279,7 +377,12 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 			}
 		case 1:
 			switch(indexPath.row) {
-			default: return BaseCell()
+			case 0: return self.generalRatingCell
+			case 1: return self.priceRatingCell
+			case 2: return self.locationRatingCell
+			case 3: return self.moodRatingCell
+			case 4: return self.ratingButtonCell
+			default: fatalError(error)
 			}
 		case 2:
 			switch(indexPath.row) {
@@ -303,7 +406,7 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 			}
 		case 1:
 			switch(indexPath.row) {
-			default: return 44
+			default: return 66
 			}
 		case 2:
 			switch(indexPath.row) {
@@ -328,12 +431,20 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 		}
 	}
 	
+	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+		switch(section) {
+		case 1: return "Du musst anwesend sein und darfst bis zu maximal 24h später diese Party bewerten!"
+		default: return ""
+		}
+	}
+	
 	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		return 44
 	}
 	
 	func putCommitmentState() {
-		commitmentCell.segmentedControl.isUserInteractionEnabled = false
+		// commitmentCell.segmentedControl.isUserInteractionEnabled = false
+		self.commitmentCell.segmentedControl.isEnabled = false
 		
 		// write new state to realm
 		try! RealmManager.currentRealm.write {
@@ -342,19 +453,28 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 			// TODO: remove myself from list
 		}
 		
+		SwiftSpinner.show("Dein Token wird überprüft...")
 		SwaggerCommunication.shared.revokeToken { (success) in
 			if success {
+				SwiftSpinner.show("Deine Teilnahme wird gesendet...")
 				SwaggerCommunication.shared.putCommitmentState(for: self.selectedParty.id, with: self.commitmentCell.segmentedControl.selectedSegmentIndex) { (sucees) in
 					if success {
-						self.commitmentCell.segmentedControl.isUserInteractionEnabled = true
+						SwiftSpinner.hide()
+						//self.commitmentCell.segmentedControl.isUserInteractionEnabled = true
+						self.commitmentCell.segmentedControl.isEnabled = true
+						self.refresh()
 					} else {
+						SwiftSpinner.hide()
 						self.displayAlert(title: "Deine Teilnahme konnte nicht übertragen werden.", message: "Irgendetwas ist schiefgelaufen.", buttonTitle: "Okay")
-						self.commitmentCell.segmentedControl.isUserInteractionEnabled = true
+						// self.commitmentCell.segmentedControl.isUserInteractionEnabled = true
+						self.commitmentCell.segmentedControl.isEnabled = true
 					}
 				}
 			} else {
+				SwiftSpinner.hide()
 				self.displayAlert(title: "Deine Teilnahme konnte nicht übertragen werden.", message: "Irgendetwas ist schiefgelaufen.", buttonTitle: "Okay")
-				self.commitmentCell.segmentedControl.isUserInteractionEnabled = true
+				// self.commitmentCell.segmentedControl.isUserInteractionEnabled = true
+				self.commitmentCell.segmentedControl.isEnabled = true
 			}
 
 		}

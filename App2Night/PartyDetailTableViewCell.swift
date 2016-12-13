@@ -10,6 +10,69 @@ import UIKit
 
 extension PartyDetailTableViewController {
 	
+	class RatingButtonCell: BaseCell {
+		
+		let button: UIButton = {
+			let button = UIButton(type: .system)
+			button.layer.cornerRadius = 12
+			button.setTitle("Bewerten", for: .normal)
+			button.setTitleColor(.white, for: .normal)
+			button.backgroundColor = UIColor(red: 21/255, green: 126/255, blue: 251/255, alpha: 1)
+			return button
+		}()
+		
+		override func setupCell() {
+			addSubview(button)
+			self.selectionStyle = .none
+			
+			_ = button.anchor(nil, left: nil, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 128, heightConstant: 44)
+			button.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+			button.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+		}
+	}
+	
+	class RatingCell: BaseCell {
+		
+		let leftLabel: UILabel = {
+			let label = UILabel()
+			label.textAlignment = .left
+			label.text = "Left"
+			return label
+		}()
+		
+		let rightLabel: UILabel = {
+			let label = UILabel()
+			label.textAlignment = .center
+			label.textColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
+			label.text = "Right"
+			return label
+		}()
+		
+		let segmentedControl: UISegmentedControl = {
+			let ratingStates = ["-", "0", "+"]
+			let sc = UISegmentedControl(items: ratingStates)
+			return sc
+		}()
+		
+		override func setupCell() {
+			addSubview(segmentedControl)
+			addSubview(leftLabel)
+			addSubview(rightLabel)
+			self.selectionStyle = .none
+			
+			segmentedControl.selectedSegmentIndex = 1
+			
+			_ = leftLabel.anchor(nil, left: self.leftAnchor, bottom: nil, right: segmentedControl.leftAnchor, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+			leftLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+			
+			_ = rightLabel.anchor(nil, left: nil, bottom: nil, right: segmentedControl.leftAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 16, widthConstant: 32, heightConstant: 0)
+			rightLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+			
+			_ = segmentedControl.anchor(nil, left: nil, bottom: nil, right: self.rightAnchor, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 160, heightConstant: 44)
+			segmentedControl.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+		}
+	}
+	
 	class TextCell: BaseCell {
 		
 		let leftLabel: UILabel = {

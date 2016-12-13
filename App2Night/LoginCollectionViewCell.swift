@@ -215,7 +215,7 @@ extension LoginViewController {
 			
 			SwaggerCommunication.shared.postUser(username: username, email: email, password: password) { success in
 				if success {
-					print("REGISTER SUCESS.")
+					print("REGISTER SUCCESS.")
 					SwiftSpinner.hide()
 				} else {
 					print("REGISTER FAILED.")

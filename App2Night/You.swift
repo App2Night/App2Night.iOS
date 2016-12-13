@@ -1,5 +1,5 @@
 //
-//  CurrentUser.swift
+//  You.swift
 //  App2Night
 //
 //  Created by Robin on 30.11.16.

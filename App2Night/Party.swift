@@ -34,7 +34,7 @@ class Party: Object {
 	dynamic var hostedByUser: Bool = false
 	dynamic var generalUpVoting: Int = 0
 	dynamic var generalDownVoting: Int = 0
-	dynamic var priceUpVotring: Int = 0
+	dynamic var priceUpVoting: Int = 0
 	dynamic var priceDownVoting: Int = 0
 	dynamic var locationUpVoting: Int = 0
 	dynamic var locationDownVoting: Int = 0
@@ -86,7 +86,7 @@ class Party: Object {
 		
 		self.generalUpVoting = json["GeneralUpVoting"].intValue
 		self.generalDownVoting = json["GeneralDownVoting"].intValue
-		self.priceUpVotring = json["PriceUpVotring"].intValue
+		self.priceUpVoting = json["PriceUpVoting"].intValue
 		self.priceDownVoting = json["PriceDownVoting"].intValue
 		self.locationUpVoting = json["LocationUpVoting"].intValue
 		self.locationDownVoting = json["LocationDownVoting"].intValue

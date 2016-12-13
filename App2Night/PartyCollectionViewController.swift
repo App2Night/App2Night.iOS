@@ -35,18 +35,23 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 	
 	// handle the refresh
 	func handleRefresh(_ refreshControl: UIRefreshControl) {
+		// self.collectionView?.isUserInteractionEnabled = false
+		
 		SwaggerCommunication.shared.revokeToken { (success) in
 			if success {
 				SwaggerCommunication.shared.getParties(at: self.currentLocation) { success in
 					if success {
+						// self.collectionView?.isUserInteractionEnabled = true
 						self.parties = try! Realm().objects(Party.self)
 						self.collectionView?.reloadData()
 						refreshControl.endRefreshing()
 					} else {
+						// self.collectionView?.isUserInteractionEnabled = true
 						refreshControl.endRefreshing()
 					}
 				}
 			} else {
+				// self.collectionView?.isUserInteractionEnabled = true
 				refreshControl.endRefreshing()
 			}
 		}

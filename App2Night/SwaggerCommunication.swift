@@ -67,12 +67,13 @@ class SwaggerCommunication {
 					
 					// prepare comparision
 					let responseValue = JSON(response.result.value!)
-					let parties = try! Realm().objects(Party.self)
-					let users = try! Realm().objects(User.self)
+					let currentParties = try! Realm().objects(Party.self)
+					let currentUsers = try! Realm().objects(User.self)
 					
+					// currently: delete everything; fill again -> bad
 					try! RealmManager.currentRealm.write {
-						RealmManager.currentRealm.delete(parties)
-						RealmManager.currentRealm.delete(users)
+						RealmManager.currentRealm.delete(currentParties)
+						RealmManager.currentRealm.delete(currentUsers)
 					}
 					
 					for (_, object) in responseValue {
@@ -158,11 +159,25 @@ class SwaggerCommunication {
 			switch response.result {
 			case .success:
 				DispatchQueue.main.async(execute: { () -> Void in
-					// create current user
-					let currentUser = You(username: username, password: password, json: JSON(response.result.value!))
+					let json = JSON(response.result.value!)
+					
+					let accessToken = json["access_token"].stringValue
+					let expiresIn = Date().addingTimeInterval(TimeInterval(json["expires_in"].doubleValue))
+					let refreshToken = json["refresh_token"].stringValue
+					let tokenType = json["token_type"].stringValue
+					
+					let values: Any = [
+						"id": "0",
+						"username": username,
+						"password": password,
+						"accessToken": accessToken,
+						"expiresIn": expiresIn,
+						"refreshToken": refreshToken,
+						"tokenType": tokenType
+					]
 					
 					try! RealmManager.currentRealm.write {
-						RealmManager.currentRealm.add(currentUser, update: true)
+						RealmManager.currentRealm.create(You.self, value: values, update: true)
 					}
 					
 					completionHandler(true)
@@ -304,6 +319,7 @@ class SwaggerCommunication {
 		
 		// only do this when token is old
 		if expiresAt < now {
+		//if true {
 			print("TOKEN IS OLD. REVOKING..")
 			let tokenType = (currentUser?.tokenType)!
 			let accessToken = (currentUser?.accessToken)!
@@ -392,7 +408,7 @@ class SwaggerCommunication {
 			switch response.result {
 			case .success:
 				DispatchQueue.main.async(execute: { () -> Void in
-					print("COMMITMENT SUCESS.")
+					print("COMMITMENT SUCCESS.")
 					completionHandler(true)
 				})
 			case .failure(let e):
@@ -442,6 +458,42 @@ class SwaggerCommunication {
 			}.resume()
 	}
 	
+	// puts rating
+	func putPartyRating(with ratingData: Data, for id: String, completionHandler: @escaping (Bool) -> ()) {
+		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
+		
+		let tokenType = (currentUser?.tokenType)!
+		let accessToken = (currentUser?.accessToken)!
+		
+		let requestUrl: URLRequest = {
+			var request = URLRequest(url: URL(string: "\(SwaggerCommunication.apiUrl)api/userparty/partyrating?id=\(id)")!)
+			request.httpMethod = "PUT"
+			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+			request.setValue("\(tokenType) \(accessToken)", forHTTPHeaderField: "Authorization")
+			request.httpBody = ratingData
+			
+			return request
+		}()
+		
+		Alamofire.request(requestUrl).validate().responseJSON { (response) in
+			print("REQUEST URL: \(response.request)")
+			print("HTTP URL RESPONSE: \(response.response)")
+			print("SERVER DATA: \(response.data)")
+			print("RESULT OF SERIALIZATION: \(response.result)")
+			
+			switch response.result {
+			case .success:
+				DispatchQueue.main.async(execute: { () -> Void in
+					completionHandler(true)
+				})
+			case .failure(let e):
+				print(e)
+				DispatchQueue.main.async(execute: { () -> Void in
+					completionHandler(false)
+				})
+			}
+			}.resume()
+	}
 	
 }
 
