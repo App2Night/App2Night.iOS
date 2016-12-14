@@ -100,7 +100,7 @@ class SwaggerCommunication {
 	}
 	
 	// posts a party with authorization
-	func postParty(with party: Data, completionHandler: @escaping (Bool) -> ()) {
+	func postParty(with party: Data, completionHandler: @escaping (Bool, String?) -> ()) {
 		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
 		
 		let tokenType = (currentUser?.tokenType)!
@@ -125,12 +125,13 @@ class SwaggerCommunication {
 			switch response.result {
 			case .success:
 				DispatchQueue.main.async(execute: { () -> Void in
-					completionHandler(true)
+					let json = JSON(response.result.value!)
+					completionHandler(true, json.stringValue)
 				})
 			case .failure(let e):
 				print(e)
 				DispatchQueue.main.async(execute: { () -> Void in
-					completionHandler(false)
+					completionHandler(false, nil)
 				})
 			}
 			}.resume()

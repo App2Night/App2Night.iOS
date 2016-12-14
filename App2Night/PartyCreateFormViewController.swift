@@ -166,23 +166,28 @@ class PartyCreateFormViewController: FormViewController {
 					SwaggerCommunication.shared.validateLocation(with: assembledParty.toLocationRawData()) { (success) in
 						if success {
 							SwiftSpinner.show("Deine Party wird gepostet...")
-							SwaggerCommunication.shared.postParty(with: assembledParty.toPartyRawData()) { (success) in
+							SwaggerCommunication.shared.postParty(with: assembledParty.toPartyRawData()) { (success, id) in
 								if success {
 									print("POST OK.")
-									
-									// start updating parties after succesful post
-									// self.delegate?.updateParties()
-									// stop the spinner
-									SwiftSpinner.hide()
-									// dismiss this view
-									self.dismissView()
+									SwiftSpinner.show("Deine Party wird geladen...")
+									SwaggerCommunication.shared.getParty(for: id!) { (success) in
+										if success {
+											// update previous view
+											self.delegate?.reloadRealm()
+											SwiftSpinner.hide()
+											self.dismissView()
+										} else {
+											SwiftSpinner.hide()
+											self.displayAlert(title: "Party wurde nicht geladen!", message: "Laden ist schiefgelaufen.", buttonTitle: "Okay")
+										}
+									}
 								} else {
 									print("POST FAILED.")
 									
 									// stop the spinner
 									SwiftSpinner.hide()
 									
-									self.displayAlert(title: "Party wurde nicht gepostet!", message: "Irgendetwas ist schiefgelaufen.", buttonTitle: "Okay")
+									self.displayAlert(title: "Party wurde nicht gepostet!", message: "Posten ist schiefgelaufen.", buttonTitle: "Okay")
 								}
 							}
 						} else {

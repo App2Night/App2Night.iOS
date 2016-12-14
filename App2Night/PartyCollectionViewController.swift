@@ -13,6 +13,7 @@ import RealmSwift
 protocol PartyCollectionViewControllerDelegate: class {
 	
 	func updateParties()
+	func reloadRealm()
 	
 }
 
@@ -20,6 +21,9 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 	
 	// get parties from realm
 	var parties = try! Realm().objects(Party.self)
+	
+	// cell lock based on refresh
+	var lock: Bool = false
 	
 	// location things
 	let locationManager = CLLocationManager()
@@ -32,6 +36,11 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 		rc.addTarget(self, action: #selector(PartyCollectionViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
 		return rc
 	}()
+	
+	func reloadRealm() {
+		self.parties = try! Realm().objects(Party.self)
+		self.collectionView?.reloadData()
+	}
 	
 	// handle the refresh
 	func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -96,7 +105,9 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 			let offset = self.collectionView?.contentOffset
 			self.refreshControl.endRefreshing()
 			self.refreshControl.beginRefreshing()
-			self.collectionView?.contentOffset = offset!
+			UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+				self.collectionView?.contentOffset = offset!
+			}, completion: nil)
 		}
 	}
 	
@@ -163,6 +174,15 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 			break
 		}
 		
+		if self.lock {
+			cell.isUserInteractionEnabled = false
+			// hacky way to call overlay
+			cell.isSelected = true
+		} else {
+			cell.isUserInteractionEnabled = true
+			cell.isSelected = false
+		}
+		
 		return cell
 	}
 	
@@ -212,12 +232,14 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 	}
 	
 	func lockUI() {
-		self.collectionView?.isUserInteractionEnabled = false
+		self.lock = true
+		self.collectionView?.reloadData()
 		self.tabBarController?.tabBar.items?[1].isEnabled = false
 	}
 	
 	func unlockUI() {
-		self.collectionView?.isUserInteractionEnabled = true
+		self.lock = false
+		self.collectionView?.reloadData()
 		self.tabBarController?.tabBar.items?[1].isEnabled = true
 	}
 	

@@ -171,10 +171,10 @@ extension PartyCollectionViewController {
 			//rating.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
 			
 			// labels
-			_ = name.anchor(nil, left: thumbnail.rightAnchor, bottom: nil, right: distance.leftAnchor, topConstant: 0, leftConstant: 13, bottomConstant: 0, rightConstant: 13, widthConstant: 0, heightConstant: 24)
+			_ = name.anchor(nil, left: thumbnail.rightAnchor, bottom: nil, right: distance.leftAnchor, topConstant: 0, leftConstant: 13, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: 24)
 			name.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -24).isActive = true
 			
-			_ = subtitle.anchor(name.bottomAnchor, left: thumbnail.rightAnchor, bottom: nil, right: distance.leftAnchor, topConstant: 0, leftConstant: 13, bottomConstant: 0, rightConstant: 13, widthConstant: 0, heightConstant: 24)
+			_ = subtitle.anchor(name.bottomAnchor, left: thumbnail.rightAnchor, bottom: nil, right: distance.leftAnchor, topConstant: 0, leftConstant: 13, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: 24)
 			
 			// seperator lines
 			_ = upperDivider.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: self.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0.5)
