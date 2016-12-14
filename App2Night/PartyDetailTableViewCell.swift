@@ -65,7 +65,7 @@ extension PartyDetailTableViewController {
 			_ = leftLabel.anchor(nil, left: self.leftAnchor, bottom: nil, right: segmentedControl.leftAnchor, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
 			leftLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
 			
-			_ = rightLabel.anchor(nil, left: nil, bottom: nil, right: segmentedControl.leftAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 16, widthConstant: 32, heightConstant: 0)
+			_ = rightLabel.anchor(nil, left: nil, bottom: nil, right: segmentedControl.leftAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 16, widthConstant: 80, heightConstant: 0)
 			rightLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
 			
 			_ = segmentedControl.anchor(nil, left: nil, bottom: nil, right: self.rightAnchor, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 160, heightConstant: 44)

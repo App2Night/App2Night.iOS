@@ -74,7 +74,7 @@ extension LoginViewController {
 			}
 			
 			SwiftSpinner.show("Login wird übertragen...")
-			SwaggerCommunication.shared.getToken(username: username, password: password) { success in
+			SwaggerCommunication.shared.getToken(username: username, password: password) { (success) in
 				if success {
 					SwiftSpinner.show("Profil wird geladen...")
 					SwaggerCommunication.shared.getUserInfo { (success) in
@@ -213,7 +213,7 @@ extension LoginViewController {
 			
 			SwiftSpinner.show("Registrierung wird übertragen...")
 			
-			SwaggerCommunication.shared.postUser(username: username, email: email, password: password) { success in
+			SwaggerCommunication.shared.postUser(username: username, email: email, password: password) { (success) in
 				if success {
 					print("REGISTER SUCCESS.")
 					SwiftSpinner.hide()

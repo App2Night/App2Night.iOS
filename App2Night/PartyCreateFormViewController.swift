@@ -163,15 +163,15 @@ class PartyCreateFormViewController: FormViewController {
 			SwaggerCommunication.shared.revokeToken { (success) in
 				if success {
 					SwiftSpinner.show("Der Standort wird gegoogelt...")
-					SwaggerCommunication.shared.validateLocation(with: assembledParty.toLocationRawData()) { success in
+					SwaggerCommunication.shared.validateLocation(with: assembledParty.toLocationRawData()) { (success) in
 						if success {
 							SwiftSpinner.show("Deine Party wird gepostet...")
-							SwaggerCommunication.shared.postParty(with: assembledParty.toPartyRawData()) { success in
+							SwaggerCommunication.shared.postParty(with: assembledParty.toPartyRawData()) { (success) in
 								if success {
 									print("POST OK.")
 									
 									// start updating parties after succesful post
-									self.delegate?.updateParties()
+									// self.delegate?.updateParties()
 									// stop the spinner
 									SwiftSpinner.hide()
 									// dismiss this view

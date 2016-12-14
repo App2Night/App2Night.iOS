@@ -9,10 +9,10 @@
 import UIKit
 
 class PartyNavigationController: UINavigationController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+	}
+	
 }
 

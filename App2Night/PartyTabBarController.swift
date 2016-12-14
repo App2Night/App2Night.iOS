@@ -9,14 +9,14 @@
 import UIKit
 
 class PartyTabBarController: UITabBarController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
 		if !isLoggedIn() {
 			perform(#selector(showLoginController), with: nil, afterDelay: 0.01)
 		}
-    }
+	}
 	
 	fileprivate func isLoggedIn() -> Bool {
 		return UserDefaults.standard.isLoggedIn()

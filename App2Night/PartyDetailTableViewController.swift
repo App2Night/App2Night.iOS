@@ -130,8 +130,10 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 			counter = counter+1
 		}
 		
+		let startDate = Calendar(identifier: .gregorian).startOfDay(for: selectedParty.date)
+		
 		if (selectedParty.userCommitmentState == 0) {
-			if ((Date() >= selectedParty.date) && (Date() <= selectedParty.date + 86400)) {
+			if ((Date() >= startDate) && (Date() <= startDate + 86400)) {
 				enableRating()
 			} else {
 				disableRating()
@@ -147,10 +149,10 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 		locationRatingCell.leftLabel.text = "Standort"
 		moodRatingCell.leftLabel.text = "Stimmung"
 		
-		generalRatingCell.rightLabel.text = String(describing: (selectedParty.generalUpVoting-selectedParty.generalUpVoting))
-		priceRatingCell.rightLabel.text = String(describing: (selectedParty.priceUpVoting-selectedParty.priceDownVoting))
-		locationRatingCell.rightLabel.text = String(describing: (selectedParty.locationUpVoting-selectedParty.locationDownVoting))
-		moodRatingCell.rightLabel.text = String(describing: (selectedParty.moodUpVoting-selectedParty.moodDownVoting))
+		generalRatingCell.rightLabel.text = getRatingCellText(up: selectedParty.generalUpVoting, down: selectedParty.generalDownVoting)
+		priceRatingCell.rightLabel.text = getRatingCellText(up: selectedParty.priceUpVoting, down: selectedParty.priceDownVoting)
+		locationRatingCell.rightLabel.text = getRatingCellText(up: selectedParty.locationUpVoting, down: selectedParty.locationDownVoting)
+		moodRatingCell.rightLabel.text = getRatingCellText(up: selectedParty.moodUpVoting, down: selectedParty.moodDownVoting)
 		
 		commitmentCell.delegate = self
 		
@@ -173,9 +175,8 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 	}
 	// init end
 	
-	func refresh() {
-		configureCells()
-		self.tableView.reloadData()
+	func getRatingCellText(up: Int, down: Int) ->String {
+		return "👍\(up)  👎\(down)"
 	}
 	
 	func handleRating() {
@@ -197,18 +198,31 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 				SwaggerCommunication.shared.putPartyRating(with: data, for: self.selectedParty.id) { (success) in
 					if success {
 						SwiftSpinner.hide()
-						self.enableRating()
-						self.refresh()
+						
+						SwiftSpinner.show("Deine Party wird aktualisiert...")
+						SwaggerCommunication.shared.getParty(for: self.selectedParty.id) { (success) in
+							if success {
+								// update previous view
+								self.reloadTable()
+								self.enableRating()
+								SwiftSpinner.hide()
+							} else {
+								self.enableRating()
+								SwiftSpinner.hide()
+								self.displayAlert(title: "Party wurde nicht aktualisiert!", message: "Update ist schiefgelaufen.", buttonTitle: "Okay")
+							}
+						}
 					} else {
+						self.enableRating()
 						SwiftSpinner.hide()
 						self.displayAlert(title: "Dein Rating konnte nicht übertragen werden.", message: "Irgendetwas ist schiefgelaufen.", buttonTitle: "Okay")
-						self.enableRating()
+						
 					}
 				}
 			} else {
+				self.enableRating()
 				SwiftSpinner.hide()
 				self.displayAlert(title: "Dein Rating konnte nicht übertragen werden.", message: "Irgendetwas ist schiefgelaufen.", buttonTitle: "Okay")
-				self.enableRating()
 			}
 			
 		}
@@ -312,7 +326,11 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(presentEditForm))
 		
 		if selectedParty.hostedByUser {
-			navigationItem.rightBarButtonItem?.isEnabled = true
+			if (Date() <= selectedParty.date) {
+				navigationItem.rightBarButtonItem?.isEnabled = true
+			} else {
+				navigationItem.rightBarButtonItem?.isEnabled = false
+			}
 		} else {
 			navigationItem.rightBarButtonItem?.isEnabled = false
 		}
@@ -446,13 +464,6 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 		// commitmentCell.segmentedControl.isUserInteractionEnabled = false
 		self.commitmentCell.segmentedControl.isEnabled = false
 		
-		// write new state to realm
-		try! RealmManager.currentRealm.write {
-			let state = commitmentCell.segmentedControl.selectedSegmentIndex
-			RealmManager.currentRealm.create(Party.self, value: ["id": selectedParty.id, "userCommitmentState": state], update: true)
-			// TODO: remove myself from list
-		}
-		
 		SwiftSpinner.show("Dein Token wird überprüft...")
 		SwaggerCommunication.shared.revokeToken { (success) in
 			if success {
@@ -461,13 +472,26 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 					if success {
 						SwiftSpinner.hide()
 						//self.commitmentCell.segmentedControl.isUserInteractionEnabled = true
-						self.commitmentCell.segmentedControl.isEnabled = true
-						self.refresh()
+						
+						SwiftSpinner.show("Deine Party wird aktualisiert...")
+						SwaggerCommunication.shared.getParty(for: self.selectedParty.id) { (success) in
+							if success {
+								// update previous view
+								self.reloadTable()
+								self.commitmentCell.segmentedControl.isEnabled = true
+								SwiftSpinner.hide()
+							} else {
+								self.commitmentCell.segmentedControl.isEnabled = true
+								SwiftSpinner.hide()
+								self.displayAlert(title: "Party wurde nicht aktualisiert!", message: "Update ist schiefgelaufen.", buttonTitle: "Okay")
+							}
+						}
+						
 					} else {
+						self.commitmentCell.segmentedControl.isEnabled = true
 						SwiftSpinner.hide()
 						self.displayAlert(title: "Deine Teilnahme konnte nicht übertragen werden.", message: "Irgendetwas ist schiefgelaufen.", buttonTitle: "Okay")
 						// self.commitmentCell.segmentedControl.isUserInteractionEnabled = true
-						self.commitmentCell.segmentedControl.isEnabled = true
 					}
 				}
 			} else {
@@ -476,7 +500,7 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 				// self.commitmentCell.segmentedControl.isUserInteractionEnabled = true
 				self.commitmentCell.segmentedControl.isEnabled = true
 			}
-
+			
 		}
 	}
 	

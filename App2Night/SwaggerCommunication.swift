@@ -37,18 +37,8 @@ class SwaggerCommunication {
 		let tokenType = (currentUser?.tokenType)!
 		let accessToken = (currentUser?.accessToken)!
 		
-		/*
-		let coordinates: Parameters = [
-		"lat": location.latitude,
-		"lon": location.longitude,
-		"radius": radiusValue
-		]
-		*/
-		
 		let requestUrl: URLRequest = {
 			var request = URLRequest(url: URL(string: "\(SwaggerCommunication.apiUrl)api/party?lat=\(location.latitude)&lon=\(location.longitude)&radius=\(radiusValue)")!)
-			//"\(SwaggerCommunication.apiUrl)api/party?lat=\(location.latitude)&lon=\(location.longitude)&radius=\(radiusValue)"
-			
 			request.httpMethod = "GET"
 			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 			request.setValue("\(tokenType) \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -64,11 +54,22 @@ class SwaggerCommunication {
 			switch response.result {
 			case .success:
 				DispatchQueue.main.async(execute: { () -> Void in
-					
-					// prepare comparision
+					// get current data
 					let responseValue = JSON(response.result.value!)
 					let currentParties = try! Realm().objects(Party.self)
 					let currentUsers = try! Realm().objects(User.self)
+					
+					/*
+					let oldIds = self.getOldPartyIds()
+					let newIds = self.getNewPartyIds(from: responseValue)
+					
+					// update these
+					let intersection = oldIds.intersection(newIds)
+					// create new ones
+					let new = newIds.subtracting(oldIds)
+					// delete these
+					let delete = oldIds.subtracting(newIds)
+					*/
 					
 					// currently: delete everything; fill again -> bad
 					try! RealmManager.currentRealm.write {
@@ -319,7 +320,7 @@ class SwaggerCommunication {
 		
 		// only do this when token is old
 		if expiresAt < now {
-		//if true {
+			//if true {
 			print("TOKEN IS OLD. REVOKING..")
 			let tokenType = (currentUser?.tokenType)!
 			let accessToken = (currentUser?.accessToken)!
@@ -429,7 +430,7 @@ class SwaggerCommunication {
 		let accessToken = (currentUser?.accessToken)!
 		
 		let requestUrl: URLRequest = {
-			var request = URLRequest(url: URL(string: SwaggerCommunication.apiUrl + "api/party" + "?id=" + id)!)
+			var request = URLRequest(url: URL(string: "\(SwaggerCommunication.apiUrl)api/party?id=\(id)")!)
 			request.httpMethod = "PUT"
 			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 			request.setValue("\(tokenType) \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -475,7 +476,7 @@ class SwaggerCommunication {
 			return request
 		}()
 		
-		Alamofire.request(requestUrl).validate().responseJSON { (response) in
+		Alamofire.request(requestUrl).validate().responseString { (response) in
 			print("REQUEST URL: \(response.request)")
 			print("HTTP URL RESPONSE: \(response.response)")
 			print("SERVER DATA: \(response.data)")
@@ -494,6 +495,78 @@ class SwaggerCommunication {
 			}
 			}.resume()
 	}
+	
+	func getParty(for id: String, completionHandler: @escaping (Bool) -> ()) {
+		// get user radius settings
+		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
+		let tokenType = (currentUser?.tokenType)!
+		let accessToken = (currentUser?.accessToken)!
+		
+		let requestUrl: URLRequest = {
+			var request = URLRequest(url: URL(string: "\(SwaggerCommunication.apiUrl)api/party//id=\(id)")!)
+			request.httpMethod = "GET"
+			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+			request.setValue("\(tokenType) \(accessToken)", forHTTPHeaderField: "Authorization")
+			return request
+		}()
+		
+		Alamofire.request(requestUrl).validate().responseJSON { (response) in
+			print("REQUEST URL: \(response.request)")
+			print("HTTP URL RESPONSE: \(response.response)")
+			print("SERVER DATA: \(response.data)")
+			print("RESULT OF SERIALIZATION: \(response.result)")
+			
+			switch response.result {
+			case .success:
+				DispatchQueue.main.async(execute: { () -> Void in
+					
+					let responseValue = JSON(response.result.value!)
+					
+					let party = Party(json: responseValue)
+					
+					try! RealmManager.currentRealm.write {
+						print("SINGLE PARTY UPDATED.")
+						RealmManager.currentRealm.add(party, update: true)
+					}
+					
+					RealmManager.printUrl()
+					
+					completionHandler(true)
+				})
+			case .failure(let e):
+				print(e)
+				
+				DispatchQueue.main.async(execute: { () -> Void in
+					completionHandler(false)
+				})
+			}
+			}.resume()
+	}
+	
+	/*
+	func getOldPartyIds() -> Set<String> {
+	let currentParties = try! Realm().objects(Party.self)
+	var ids: [String] = [String]()
+	
+	for party in currentParties {
+	ids.append(party.id)
+	}
+	
+	let set:Set<String> = Set(ids)
+	return set
+	}
+	
+	func getNewPartyIds(from json: JSON) -> Set<String> {
+	var ids: [String] = [String]()
+	
+	for (_, party) in json {
+	ids.append(party["PartyId"].stringValue)
+	}
+	
+	let set:Set<String> = Set(ids)
+	return set
+	}
+	*/
 	
 }
 

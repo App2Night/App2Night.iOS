@@ -35,24 +35,27 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 	
 	// handle the refresh
 	func handleRefresh(_ refreshControl: UIRefreshControl) {
-		// self.collectionView?.isUserInteractionEnabled = false
+		lockUI()
 		
 		SwaggerCommunication.shared.revokeToken { (success) in
 			if success {
-				SwaggerCommunication.shared.getParties(at: self.currentLocation) { success in
+				SwaggerCommunication.shared.getParties(at: self.currentLocation) { (success) in
 					if success {
 						// self.collectionView?.isUserInteractionEnabled = true
 						self.parties = try! Realm().objects(Party.self)
 						self.collectionView?.reloadData()
 						refreshControl.endRefreshing()
+						self.unlockUI()
 					} else {
 						// self.collectionView?.isUserInteractionEnabled = true
 						refreshControl.endRefreshing()
+						self.unlockUI()
 					}
 				}
 			} else {
 				// self.collectionView?.isUserInteractionEnabled = true
 				refreshControl.endRefreshing()
+				self.unlockUI()
 			}
 		}
 	}
@@ -89,7 +92,12 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 	
 	override func viewWillAppear(_ animated: Bool) {
 		self.collectionView?.reloadData()
-		refreshControl.endRefreshing()
+		if self.refreshControl.isRefreshing == true {
+			let offset = self.collectionView?.contentOffset
+			self.refreshControl.endRefreshing()
+			self.refreshControl.beginRefreshing()
+			self.collectionView?.contentOffset = offset!
+		}
 	}
 	
 	// create new party
@@ -188,7 +196,7 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 		
 		SwaggerCommunication.shared.revokeToken { (success) in
 			if success {
-				SwaggerCommunication.shared.getParties(at: self.currentLocation) { success in
+				SwaggerCommunication.shared.getParties(at: self.currentLocation) { (success) in
 					if success {
 						self.parties = try! Realm().objects(Party.self)
 						self.collectionView?.reloadData()
@@ -201,6 +209,16 @@ class PartyCollectionViewController: UICollectionViewController, UICollectionVie
 				self.refreshControl.endRefreshing()
 			}
 		}
+	}
+	
+	func lockUI() {
+		self.collectionView?.isUserInteractionEnabled = false
+		self.tabBarController?.tabBar.items?[1].isEnabled = false
+	}
+	
+	func unlockUI() {
+		self.collectionView?.isUserInteractionEnabled = true
+		self.tabBarController?.tabBar.items?[1].isEnabled = true
 	}
 	
 }

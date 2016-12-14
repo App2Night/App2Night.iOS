@@ -169,37 +169,25 @@ class PartyEditFormViewController: FormViewController {
 			SwaggerCommunication.shared.revokeToken { (success) in
 				if success {
 					SwiftSpinner.show("Der Standort wird gegoogelt...")
-					SwaggerCommunication.shared.validateLocation(with: assembledParty.toLocationRawData()) { success in
+					SwaggerCommunication.shared.validateLocation(with: assembledParty.toLocationRawData()) { (success) in
 						if success {
 							SwiftSpinner.show("Deine Party wird editiert...")
-							SwaggerCommunication.shared.putParty(with: assembledParty.toPartyRawData(), for: (self.party?.id)!) { success in
+							SwaggerCommunication.shared.putParty(with: assembledParty.toPartyRawData(), for: (self.party?.id)!) { (success) in
 								if success {
 									print("POST OK.")
-									
-									// stop the spinner
-									SwiftSpinner.hide()
-									
-									// update realm with this party.. copy pasta deluxe
-									let values = self.form.values()
-									
-									try! RealmManager.currentRealm.write {
-										let editedParty = try! Realm().object(ofType: Party.self, forPrimaryKey: (self.party?.id)!)!
-										editedParty.name = values["name"] as! String
-										editedParty.date = (values["date"] as! Date).floorSeconds()
-										editedParty.musicGenre = (MusicGenre(rawValue: values["musicGenre"] as! String)?.hashValue)!
-										editedParty.countryName = values["countryName"] as! String
-										editedParty.cityName = values["cityName"] as! String
-										editedParty.streetName = values["streetName"] as! String
-										editedParty.houseNumber = values["houseNumber"] as! String
-										editedParty.zipcode = values["zipcode"] as! String
-										editedParty.type = (PartyType(rawValue: values["type"] as! String)?.hashValue)!
-										editedParty.text = values["text"] as! String
-										editedParty.price = values["price"] as! Int
-										RealmManager.currentRealm.add(editedParty, update: true)
+									SwiftSpinner.show("Deine Party wird aktualisiert...")
+									SwaggerCommunication.shared.getParty(for: (self.party?.id)!) { (success) in
+										if success {
+											// update previous view
+											self.delegate?.reloadTable()
+											SwiftSpinner.hide()
+											// pop view
+											_ = self.navigationController?.popViewController(animated: true)
+										} else {
+											SwiftSpinner.hide()
+											self.displayAlert(title: "Party wurde nicht aktualisiert!", message: "Update ist schiefgelaufen.", buttonTitle: "Okay")
+										}
 									}
-									
-									// update previous view
-									self.delegate?.reloadTable()
 									
 								} else {
 									print("POST FAILED.")

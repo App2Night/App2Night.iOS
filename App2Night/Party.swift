@@ -78,9 +78,9 @@ class Party: Object {
 		let myId = currentUser?.userId
 		
 		if self.host?.id == myId {
-			self.hostedByUser = true
+		self.hostedByUser = true
 		} else {
-			self.hostedByUser = false
+		self.hostedByUser = false
 		}
 		*/
 		
@@ -136,8 +136,8 @@ class Party: Object {
 			"houseNumber": self.houseNumber,
 			"zipcode": self.zipcode,
 			"latitude": 0.0,
-			"longitude": 0.0,
-			]
+			"longitude": 0.0
+		]
 		
 		return try! json.rawData()
 	}
