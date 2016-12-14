@@ -8,6 +8,7 @@
 
 import UIKit
 
+// root navigation controller constructed for all of the views, could be used to define global designs etc.
 class PartyNavigationController: UINavigationController {
 	
 	override func viewDidLoad() {

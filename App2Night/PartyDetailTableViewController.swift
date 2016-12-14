@@ -18,6 +18,7 @@ protocol PartyDetailTableViewControllerDelegate: class {
 	
 }
 
+// detail 'popover' view for parties (for collectionView and mapView)
 class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, PartyDetailTableViewControllerDelegate {
 	
 	var selectedParty: Party = Party()

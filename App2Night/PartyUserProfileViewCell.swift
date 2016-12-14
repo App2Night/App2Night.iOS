@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+// cells for the settings view
 extension PartyUserProfileViewController {
 	
 	class ProfileCell: BaseCell {

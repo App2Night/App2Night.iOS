@@ -9,8 +9,10 @@
 import UIKit
 import MapKit
 
+// defines the fancy party cells
 extension PartyCollectionViewController {
 	
+	// fancy cell
 	class PartyCell: BaseCell {
 		
 		var isMine: Bool = false
@@ -18,7 +20,7 @@ extension PartyCollectionViewController {
 		let overlay: UIView = {
 			let view = UIView()
 			view.backgroundColor = .black
-			view.alpha = 0.1
+			view.alpha = 0.05
 			return view
 		}()
 		
@@ -185,6 +187,7 @@ extension PartyCollectionViewController {
 		
 	}
 	
+	// base cell to derive from
 	class BaseCell: UICollectionViewCell {
 		
 		override init(frame: CGRect) {

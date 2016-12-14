@@ -17,6 +17,7 @@ protocol PartyCollectionViewControllerDelegate: class {
 	
 }
 
+// home view of the tab bar controller, shows parties in a list (collection)
 class PartyCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, CLLocationManagerDelegate, PartyCollectionViewControllerDelegate {
 	
 	// get parties from realm

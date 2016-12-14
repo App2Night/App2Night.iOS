@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import SwiftyJSON
 
+// 'singleton' for common realm functions/information
 class RealmManager {
 	
 	// shared instance

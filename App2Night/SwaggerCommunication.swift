@@ -12,6 +12,7 @@ import Alamofire
 import SwiftyJSON
 import RealmSwift
 
+// 'singleton' for all communication functions (get, post, put, ...)
 class SwaggerCommunication {
 	
 	// shared instance
@@ -99,7 +100,7 @@ class SwaggerCommunication {
 			}.resume()
 	}
 	
-	// posts a party with authorization
+	// posts a party with authorization and returns the id
 	func postParty(with party: Data, completionHandler: @escaping (Bool, String?) -> ()) {
 		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
 		
@@ -137,7 +138,7 @@ class SwaggerCommunication {
 			}.resume()
 	}
 	
-	// basically the login
+	// basically the login; saves the token information/username/password
 	func getToken(username: String, password: String, completionHandler: @escaping (Bool) -> ()) {
 		let requestUrl: URLRequest = {
 			var request = URLRequest(url: URL(string: SwaggerCommunication.userUrl + "connect/token")!)
@@ -194,7 +195,7 @@ class SwaggerCommunication {
 			}.resume()
 	}
 	
-	// fetches additional user info
+	// fetches additional user info (id, e-mail)
 	func getUserInfo(completionHandler: @escaping (Bool) -> ()) {
 		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
 		
@@ -312,7 +313,7 @@ class SwaggerCommunication {
 			}.resume()
 	}
 	
-	// revokes a token
+	// revokes a token based on saved expire date
 	func revokeToken(completionHandler: @escaping (Bool) -> ()) {
 		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
 		
@@ -423,7 +424,7 @@ class SwaggerCommunication {
 			}.resume()
 	}
 	
-	// posts a party with authorization
+	// put for edit function
 	func putParty(with party: Data, for id: String, completionHandler: @escaping (Bool) -> ()) {
 		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
 		
@@ -543,31 +544,6 @@ class SwaggerCommunication {
 			}
 			}.resume()
 	}
-	
-	/*
-	func getOldPartyIds() -> Set<String> {
-	let currentParties = try! Realm().objects(Party.self)
-	var ids: [String] = [String]()
-	
-	for party in currentParties {
-	ids.append(party.id)
-	}
-	
-	let set:Set<String> = Set(ids)
-	return set
-	}
-	
-	func getNewPartyIds(from json: JSON) -> Set<String> {
-	var ids: [String] = [String]()
-	
-	for (_, party) in json {
-	ids.append(party["PartyId"].stringValue)
-	}
-	
-	let set:Set<String> = Set(ids)
-	return set
-	}
-	*/
 	
 }
 

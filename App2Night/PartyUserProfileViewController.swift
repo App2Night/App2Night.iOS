@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+// settings page
 class PartyUserProfileViewController: UITableViewController {
 	
 	let profileCell = ProfileCell()

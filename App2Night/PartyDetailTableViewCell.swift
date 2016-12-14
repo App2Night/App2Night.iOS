@@ -8,6 +8,7 @@
 
 import UIKit
 
+// all detail cells, rating, etc..
 extension PartyDetailTableViewController {
 	
 	class RatingButtonCell: BaseCell {

@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import SwiftyJSON
 
-// MARK: Party entity
+// MARK: party entity based on swagger api
 class Party: Object {
 	
 	dynamic var id: String = ""
@@ -70,19 +70,7 @@ class Party: Object {
 		
 		self.host = User(json: json["Host"])
 		
-		// ist immer false da get keine userinfo mitschickt?
 		self.hostedByUser = json["HostedByUser"].boolValue
-		
-		/*
-		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
-		let myId = currentUser?.userId
-		
-		if self.host?.id == myId {
-		self.hostedByUser = true
-		} else {
-		self.hostedByUser = false
-		}
-		*/
 		
 		self.generalUpVoting = json["GeneralUpVoting"].intValue
 		self.generalDownVoting = json["GeneralDownVoting"].intValue
@@ -110,6 +98,7 @@ class Party: Object {
 		return dateFormatter.date(from: string)!
 	}
 	
+	// function to get json data for post
 	func toPartyRawData() -> Data {
 		let json: JSON = [
 			"partyName": self.name,
@@ -128,6 +117,7 @@ class Party: Object {
 		return try! json.rawData()
 	}
 	
+	// function to validate location data
 	func toLocationRawData() -> Data {
 		let json: JSON = [
 			"countryName": self.countryName,
@@ -144,7 +134,7 @@ class Party: Object {
 	
 }
 
-// MARK: - User entity
+// MARK: - user entity
 class User: Object {
 	
 	dynamic var id: String = ""
@@ -157,6 +147,7 @@ class User: Object {
 	convenience required init(json: JSON) {
 		self.init()
 		
+		// user = hosts -> complete user table
 		if (json["HostId"].exists()) {
 			self.id = json["HostId"].stringValue
 		} else {
@@ -168,7 +159,7 @@ class User: Object {
 	
 }
 
-// MARK: - Date formatter helper
+// MARK: - date formatter helper
 class DateHelper {
 	
 	// shared instance

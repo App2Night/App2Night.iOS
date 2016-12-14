@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+// custom pin with saved party id
 extension PartyMapViewController {
 	
 	class PartyMapViewPin: NSObject, MKAnnotation {

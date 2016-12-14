@@ -10,9 +10,7 @@ import UIKit
 import Eureka
 import RealmSwift
 
-// this is just a straight copy of PartyCreateFormViewController with replaced post functions.. could be solved by just inheriting the other controller..
-// last minute implementation probably buggy
-
+// this is just a straight copy of PartyCreateFormViewController with a few modified functions; could be solved by just inheriting the other controller.
 class PartyEditFormViewController: FormViewController {
 	
 	var party: Party?
@@ -152,7 +150,13 @@ class PartyEditFormViewController: FormViewController {
 					if !row.isValid {
 						cell.titleLabel?.textColor = .red
 					}
-		}
+			}
+			/*
+			+++ Section("")
+			<<< ButtonRow() { row in
+				row.title = "Party löschen"
+			}
+			*/
 	}
 	
 	// post party

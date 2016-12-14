@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import RealmSwift
 
+// view with a map view to display parties on a map with pins and calloutAccessory
 class PartyMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 	
 	// get parties from realm

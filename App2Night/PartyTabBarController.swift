@@ -8,11 +8,13 @@
 
 import UIKit
 
+// root tab bar controller of the app
 class PartyTabBarController: UITabBarController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		// check login status
 		if !isLoggedIn() {
 			perform(#selector(showLoginController), with: nil, afterDelay: 0.01)
 		}

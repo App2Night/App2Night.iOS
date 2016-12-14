@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	func setupViews() {
+		// init the main window and instance all necessary views
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
 		

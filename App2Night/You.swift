@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import SwiftyJSON
 
+// this realm object is instanced once for the user to save all sensitive data in plain text -> all of this should be in keychain!
 class You: Object {
 	
 	dynamic var id: String = "0"

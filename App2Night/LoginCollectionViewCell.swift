@@ -8,6 +8,7 @@
 
 import UIKit
 
+// defines the login and register cell (page)
 extension LoginViewController {
 	
 	class LoginCollectionViewCell: UICollectionViewCell {

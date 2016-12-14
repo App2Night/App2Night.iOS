@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 
+// form controller based on Eureka framework; create a party
 class PartyCreateFormViewController: FormViewController {
 	
 	var delegate: PartyCollectionViewController?

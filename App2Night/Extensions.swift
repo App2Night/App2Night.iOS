@@ -8,7 +8,9 @@
 
 import UIKit
 
-// written by Brian Voong
+// all extensions used in the project copied from various different sources (stackoverflow, stackoverflow, ..) and our own pieces of code
+
+// easier anchoring - written by Brian Voong
 extension UIView {
 	
 	func anchorToTop(_ top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil) {
@@ -57,6 +59,7 @@ extension UIView {
 	
 }
 
+// hide keyboard from user when he taps around the view
 extension UIViewController {
 	
 	func hideKeyboardWhenTappedAround() {
@@ -70,6 +73,7 @@ extension UIViewController {
 	
 }
 
+// cut seconds from date
 extension Date {
 	
 	func floorSeconds() -> Date {
@@ -77,16 +81,4 @@ extension Date {
 		return Date(timeIntervalSinceReferenceDate: timeInterval)
 	}
 	
-}
-
-extension Array where Element : Equatable {
-	var unique: [Element] {
-		var uniqueValues: [Element] = []
-		forEach { item in
-			if !uniqueValues.contains(item) {
-				uniqueValues += [item]
-			}
-		}
-		return uniqueValues
-	}
 }

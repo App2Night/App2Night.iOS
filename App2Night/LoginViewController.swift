@@ -17,6 +17,7 @@ protocol LoginViewControllerDelegate: class {
 	
 }
 
+// main view for the login
 class LoginViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, LoginViewControllerDelegate {
 	
 	// fancy pages

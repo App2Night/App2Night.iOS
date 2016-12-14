@@ -8,7 +8,7 @@
 
 import UIKit
 
-// extend UIColor class with App2Night colors
+// extend UIColor class with static App2Night colors
 extension UIColor {
 	
 	// logo colors

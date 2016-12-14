@@ -8,6 +8,7 @@
 
 import Foundation
 
+// extension for UserDefaults to easily fetch/set login status
 extension UserDefaults {
 	
 	enum UserDefaultsKeys: String {
