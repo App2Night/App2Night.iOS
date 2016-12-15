@@ -507,7 +507,7 @@ class SwaggerCommunication {
 		let accessToken = (currentUser?.accessToken)!
 		
 		let requestUrl: URLRequest = {
-			var request = URLRequest(url: URL(string: "\(SwaggerCommunication.apiUrl)api/party//id=\(id)")!)
+			var request = URLRequest(url: URL(string: "\(SwaggerCommunication.apiUrl)api/party/id=\(id)")!)
 			request.httpMethod = "GET"
 			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 			request.setValue("\(tokenType) \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -535,6 +535,44 @@ class SwaggerCommunication {
 					
 					RealmManager.printUrl()
 					
+					completionHandler(true)
+				})
+			case .failure(let e):
+				print(e)
+				
+				DispatchQueue.main.async(execute: { () -> Void in
+					completionHandler(false)
+				})
+			}
+			}.resume()
+	}
+	
+	// delets a party
+	func deleteParty(with id: String, completionHandler: @escaping (Bool) -> ()) {
+		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
+		
+		let tokenType = (currentUser?.tokenType)!
+		let accessToken = (currentUser?.accessToken)!
+		
+		let requestUrl: URLRequest = {
+			var request = URLRequest(url: URL(string: "\(SwaggerCommunication.apiUrl)api/party?id=\(id)")!)
+			request.httpMethod = "DELETE"
+			// request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+			// request.setValue("application/json", forHTTPHeaderField: "Accept")
+			request.setValue("\(tokenType) \(accessToken)", forHTTPHeaderField: "Authorization")
+			
+			return request
+		}()
+		
+		Alamofire.request(requestUrl).validate().responseString { (response) in
+			print("REQUEST URL: \(response.request)")
+			print("HTTP URL RESPONSE: \(response.response)")
+			print("SERVER DATA: \(response.data)")
+			print("RESULT OF SERIALIZATION: \(response.result)")
+			
+			switch response.result {
+			case .success:
+				DispatchQueue.main.async(execute: { () -> Void in
 					completionHandler(true)
 				})
 			case .failure(let e):

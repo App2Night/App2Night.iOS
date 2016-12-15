@@ -151,12 +151,46 @@ class PartyEditFormViewController: FormViewController {
 						cell.titleLabel?.textColor = .red
 					}
 			}
-			/*
 			+++ Section("")
 			<<< ButtonRow() { row in
 				row.title = "Party löschen"
+				}
+				.onCellSelection { cell, row in
+					self.deleteParty()
+		}
+	}
+	
+	// delete party
+	func deleteParty() {
+		
+		if ((party?.date)! > Date()) {
+			SwiftSpinner.show("Dein Token wird geprüft...")
+			SwaggerCommunication.shared.revokeToken { (success) in
+				if success {
+					SwiftSpinner.show("Party wird gelöscht...")
+					SwaggerCommunication.shared.deleteParty(with: (self.party?.id)!) { (success) in
+						if success {
+							SwiftSpinner.hide()
+							self.dismiss(animated: true, completion: nil)
+							print("DELETED PARTY LOCALLY.")
+							try! RealmManager.currentRealm.write {
+								let party = RealmManager.currentRealm.object(ofType: Party.self, forPrimaryKey: (self.party?.id)!)
+								RealmManager.currentRealm.delete(party!)
+							}
+						} else {
+							SwiftSpinner.hide()
+							self.displayAlert(title: "Party wurde nicht gelöscht!", message: "Löschen ist schiefgelaufen.", buttonTitle: "Okay")
+						}
+					}
+				} else {
+					SwiftSpinner.hide()
+					self.displayAlert(title: "Token konnte nicht widerrufen werden!", message: "Oops.", buttonTitle: "Okay")
+				}
 			}
-			*/
+		} else {
+			self.displayAlert(title: "Parties die bereits passiert sind können nicht gelöscht werden!", message: "Diese Party kann nicht gelöscht werden.", buttonTitle: "Okay")
+		}
+		
 	}
 	
 	// post party

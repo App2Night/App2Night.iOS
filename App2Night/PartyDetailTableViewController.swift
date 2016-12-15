@@ -327,7 +327,7 @@ class PartyDetailTableViewController: UITableViewController, MKMapViewDelegate, 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(presentEditForm))
 		
 		if selectedParty.hostedByUser {
-			if (Date() <= selectedParty.date) {
+			if (Date() <= Calendar(identifier: .gregorian).startOfDay(for: selectedParty.date)+86400) {
 				navigationItem.rightBarButtonItem?.isEnabled = true
 			} else {
 				navigationItem.rightBarButtonItem?.isEnabled = false
