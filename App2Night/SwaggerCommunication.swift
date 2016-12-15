@@ -276,7 +276,7 @@ class SwaggerCommunication {
 	}
 	
 	// validates the location
-	func validateLocation(with locationData: Data, completionHandler: @escaping (Bool) -> ()) {
+	func validateLocation(with locationData: Data, completionHandler: @escaping (Bool, JSON) -> ()) {
 		let currentUser = try! Realm().object(ofType: You.self, forPrimaryKey: "0")
 		
 		let tokenType = (currentUser?.tokenType)!
@@ -286,13 +286,14 @@ class SwaggerCommunication {
 			var request = URLRequest(url: URL(string: SwaggerCommunication.apiUrl + "api/party/validate")!)
 			request.httpMethod = "POST"
 			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+			// request.setValue("application/json", forHTTPHeaderField: "Accept")
 			request.setValue("\(tokenType) \(accessToken)", forHTTPHeaderField: "Authorization")
 			request.httpBody = locationData
 			
 			return request
 		}()
 		
-		Alamofire.request(requestUrl).validate().responseData { (response) in
+		Alamofire.request(requestUrl).validate().responseJSON { (response) in
 			print("REQUEST URL: \(response.request)")
 			print("HTTP URL RESPONSE: \(response.response)")
 			print("SERVER DATA: \(response.data)")
@@ -301,13 +302,14 @@ class SwaggerCommunication {
 			switch response.result {
 			case .success:
 				DispatchQueue.main.async(execute: { () -> Void in
-					completionHandler(true)
+					let location = JSON(response.result.value!)
+					completionHandler(true, location)
 				})
 			case .failure(let e):
 				print(e)
 				
 				DispatchQueue.main.async(execute: { () -> Void in
-					completionHandler(false)
+					completionHandler(false, JSON.null)
 				})
 			}
 			}.resume()

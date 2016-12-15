@@ -164,10 +164,18 @@ class PartyCreateFormViewController: FormViewController {
 			SwaggerCommunication.shared.revokeToken { (success) in
 				if success {
 					SwiftSpinner.show("Der Standort wird gegoogelt...")
-					SwaggerCommunication.shared.validateLocation(with: assembledParty.toLocationRawData()) { (success) in
+					SwaggerCommunication.shared.validateLocation(with: assembledParty.toLocationRawData()) { (success, location) in
 						if success {
+							// get new validated location values
+							let party = self.assembleParty()
+							party.countryName = location["CountryName"].stringValue
+							party.cityName = location["CityName"].stringValue
+							party.streetName = location["StreetName"].stringValue
+							party.houseNumber = location["HouseNumber"].stringValue
+							party.zipcode = location["Zipcode"].stringValue
+							
 							SwiftSpinner.show("Deine Party wird gepostet...")
-							SwaggerCommunication.shared.postParty(with: assembledParty.toPartyRawData()) { (success, id) in
+							SwaggerCommunication.shared.postParty(with: party.toPartyRawData()) { (success, id) in
 								if success {
 									print("POST OK.")
 									SwiftSpinner.show("Deine Party wird geladen...")
@@ -215,14 +223,14 @@ class PartyCreateFormViewController: FormViewController {
 		let party = Party()
 		let values = form.values()
 		
-		party.name = values["name"] as! String
+		party.name = (values["name"] as! String).trimmingCharacters(in: .whitespacesAndNewlines)
 		party.date = (values["date"] as! Date).floorSeconds()
 		party.musicGenre = (MusicGenre(rawValue: values["musicGenre"] as! String)?.hashValue)!
-		party.countryName = values["countryName"] as! String
-		party.cityName = values["cityName"] as! String
-		party.streetName = values["streetName"] as! String
-		party.houseNumber = values["houseNumber"] as! String
-		party.zipcode = values["zipcode"] as! String
+		party.countryName = (values["countryName"] as! String).trimmingCharacters(in: .whitespacesAndNewlines)
+		party.cityName = (values["cityName"] as! String).trimmingCharacters(in: .whitespacesAndNewlines)
+		party.streetName = (values["streetName"] as! String).trimmingCharacters(in: .whitespacesAndNewlines)
+		party.houseNumber = (values["houseNumber"] as! String).trimmingCharacters(in: .whitespacesAndNewlines)
+		party.zipcode = (values["zipcode"] as! String).trimmingCharacters(in: .whitespacesAndNewlines)
 		party.type = (PartyType(rawValue: values["type"] as! String)?.hashValue)!
 		party.text = values["text"] as! String
 		party.price = values["price"] as! Int

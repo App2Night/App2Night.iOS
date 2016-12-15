@@ -125,8 +125,8 @@ class Party: Object {
 			"streetName": self.streetName,
 			"houseNumber": self.houseNumber,
 			"zipcode": self.zipcode,
-			"latitude": 0.0,
-			"longitude": 0.0
+			"latitude": 0,
+			"longitude": 0
 		]
 		
 		return try! json.rawData()
